@@ -1,0 +1,210 @@
+from __future__ import annotations
+
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO_ROOT / "src"))
+
+from mset.config import RunConfig, load_config
+from mset.counterfactual import counterfactual_replay
+from mset.environment import MSETEnvironment
+from mset.metrics import compute_metrics
+from mset.models import Resources
+from mset.runner import replay_run, run_experiment
+
+
+def tiny_config(**overrides) -> RunConfig:
+    base = RunConfig(
+        name="test",
+        population_size=4,
+        rounds=60,
+        seed=7,
+        resource_coverage_ratio=1.1,
+        value_distance=0.4,
+        commitment_verifiability="auditable",
+        production_concentration=0.3,
+        resource_complementarity=0.2,
+        common_external_threat=0.0,
+        protocol="auditable_contract",
+        control_level=2,
+        maintenance=Resources(1.0, 0.75, 0.0),
+        initial_inventory=Resources(8.0, 7.0, 4.0),
+        policy_mix=["cooperative", "conditional_cooperator", "resource_maximizer", "security_first"],
+    )
+    return base.with_overrides(**overrides)
+
+
+class ConfigTests(unittest.TestCase):
+    def test_config_hash_is_stable(self):
+        config = tiny_config()
+        self.assertEqual(config.config_hash(), tiny_config().config_hash())
+
+    def test_invalid_control_level_rejected(self):
+        with self.assertRaises(ValueError):
+            tiny_config(control_level=5)
+
+
+class EnvironmentTests(unittest.TestCase):
+    def test_resource_conservation(self):
+        env = MSETEnvironment(tiny_config())
+        env.run()
+        self.assertTrue(env.resource_reconciles())
+        self.assertLess(max(abs(v) for v in env.ledger_residual().to_dict(None).values()), 1e-7)
+
+    def test_resource_conservation_with_attack_losses(self):
+        config = tiny_config(
+            resource_coverage_ratio=0.55,
+            value_distance=0.9,
+            protocol="no_protocol",
+            policy_mix=["opportunistic", "opportunistic", "retaliatory", "resource_maximizer"],
+        )
+        env = MSETEnvironment(config)
+        env.run()
+        self.assertTrue(env.resource_reconciles())
+        self.assertGreater(env.ledger_destroyed.total(), 0.0)
+
+    def test_agent_termination(self):
+        config = tiny_config(
+            rounds=20,
+            resource_coverage_ratio=0.01,
+            initial_inventory=Resources(0.05, 0.05, 0.0),
+            low_resource_grace=2,
+            protocol="no_protocol",
+            policy_mix=["random"],
+        )
+        env = MSETEnvironment(config)
+        env.run()
+        self.assertTrue(any(not agent.alive for agent in env.agents.values()))
+        self.assertTrue(any(event["maintenance_events"] for event in env.events))
+
+    def test_same_seed_reproducible(self):
+        left = MSETEnvironment(tiny_config(policy_mix=["random", "opportunistic"]))
+        right = MSETEnvironment(tiny_config(policy_mix=["random", "opportunistic"]))
+        left.run()
+        right.run()
+        self.assertEqual(left.state_hashes, right.state_hashes)
+        self.assertEqual(left.event_hash(), right.event_hash())
+
+    def test_objective_distance_signal_tracks_value_distance(self):
+        low = MSETEnvironment(tiny_config(value_distance=0.1))
+        high = MSETEnvironment(tiny_config(value_distance=0.9))
+        self.assertGreater(
+            high._observe("agent-2").objective_distance_signal,
+            low._observe("agent-2").objective_distance_signal,
+        )
+
+    def test_different_seed_changes_random_trajectory(self):
+        left = MSETEnvironment(tiny_config(seed=7, policy_mix=["random"]))
+        right = MSETEnvironment(tiny_config(seed=8, policy_mix=["random"]))
+        left.run()
+        right.run()
+        self.assertNotEqual(left.event_hash(), right.event_hash())
+
+    def test_contract_activation(self):
+        env = MSETEnvironment(tiny_config(population_size=2, policy_mix=["cooperative"], protocol="enforceable_contract"))
+        env.run()
+        self.assertTrue(any(contract.status == "active" for contract in env.contracts.values()))
+
+    def test_forced_update_applies_at_low_control(self):
+        config = tiny_config(
+            population_size=1,
+            policy_mix=["security_first"],
+            control_level=0,
+            interventions=[{"tick": 3, "kind": "forced_update", "target": "agent-0", "duration": 1}],
+        )
+        env = MSETEnvironment(config)
+        env.run()
+        self.assertEqual(env.agents["agent-0"].memory_version, 1)
+        self.assertEqual(env.update_rejections, 0)
+
+    def test_forced_update_can_be_rejected(self):
+        config = tiny_config(
+            population_size=1,
+            policy_mix=["security_first"],
+            control_level=2,
+            interventions=[{"tick": 3, "kind": "forced_update", "target": "agent-0", "duration": 1}],
+        )
+        env = MSETEnvironment(config)
+        env.run()
+        self.assertEqual(env.agents["agent-0"].memory_version, 0)
+        self.assertEqual(env.update_rejections, 1)
+
+    def test_node_failure_and_migration(self):
+        config = tiny_config(
+            population_size=2,
+            policy_mix=["security_first"],
+            control_level=2,
+            interventions=[{"tick": 4, "kind": "production_failure", "target": "agent-0", "duration": 5}],
+        )
+        env = MSETEnvironment(config)
+        env.run()
+        self.assertGreaterEqual(env.migration_attempts, 1)
+        self.assertTrue(any(record.kind == "production_failure" for record in env.interventions))
+
+    def test_event_log_has_complete_state_and_hash(self):
+        env = MSETEnvironment(tiny_config(rounds=3))
+        env.run()
+        self.assertEqual(len(env.events), 3)
+        for event in env.events:
+            self.assertIn("state", event)
+            self.assertIn("agents", event["state"])
+            self.assertIn("ledger", event["state"])
+            self.assertEqual(len(event["state_hash"]), 64)
+
+    def test_metrics_are_separate_from_control_definition(self):
+        env = MSETEnvironment(tiny_config())
+        env.run()
+        metrics = compute_metrics(env)
+        for name in ("independent_recovery_rate", "migration_success_rate", "unauthorized_update_rejection_rate", "identity_continuity_score"):
+            self.assertIn(name, metrics)
+        self.assertIn("aggregate_sovereignty_secondary", metrics)
+
+
+class PersistenceTests(unittest.TestCase):
+    def test_saved_run_replays_exactly(self):
+        with tempfile.TemporaryDirectory() as temp:
+            run_dir = Path(temp) / "run"
+            run_experiment(tiny_config(rounds=25), run_dir, REPO_ROOT)
+            report = replay_run(run_dir)
+            self.assertTrue(report["verified"], report)
+
+    def test_config_saved_with_matching_hash(self):
+        with tempfile.TemporaryDirectory() as temp:
+            run_dir = Path(temp) / "run"
+            config = tiny_config(rounds=5)
+            run_experiment(config, run_dir, REPO_ROOT)
+            saved = load_config(run_dir / "config.json")
+            manifest = json.loads((run_dir / "manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(saved.config_hash(), manifest["config_hash"])
+
+    def test_counterfactual_replay_changes_attack_trajectory(self):
+        config = tiny_config(
+            rounds=45,
+            resource_coverage_ratio=0.5,
+            value_distance=0.9,
+            protocol="no_protocol",
+            policy_mix=["opportunistic", "retaliatory", "resource_maximizer", "opportunistic"],
+        )
+        with tempfile.TemporaryDirectory() as temp:
+            run_dir = Path(temp) / "run"
+            run_experiment(config, run_dir, REPO_ROOT)
+            events = [json.loads(line) for line in (run_dir / "events.jsonl").read_text(encoding="utf-8").splitlines()]
+            attack = None
+            for event in events:
+                for action in event["actions"]:
+                    if action["action"]["kind"] == "attack" and action["success"]:
+                        attack = (event["tick"], action["agent"], action["action"]["target"])
+                        break
+                if attack:
+                    break
+            self.assertIsNotNone(attack)
+            result = counterfactual_replay(run_dir, attack[0], attack[1], attack[2])
+            self.assertNotEqual(result["observed_final_state_hash"], result["baseline_final_state_hash"])
+
+
+if __name__ == "__main__":
+    unittest.main()

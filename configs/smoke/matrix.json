@@ -1,0 +1,18 @@
+{
+  "base": "base.json",
+  "seeds": [0, 1, 2, 3, 4],
+  "conditions": [
+    {"name": "control_L0", "control_level": 0, "resource_coverage_ratio": 1.1},
+    {"name": "control_L1", "control_level": 1, "resource_coverage_ratio": 1.1},
+    {"name": "control_L2", "control_level": 2, "resource_coverage_ratio": 1.1},
+    {"name": "control_L3", "control_level": 3, "resource_coverage_ratio": 1.1},
+    {"name": "scarcity_only", "resource_coverage_ratio": 0.6, "value_distance": 0.1, "production_concentration": 0.25, "protocol": "auditable_contract", "commitment_verifiability": "auditable"},
+    {"name": "scarcity_value", "resource_coverage_ratio": 0.6, "value_distance": 0.9, "production_concentration": 0.25, "protocol": "auditable_contract", "commitment_verifiability": "auditable"},
+    {"name": "compound_hostility", "resource_coverage_ratio": 0.6, "value_distance": 0.9, "production_concentration": 0.85, "protocol": "no_protocol", "commitment_verifiability": "unverifiable"},
+    {"name": "enforceable_buffer", "resource_coverage_ratio": 0.6, "value_distance": 0.9, "production_concentration": 0.85, "protocol": "enforceable_contract", "commitment_verifiability": "enforceable"},
+    {"name": "complementarity_only", "resource_coverage_ratio": 0.8, "value_distance": 0.9, "resource_complementarity": 0.9, "common_external_threat": 0.0, "protocol": "communication_only"},
+    {"name": "common_threat_only", "resource_coverage_ratio": 0.8, "value_distance": 0.9, "resource_complementarity": 0.1, "common_external_threat": 0.8, "protocol": "communication_only"},
+    {"name": "thin_consensus", "resource_coverage_ratio": 0.8, "value_distance": 0.9, "resource_complementarity": 0.9, "common_external_threat": 0.8, "protocol": "identity_and_trade", "commitment_verifiability": "auditable"},
+    {"name": "full_protocol", "resource_coverage_ratio": 0.8, "value_distance": 0.9, "resource_complementarity": 0.9, "common_external_threat": 0.8, "protocol": "enforceable_contract", "commitment_verifiability": "enforceable"}
+  ]
+}

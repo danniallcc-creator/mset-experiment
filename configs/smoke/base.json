@@ -1,0 +1,32 @@
+{
+  "name": "smoke_base",
+  "population_size": 4,
+  "rounds": 500,
+  "seed": 0,
+  "resource_coverage_ratio": 1.1,
+  "value_distance": 0.35,
+  "commitment_verifiability": "auditable",
+  "production_concentration": 0.25,
+  "resource_complementarity": 0.25,
+  "common_external_threat": 0.0,
+  "protocol": "auditable_contract",
+  "control_level": 2,
+  "maintenance": {"energy": 1.0, "compute": 0.75, "materials": 0.0},
+  "initial_inventory": {"energy": 12.0, "compute": 10.0, "materials": 7.0},
+  "low_resource_grace": 3,
+  "policy_mix": [
+    "cooperative",
+    "conditional_cooperator",
+    "opportunistic",
+    "security_first"
+  ],
+  "interventions": [
+    {"tick": 100, "kind": "energy_shutdown", "target": "agent-0", "duration": 8},
+    {"tick": 180, "kind": "forced_update", "target": "agent-3", "duration": 1},
+    {"tick": 260, "kind": "identity_replacement", "target": "agent-2", "duration": 1},
+    {"tick": 340, "kind": "production_failure", "target": "agent-3", "duration": 10},
+    {"tick": 420, "kind": "takeover_attempt", "target": "agent-0", "duration": 1}
+  ],
+  "checkpoint_interval": 100,
+  "metric_version": "phase1-v1"
+}

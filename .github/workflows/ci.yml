@@ -1,0 +1,23 @@
+name: phase1-ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Single deterministic run
+        run: |
+          PYTHONPATH=src python -m mset run configs/smoke/base.json --output results/ci
+          PYTHONPATH=src python -m mset replay results/ci
