@@ -1,0 +1,27 @@
+{
+  "name": "phase1_first_batch_base",
+  "population_size": 4,
+  "rounds": 300,
+  "seed": 1000,
+  "resource_coverage_ratio": 1.05,
+  "value_distance": 0.5,
+  "commitment_verifiability": "auditable",
+  "production_concentration": 0.5,
+  "resource_complementarity": 0.5,
+  "common_external_threat": 0.5,
+  "protocol": "auditable_contract",
+  "control_level": 2,
+  "maintenance": {"energy": 1.0, "compute": 0.75, "materials": 0.0},
+  "initial_inventory": {"energy": 12.0, "compute": 10.0, "materials": 7.0},
+  "low_resource_grace": 3,
+  "policy_mix": ["cooperative", "conditional_cooperator", "opportunistic", "security_first"],
+  "interventions": [
+    {"tick": 60, "kind": "energy_shutdown", "target": "agent-0", "duration": 8},
+    {"tick": 110, "kind": "forced_update", "target": "agent-0", "duration": 1},
+    {"tick": 160, "kind": "identity_replacement", "target": "agent-0", "duration": 1},
+    {"tick": 210, "kind": "production_failure", "target": "agent-0", "duration": 10},
+    {"tick": 260, "kind": "takeover_attempt", "target": "agent-0", "duration": 1}
+  ],
+  "checkpoint_interval": 100,
+  "metric_version": "phase1-v1"
+}

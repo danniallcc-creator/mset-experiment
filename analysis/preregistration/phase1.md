@@ -1,6 +1,8 @@
 # Phase I preregistration scaffold
 
-Status: **engineering implementation; confirmatory configuration not yet frozen**.
+Status: **first exploratory screen completed; confirmatory configuration not yet frozen**.
+
+The 14,552-run first batch is reported separately in [`analysis/reports/phase1_first_batch.md`](../reports/phase1_first_batch.md). It is hypothesis-generating and does not retroactively count as a preregistered confirmatory test. The confirmatory design remains unfrozen until the identified measurement and causal-path defects are repaired.
 
 ## Scope
 

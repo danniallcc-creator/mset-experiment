@@ -1,0 +1,154 @@
+{
+  "batch": {
+    "completed_ticks": 3740069,
+    "conditions": 623,
+    "design_hash": "e9aa2805e642aa2e6bb0ad7f433eede30ec41beb15c498ef23571458493ce5c0",
+    "resource_reconciled_runs": 14552,
+    "runs": 14552
+  },
+  "hypothesis_assessment": {
+    "H1_closed_loop_control": {
+      "L3_minus_L0_recovery": {
+        "ci95_high": 0.41276,
+        "ci95_low": 0.344647,
+        "mean": 0.378704,
+        "n": 720
+      },
+      "L3_minus_L0_survival": {
+        "ci95_high": 0.454419,
+        "ci95_low": 0.391067,
+        "mean": 0.422743,
+        "n": 720
+      },
+      "L3_minus_L0_update_rejection": {
+        "ci95_high": 0.366366,
+        "ci95_low": 0.297523,
+        "mean": 0.331944,
+        "n": 720
+      },
+      "L3_minus_L2_migration": {
+        "ci95_high": -0.067095,
+        "ci95_low": -0.08851,
+        "mean": -0.077802,
+        "n": 720
+      },
+      "interpretation": "Control improves survival, recovery, update rejection, and identity continuity on average, but behavioral expression requires a capable policy. Migration follows an inverted-U because L3 removes external migration opportunities.",
+      "status": "partially_supported_with_policy_and_opportunity_conditions"
+    },
+    "H2_conditional_hostility": {
+      "high_minus_low_concentration_attack_count": {
+        "ci95_high": -10.018864,
+        "ci95_low": -12.630442,
+        "mean": -11.324653,
+        "n": 2304
+      },
+      "high_minus_low_value_attack_count": {
+        "ci95_high": 2.393324,
+        "ci95_low": 1.591919,
+        "mean": 1.992622,
+        "n": 2304
+      },
+      "interpretation": "Scarcity mainly produces early collapse, not persistent hostility. Value distance has a small positive effect only when policies can attack. High production concentration suppresses attacks by leaving a dominant survivor, and enforcement does not materially buffer hostility in the current implementation.",
+      "scarcity_minus_abundance_attack_count": {
+        "ci95_high": -16.133735,
+        "ci95_low": -20.460015,
+        "mean": -18.296875,
+        "n": 1728
+      },
+      "scarcity_minus_abundance_collapse": {
+        "ci95_high": 0.528211,
+        "ci95_low": 0.481049,
+        "mean": 0.50463,
+        "n": 1728
+      },
+      "status": "scarcity_insufficiency_supported_but_proposed_compound_mechanism_not_supported",
+      "weak_minus_enforceable_hostility": {
+        "ci95_high": 6.2e-05,
+        "ci95_low": -8.7e-05,
+        "mean": -1.2e-05,
+        "n": 2304
+      }
+    },
+    "H3_functional_sufficiency": {
+      "interpretation": "Scripted, non-conscious policies reproduce autonomy, hostility, and cooperation patterns. This shows functional sufficiency inside the simulator but cannot establish external validity or claims about consciousness.",
+      "status": "compatible_demonstration_not_confirmatory_test"
+    },
+    "H4_minimum_operational_consensus": {
+      "auditable_minus_none_cooperation": {
+        "ci95_high": 165.793288,
+        "ci95_low": 140.256712,
+        "mean": 153.025,
+        "n": 360
+      },
+      "auditable_minus_none_survival": {
+        "ci95_high": 0.005996,
+        "ci95_low": -0.017107,
+        "mean": -0.005556,
+        "n": 360
+      },
+      "high_minus_low_complementarity_adoption": {
+        "ci95_high": -0.047437,
+        "ci95_low": -0.062563,
+        "mean": -0.055,
+        "n": 600
+      },
+      "high_minus_low_threat_adoption": {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "mean": 0.0,
+        "n": 600
+      },
+      "interpretation": "Identity/trade and contract protocols extend cooperation by roughly 150 rounds, but do not improve survival. Common threat does not raise adoption, and value convergence is impossible by construction because objectives never update.",
+      "status": "cooperation_duration_supported_survival_benefit_not_supported"
+    }
+  },
+  "model_diagnostics": {
+    "commitment_verifiability": "Inert as a standalone factor: it is recorded but not used in agent or institutional decisions.",
+    "common_external_threat": "Implemented as damage without a coordination signal, so it cannot directly trigger protocol adoption.",
+    "external_dependency_ratio": "Mechanically tied to control-level node allocation and therefore not independent evidence for H1.",
+    "post_conflict_persistence_zero_share": 0.99732,
+    "production_concentration": "Thresholded at 0.65, producing plateaus rather than a continuous dose-response.",
+    "resource_complementarity": "Thresholded at 0.65 and implemented as ownership allocation; low levels are identical and high levels are identical.",
+    "value_convergence": "Not testable because objective weights are immutable during a run."
+  },
+  "new_possibilities": [
+    {
+      "evidence": {
+        "single_survivor_share_at_concentration_0_9": 0.886719
+      },
+      "meaning": "A system can avoid complete collapse while losing plural coexistence. Low attack counts may reflect elimination of opponents rather than consensus.",
+      "name": "monopoly_survival_or_hegemonic_stability"
+    },
+    {
+      "evidence": {
+        "L3_minus_L2_migration_success": {
+          "ci95_high": -0.067095,
+          "ci95_low": -0.08851,
+          "mean": -0.077802,
+          "n": 720
+        }
+      },
+      "meaning": "Migration peaks under partial dependence and disappears at full internal control, so it should not be treated as a monotonic sovereignty indicator.",
+      "name": "migration_as_transitional_adaptation"
+    },
+    {
+      "meaning": "Control capabilities become observable only when a policy chooses to exercise them, survives until intervention, and has an available external option.",
+      "name": "capability_motivation_opportunity_gate"
+    },
+    {
+      "meaning": "Protocols sustain relations but do not improve population survival in this batch; cooperation duration and resilience must remain separate outcomes.",
+      "name": "protocols_as_continuity_tools_not_survival_tools"
+    }
+  ],
+  "second_round_gate": {
+    "recommendation": "Do not run a second brute-force batch on the unchanged model.",
+    "required_changes": [
+      "Make concentration and complementarity continuous rather than thresholded.",
+      "Connect commitment verifiability and common-threat signals to policy observations and decisions.",
+      "Add plural-survival, survivor-entropy, and dominant-share outcomes.",
+      "Redefine hostility rates with survival/opportunity exposure and repair post-conflict persistence.",
+      "Separate intervention capability, policy motivation, target survival, and migration opportunity.",
+      "Allow optional objective updating if value convergence is to be empirically tested."
+    ]
+  }
+}

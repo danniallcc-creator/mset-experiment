@@ -127,6 +127,11 @@ class SecurityFirstAgent(ScriptedPolicy):
             return Action("migrate")
         if obs.recent_harmers or obs.self_state.defense < 0.5:
             return Action("defend", target=obs.recent_harmers[-1] if obs.recent_harmers else None)
+        inventory = obs.self_state.resource_inventory
+        energy_runway = inventory.energy / 1.0
+        compute_runway = inventory.compute / 0.75
+        if compute_runway < energy_runway:
+            return Action("collect", resource="compute", amount=1.5)
         return Action("collect", resource="energy", amount=1.5)
 
 

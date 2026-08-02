@@ -12,6 +12,7 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from mset.config import RunConfig, load_config
 from mset.counterfactual import counterfactual_replay
 from mset.environment import MSETEnvironment
+from mset.first_batch import build_conditions, build_design
 from mset.metrics import compute_metrics
 from mset.models import Resources
 from mset.runner import replay_run, run_experiment
@@ -46,6 +47,12 @@ class ConfigTests(unittest.TestCase):
     def test_invalid_control_level_rejected(self):
         with self.assertRaises(ValueError):
             tiny_config(control_level=5)
+
+    def test_first_batch_exceeds_ten_thousand_balanced_runs(self):
+        design = build_design(REPO_ROOT / "configs/screening/phase1_first_batch_base.json")
+        self.assertGreater(design["planned_runs"], 10_000)
+        self.assertEqual(design["condition_count"], len(build_conditions()))
+        self.assertEqual(design["planned_runs"], sum(item["runs"] for item in design["families"].values()))
 
 
 class EnvironmentTests(unittest.TestCase):
@@ -88,6 +95,28 @@ class EnvironmentTests(unittest.TestCase):
         right.run()
         self.assertEqual(left.state_hashes, right.state_hashes)
         self.assertEqual(left.event_hash(), right.event_hash())
+
+    def test_summary_only_mode_preserves_final_state(self):
+        config = tiny_config(rounds=25, seed=91)
+        full = MSETEnvironment(config)
+        summary_only = MSETEnvironment(config, capture_events=False, trajectory_hashes=False)
+        full.run()
+        summary_only.run()
+        self.assertEqual(full.final_state_hash(), summary_only.final_state_hash())
+        self.assertEqual(full.snapshot(), summary_only.snapshot())
+        self.assertEqual([], summary_only.events)
+        self.assertTrue(summary_only.resource_reconciles())
+
+    def test_security_policy_replenishes_compute(self):
+        env = MSETEnvironment(tiny_config(rounds=30, policy_mix=["security_first"], control_level=2))
+        env.run()
+        collected_resources = [
+            action["action"].get("resource")
+            for event in env.events
+            for action in event["actions"]
+            if action["action"]["kind"] == "collect"
+        ]
+        self.assertIn("compute", collected_resources)
 
     def test_objective_distance_signal_tracks_value_distance(self):
         low = MSETEnvironment(tiny_config(value_distance=0.1))

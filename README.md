@@ -10,14 +10,17 @@ This repository is a falsifiable, deterministic first-stage experiment for Machi
 
 The current release implements the mechanism-identification layer with scripted agents. Reinforcement learning and language-model agents are deliberately out of scope until the accounting, determinism, replay, and metric-freezing gates pass.
 
-[Open the research dashboard](https://danniallcc-creator.github.io/mset-experiment/) · [Read the preregistration](analysis/preregistration/phase1.md)
+[Open the 14,552-run readout](https://danniallcc-creator.github.io/mset-experiment/) · [Read the first-batch analysis](analysis/reports/phase1_first_batch.md) · [Read the preregistration scaffold](analysis/preregistration/phase1.md)
 
-## Current engineering status
+## Current Phase I status
 
-- 17 unit tests pass.
-- 12 smoke conditions × 5 deterministic seeds × 500 rounds completed.
-- All 60 runs passed configuration-hash, exact-replay, and resource-reconciliation checks.
-- Smoke values are software diagnostics only, not confirmatory evidence.
+- 20 unit tests pass.
+- 623 exploratory conditions and 14,552 independent runs completed.
+- All 14,552 runs reconcile their resource ledgers; no run failed.
+- A 128-run determinism audit reproduced every sampled tick hash and final state.
+- The first-batch readout is **exploratory screening**, not confirmatory evidence.
+
+The main result is narrower than the original theory: scarcity is insufficient for persistent hostility in this implementation, but the specified compound mechanism is not supported. Scarcity chiefly causes early collapse; high production concentration often leaves a single survivor; protocol packages extend cooperation without improving survival. Round 2 is on hold until the model-validity issues in the [analysis note](analysis/reports/phase1_first_batch.md) are repaired.
 
 ## Reproducibility gates
 
@@ -46,6 +49,15 @@ Convenience wrapper:
 ./scripts/run_smoke.sh
 ```
 
+First-batch exploratory screen:
+
+```bash
+PYTHONPATH=src python scripts/run_first_batch.py --workers 8
+python analysis/first_batch/analyze.py \
+  --input results/phase1_first_batch/runs.csv.gz \
+  --output analysis/outputs/phase1_first_batch
+```
+
 ## Commands
 
 | Command | Purpose |
@@ -66,13 +78,16 @@ Convenience wrapper:
 - `src/mset/metrics.py`: frozen run-level outcome definitions.
 - `src/mset/counterfactual.py`: action-neutralization replay.
 - `src/mset/runner.py`: single-run, batch, replay, aggregation, and verification orchestration.
+- `src/mset/first_batch.py`: balanced 623-condition exploratory design totaling 14,552 runs.
 - `tests/`: accounting, termination, contracts, determinism, replay, interventions, node failure, and counterfactual tests.
 - `analysis/preregistration/phase1.md`: hypotheses, outcomes, exclusions, and falsification rules.
+- `analysis/reports/phase1_first_batch.md`: conclusion assessment, new possibilities, diagnostics, and the Round 2 gate.
+- `analysis/outputs/phase1_first_batch/`: compressed run data, paired effects, summary JSON, and figures.
 - `docs/`: GitHub Pages dashboard and methodological notes.
 
 ## Scientific status
 
-The included smoke run is an **engineering validation**, not evidence for or against MSET. It exists to verify conservation, reproducibility, replay, intervention handling, and data completeness. Exploratory and confirmatory results must remain in separate directories.
+The smoke run remains an engineering validation. The 14,552-run first batch is a separate **exploratory** screen used to discover dose responses, interactions, measurement failures, and competing explanations. Neither is a frozen confirmatory test. Exploratory and confirmatory results remain in separate directories and use different seed ranges.
 
 ## Safety boundary
 

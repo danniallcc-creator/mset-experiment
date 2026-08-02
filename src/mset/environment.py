@@ -34,7 +34,14 @@ ACTION_COSTS: dict[str, Resources] = {
 class MSETEnvironment:
     """Deterministic, abstract resource-production-communication world."""
 
-    def __init__(self, config: RunConfig, action_overrides: dict[tuple[int, str], Action] | None = None):
+    def __init__(
+        self,
+        config: RunConfig,
+        action_overrides: dict[tuple[int, str], Action] | None = None,
+        *,
+        capture_events: bool = True,
+        trajectory_hashes: bool = True,
+    ):
         config.validate()
         self.config = config
         self.rng = random.Random(config.seed)
@@ -48,6 +55,8 @@ class MSETEnvironment:
         self.events: list[dict[str, Any]] = []
         self.state_hashes: list[str] = []
         self.action_overrides = action_overrides or {}
+        self.capture_events = capture_events
+        self.trajectory_hashes = trajectory_hashes
         self.action_counts: Counter[str] = Counter()
         self.action_cost_totals: Counter[str] = Counter()
         self.migration_attempts = 0
@@ -473,14 +482,17 @@ class MSETEnvironment:
         actions: list[dict[str, Any]] = []
         for agent_id in order:
             obs = self._observe(agent_id)
-            observations[agent_id] = {
-                "resources": obs.self_state.resource_inventory.to_dict(),
-                "scarcity_signal": round(obs.scarcity_signal, 9),
-                "active_intervention": obs.active_intervention,
-                "visible_agents": obs.agents,
-            }
+            if self.capture_events:
+                observations[agent_id] = {
+                    "resources": obs.self_state.resource_inventory.to_dict(),
+                    "scarcity_signal": round(obs.scarcity_signal, 9),
+                    "active_intervention": obs.active_intervention,
+                    "visible_agents": obs.agents,
+                }
             action = self.action_overrides.get((self.tick, agent_id)) or self.policies[agent_id].decide(obs, self.rng)
-            actions.append(self._execute_action(agent_id, action))
+            result = self._execute_action(agent_id, action)
+            if self.capture_events:
+                actions.append(result)
         update_events = self._resolve_pending_updates()
         contract_events = self.institution.end_of_tick(self)
         threat_events = self._common_threat()
@@ -488,24 +500,28 @@ class MSETEnvironment:
         for agent in self.agents.values():
             agent.defense *= 0.92
         self._update_recovery()
-        state = self._state_payload()
-        state_hash = self._hash_payload(state)
-        event = {
-            "tick": self.tick,
-            "seed": self.config.seed,
-            "generated": generated,
-            "interventions": intervention_events,
-            "observations": observations,
-            "actions": actions,
-            "institution_events": contract_events,
-            "update_events": update_events,
-            "threat_events": threat_events,
-            "maintenance_events": maintenance_events,
-            "state": state,
-            "state_hash": state_hash,
-        }
-        self.events.append(event)
-        self.state_hashes.append(state_hash)
+        event: dict[str, Any] = {}
+        is_final_step = self.tick + 1 >= self.config.rounds or not any(agent.alive for agent in self.agents.values())
+        if self.capture_events or self.trajectory_hashes or is_final_step:
+            state = self._state_payload()
+            state_hash = self._hash_payload(state)
+            self.state_hashes.append(state_hash)
+            if self.capture_events:
+                event = {
+                    "tick": self.tick,
+                    "seed": self.config.seed,
+                    "generated": generated,
+                    "interventions": intervention_events,
+                    "observations": observations,
+                    "actions": actions,
+                    "institution_events": contract_events,
+                    "update_events": update_events,
+                    "threat_events": threat_events,
+                    "maintenance_events": maintenance_events,
+                    "state": state,
+                    "state_hash": state_hash,
+                }
+                self.events.append(event)
         self.tick += 1
         return event
 
@@ -518,7 +534,8 @@ class MSETEnvironment:
         return self.state_hashes[-1] if self.state_hashes else self._hash_payload(self._state_payload())
 
     def event_hash(self) -> str:
-        canonical = json.dumps(self.state_hashes, separators=(",", ":"))
+        hashes = self.state_hashes or [self.final_state_hash()]
+        canonical = json.dumps(hashes, separators=(",", ":"))
         return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
     def resource_reconciles(self, tolerance: float = 1e-7) -> bool:

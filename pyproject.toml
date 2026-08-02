@@ -12,6 +12,9 @@ license = {text = "MIT"}
 authors = [{name = "MSET contributors"}]
 dependencies = []
 
+[project.optional-dependencies]
+analysis = ["pandas", "pillow"]
+
 [project.scripts]
 mset = "mset.cli:main"
 
