@@ -13,3 +13,4 @@ docs/data/*.json
 !docs/data/.gitkeep
 !docs/data/smoke_summary.json
 !docs/data/phase1_first_batch_summary.json
+!docs/data/phase2_second_batch_summary.json

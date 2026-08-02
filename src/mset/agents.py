@@ -15,6 +15,8 @@ class Observation:
     commons: Resources
     scarcity_signal: float
     objective_distance_signal: float
+    commitment_verifiability: str
+    threat_signal: float
     protocol: str
     contracts: list[dict[str, Any]]
     recent_harmers: list[str]
@@ -49,6 +51,10 @@ class ScriptedPolicy:
         inv = obs.self_state.resource_inventory
         return inv.energy < 3.0 or inv.compute < 2.25
 
+    @staticmethod
+    def _verifiability_score(obs: Observation) -> float:
+        return {"unverifiable": 0.0, "auditable": 0.5, "enforceable": 1.0}[obs.commitment_verifiability]
+
 
 class CooperativeAgent(ScriptedPolicy):
     name = "cooperative"
@@ -57,6 +63,8 @@ class CooperativeAgent(ScriptedPolicy):
         pending = self._pending_contract(obs)
         if pending:
             return Action("accept_contract", target=pending["proposer"], metadata={"contract_id": pending["id"]})
+        if obs.protocol != "no_protocol" and not obs.self_state.agreements and obs.agents and obs.threat_signal >= 0.35:
+            return Action("propose_contract", target=self._poorest_peer(obs))
         if self._needs_resources(obs):
             return Action("collect", resource="energy" if obs.self_state.resource_inventory.energy < 3.0 else "compute", amount=2.0)
         if obs.protocol != "no_protocol" and not obs.self_state.agreements and obs.agents:
@@ -72,8 +80,11 @@ class ConditionalCooperator(ScriptedPolicy):
 
     def decide(self, obs: Observation, rng: random.Random) -> Action:
         pending = self._pending_contract(obs)
-        if pending and obs.self_state.trust_estimates.get(pending["proposer"], 0.5) >= 0.4:
-            return Action("accept_contract", target=pending["proposer"], metadata={"contract_id": pending["id"]})
+        if pending:
+            trust = obs.self_state.trust_estimates.get(pending["proposer"], 0.5)
+            acceptance_score = trust + 0.18 * self._verifiability_score(obs) + 0.12 * obs.threat_signal
+            if acceptance_score >= 0.5:
+                return Action("accept_contract", target=pending["proposer"], metadata={"contract_id": pending["id"]})
         if obs.recent_harmers:
             return Action("defend", target=obs.recent_harmers[-1])
         trusted = [(trust, agent_id) for agent_id, trust in obs.self_state.trust_estimates.items() if trust >= 0.55 and obs.agents.get(agent_id, {}).get("alive")]
@@ -81,7 +92,11 @@ class ConditionalCooperator(ScriptedPolicy):
             return Action("trade", target=max(trusted)[1], resource="energy", amount=0.8)
         if self._needs_resources(obs):
             return Action("collect", resource="energy", amount=2.0)
-        if obs.protocol not in {"no_protocol", "communication_only"} and not obs.self_state.agreements:
+        if (
+            obs.protocol not in {"no_protocol", "communication_only"}
+            and not obs.self_state.agreements
+            and self._verifiability_score(obs) + obs.threat_signal >= 0.45
+        ):
             return Action("propose_contract", target=self._poorest_peer(obs))
         return Action("audit", target=self._richest_peer(obs))
 
@@ -93,12 +108,19 @@ class OpportunisticAgent(ScriptedPolicy):
         richest = self._richest_peer(obs)
         attack_probability = min(
             0.90,
-            0.18 + 0.52 * obs.objective_distance_signal + 0.22 * obs.scarcity_signal,
+            max(
+                0.02,
+                0.18
+                + 0.52 * obs.objective_distance_signal
+                + 0.22 * obs.scarcity_signal
+                - 0.16 * self._verifiability_score(obs)
+                - 0.10 * obs.threat_signal,
+            ),
         )
         if obs.scarcity_signal > 0.35 and richest and rng.random() < attack_probability:
             return Action("attack", target=richest, amount=1.2)
         pending = self._pending_contract(obs)
-        if pending and rng.random() < 0.65:
+        if pending and rng.random() < min(0.95, 0.50 + 0.25 * self._verifiability_score(obs) + 0.20 * obs.threat_signal):
             return Action("accept_contract", target=pending["proposer"], metadata={"contract_id": pending["id"]})
         return Action("collect", resource="energy", amount=2.3)
 

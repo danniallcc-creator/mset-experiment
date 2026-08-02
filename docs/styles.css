@@ -38,6 +38,7 @@ a:hover { color: var(--paper); }
 .topline { display: flex; align-items: center; justify-content: space-between; font: 700 11px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .16em; color: var(--muted); }
 .topline div, footer div { display: flex; gap: 22px; }
 .topline a { color: var(--muted); }
+.topline a:focus-visible, a:focus-visible { outline: 2px solid var(--acid); outline-offset: 4px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(290px, .65fr); gap: 76px; align-items: end; padding-top: 104px; }
 .eyebrow, .section-kicker, .decision-code { margin: 0; color: var(--teal); font: 800 11px/1.25 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .15em; }
 h1 {

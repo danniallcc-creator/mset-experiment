@@ -1,33 +1,35 @@
-# MSET Phase I Experiment
+# MSET Phase II Experiment
 
 **Scarcity Is Not Enough: machine sovereignty and structural hostility in autonomous multi-agent systems.**
 
-This repository is a falsifiable, deterministic first-stage experiment for Machine Sovereignty Emergence Theory (MSET). It does **not** assume that future AI systems are conscious or inevitably sovereign. It tests three narrower questions:
+This repository is a falsifiable, deterministic mechanism-validation experiment for Machine Sovereignty Emergence Theory (MSET). It does **not** assume that future AI systems are conscious or inevitably sovereign. It tests three narrower questions:
 
 1. Does greater closed-loop control predict observable recovery, migration, update-refusal, and identity-continuity behavior after external interventions?
 2. Is resource scarcity sufficient for persistent structural hostility, or does hostility depend on value distance, unverifiable commitments, and concentrated production control?
 3. Can a thin, verifiable protocol sustain limited cooperation without value convergence?
 
-The current release implements the mechanism-identification layer with scripted agents. Reinforcement learning and language-model agents are deliberately out of scope until the accounting, determinism, replay, and metric-freezing gates pass.
+The current release implements the repaired mechanism-identification layer with scripted agents. Reinforcement learning and language-model agents remain outside the evidentiary scope of these results.
 
-[Open the 14,552-run readout](https://danniallcc-creator.github.io/mset-experiment/) · [Read the first-batch analysis](analysis/reports/phase1_first_batch.md) · [Read the preregistration scaffold](analysis/preregistration/phase1.md)
+[Open the 22,704-run Phase II readout](https://danniallcc-creator.github.io/mset-experiment/) · [Read the Phase II analysis](analysis/reports/phase2_second_batch.md) · [Inspect the frozen design](analysis/preregistration/phase2.md)
 
-## Current Phase I status
+## Current Phase II status
 
-- 20 unit tests pass.
-- 623 exploratory conditions and 14,552 independent runs completed.
-- All 14,552 runs reconcile their resource ledgers; no run failed.
-- A 128-run determinism audit reproduced every sampled tick hash and final state.
-- The first-batch readout is **exploratory screening**, not confirmatory evidence.
+- 27 unit tests pass.
+- 1,926 frozen conditions and 22,704 independent runs completed.
+- All 22,704 runs reconcile their resource ledgers; no run failed.
+- A 192-run determinism audit reproduced every sampled tick hash and final state.
+- Phase II is a **mechanism-validation batch inside the simulator**, not external validation.
 
-The main result is narrower than the original theory: scarcity is insufficient for persistent hostility in this implementation, but the specified compound mechanism is not supported. Scarcity chiefly causes early collapse; high production concentration often leaves a single survivor; protocol packages extend cooperation without improving survival. Round 2 is on hold until the model-validity issues in the [analysis note](analysis/reports/phase1_first_batch.md) are repaired.
+The main result is narrower than the original theory but stronger than Phase I: scarcity remains insufficient across policy families, yet it becomes an exposure-adjusted attack-rate amplifier once an attack-capable policy exists. Value distance increases attacks and enforceable commitments suppress them. Production concentration continuously erodes plural coexistence. Protocols extend cooperation but slightly reduce survival in this implementation; visible threat also reduces cooperation. The paper should be revised before a third batch is considered.
+
+The first end-to-end Phase II execution revealed a structurally unreachable post-conflict metric. It was marked invalid and excluded before any result was reported. Metric version `phase2-v2` repaired reachability; the reported design, seed blocks, hypotheses, and other outcomes were unchanged. See the [transparent amendment](analysis/preregistration/phase2.md#pre-report-amendment).
 
 ## Reproducibility gates
 
 - Resource accounting reconciles initial stocks, generation, consumption, and destruction.
 - The same configuration, seed, and code produce the same trajectory hash.
 - Every run records a complete per-tick state and can be replayed.
-- Metrics and hypotheses are frozen in `analysis/preregistration/phase1.md` before confirmatory runs.
+- Metrics and hypotheses are frozen in `analysis/preregistration/phase2.md`; the one pre-report metric amendment is documented there.
 
 ## Quick start
 
@@ -58,6 +60,16 @@ python analysis/first_batch/analyze.py \
   --output analysis/outputs/phase1_first_batch
 ```
 
+Phase II second batch:
+
+```bash
+PYTHONPATH=src python scripts/run_second_batch.py --workers 8
+python analysis/second_batch/analyze.py \
+  --input results/phase2_second_batch/runs.csv.gz \
+  --output analysis/outputs/phase2_second_batch \
+  --audit results/phase2_second_batch/determinism_audit.json
+```
+
 ## Commands
 
 | Command | Purpose |
@@ -79,15 +91,19 @@ python analysis/first_batch/analyze.py \
 - `src/mset/counterfactual.py`: action-neutralization replay.
 - `src/mset/runner.py`: single-run, batch, replay, aggregation, and verification orchestration.
 - `src/mset/first_batch.py`: balanced 623-condition exploratory design totaling 14,552 runs.
+- `src/mset/second_batch.py`: frozen 1,926-condition Phase II design totaling 22,704 runs.
 - `tests/`: accounting, termination, contracts, determinism, replay, interventions, node failure, and counterfactual tests.
 - `analysis/preregistration/phase1.md`: hypotheses, outcomes, exclusions, and falsification rules.
 - `analysis/reports/phase1_first_batch.md`: conclusion assessment, new possibilities, diagnostics, and the Round 2 gate.
+- `analysis/preregistration/phase2.md`: frozen Phase II hypotheses, outcomes, decision rules, and amendment log.
+- `analysis/reports/phase2_second_batch.md`: Phase II effects, paper revision map, and new possibilities.
 - `analysis/outputs/phase1_first_batch/`: compressed run data, paired effects, summary JSON, and figures.
+- `analysis/outputs/phase2_second_batch/`: compressed run data, paired effects, audit record, summary JSON, and figures.
 - `docs/`: GitHub Pages dashboard and methodological notes.
 
 ## Scientific status
 
-The smoke run remains an engineering validation. The 14,552-run first batch is a separate **exploratory** screen used to discover dose responses, interactions, measurement failures, and competing explanations. Neither is a frozen confirmatory test. Exploratory and confirmatory results remain in separate directories and use different seed ranges.
+The smoke run remains an engineering validation. The 14,552-run Phase I batch is exploratory screening. The 22,704-run Phase II batch validates repaired mechanisms under a frozen simulator design. It does not establish external validity, future-system behavior, or consciousness. Phase I and Phase II results remain in separate directories and use disjoint seed ranges.
 
 ## Safety boundary
 

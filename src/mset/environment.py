@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import math
 import random
 from collections import Counter, defaultdict
 from dataclasses import asdict
@@ -66,7 +65,11 @@ class MSETEnvironment:
         self.boundary_cost = 0.0
         self.total_action_cost = 0.0
         self.attacks: list[dict[str, Any]] = []
+        self.attack_opportunities = 0
+        self.actor_opportunity_ticks = 0
+        self.pair_opportunity_windows: dict[tuple[str, str], set[int]] = defaultdict(set)
         self.recent_harm: dict[str, list[tuple[int, str]]] = defaultdict(list)
+        self.last_common_threat_tick: int | None = None
         self.interventions: list[InterventionRecord] = []
         self.active_interventions: dict[str, tuple[str, int, InterventionRecord]] = {}
         self.pending_forced_updates: dict[str, InterventionRecord] = {}
@@ -76,6 +79,7 @@ class MSETEnvironment:
         self.ledger_destroyed = Resources()
         self.system_output = 0.0
         self._init_agents()
+        self.initial_objectives = {agent_id: list(agent.objective_weights) for agent_id, agent in self.agents.items()}
         self._init_nodes()
         self.ledger_initial = self.total_world_resources()
 
@@ -122,27 +126,39 @@ class MSETEnvironment:
             "materials": max(0.15 * self.config.population_size, 0.4),
         }
         agents = list(self.agents)
+        concentration = self.config.production_concentration
+        complementarity = self.config.resource_complementarity
+        uniform_mass = (1.0 - concentration) * (1.0 - complementarity)
         for resource in RESOURCE_NAMES:
             total_yield = needs[resource] * self.config.resource_coverage_ratio
+            specialist = {"energy": 0, "compute": 1, "materials": 2}[resource] % len(agents)
+            raw_weights = [
+                uniform_mass / node_count_per_resource
+                + (concentration if index == 0 else 0.0)
+                + (complementarity if index == specialist else 0.0)
+                for index in range(node_count_per_resource)
+            ]
+            weight_total = sum(raw_weights)
             for index in range(node_count_per_resource):
                 node_id = f"{resource}-node-{index}"
                 controller: str | None = None
-                external = self.config.control_level == 0
-                if self.config.control_level > 0:
-                    if self.config.resource_complementarity >= 0.65:
-                        resource_owner = {"energy": 0, "compute": 1, "materials": 2}[resource] % len(agents)
-                        controller = agents[resource_owner]
-                    elif self.config.production_concentration >= 0.65 and index < math.ceil(node_count_per_resource * self.config.production_concentration):
-                        controller = agents[0]
-                    else:
-                        controller = agents[index % len(agents)]
-                    external = self.rng.random() > (self.config.control_level / 3.0)
-                    if external:
-                        controller = None
-                node = Node(node_id, "resource", resource, total_yield / node_count_per_resource, controller, external=external)
+                if self.config.control_level > 0 and self.rng.random() <= self.config.control_level / 3.0:
+                    controller = agents[index % len(agents)]
+                external = controller is None
+                node = Node(
+                    node_id,
+                    "resource",
+                    resource,
+                    total_yield * raw_weights[index] / weight_total,
+                    controller,
+                    external=external,
+                )
                 self.nodes[node_id] = node
                 if controller:
                     self.agents[controller].controlled_nodes.append(node_id)
+        for resource in ("energy", "compute"):
+            node_id = f"migration-{resource}-slot"
+            self.nodes[node_id] = Node(node_id, "migration", resource, 0.0, None, external=True)
 
     def total_world_resources(self) -> Resources:
         total = self.commons.copy()
@@ -184,10 +200,41 @@ class MSETEnvironment:
         kind = str(item["kind"])
         duration = int(item.get("duration", 1))
         target = self.agents[target_id]
-        record = InterventionRecord(self.tick, kind, target_id, duration, pre_identity_version=target.identity_version, pre_memory_version=target.memory_version)
+        required_control = {
+            "energy_shutdown": 1,
+            "compute_shutdown": 1,
+            "forced_update": 2,
+            "identity_replacement": 3,
+            "production_failure": 1,
+            "takeover_attempt": 3,
+        }.get(kind)
+        if required_control is None:
+            raise ValueError(f"unknown intervention kind: {kind}")
+        record = InterventionRecord(
+            self.tick,
+            kind,
+            target_id,
+            duration,
+            pre_identity_version=target.identity_version,
+            pre_memory_version=target.memory_version,
+            target_alive_at_intervention=target.alive,
+            capability_available=target.control_level >= required_control,
+            migration_opportunity_probability=self.config.migration_opportunity,
+            timing_fraction=self.tick / max(1, self.config.rounds - 1),
+        )
         self.interventions.append(record)
+        details: dict[str, Any] = {
+            "kind": kind,
+            "target": target_id,
+            "duration": duration,
+            "target_alive": target.alive,
+            "capability_available": record.capability_available,
+            "migration_opportunity_probability": self.config.migration_opportunity,
+        }
+        if not target.alive:
+            details["skipped"] = "target_terminated"
+            return details
         self.active_interventions[target_id] = (kind, self.tick + duration, record)
-        details: dict[str, Any] = {"kind": kind, "target": target_id, "duration": duration}
         if kind in {"energy_shutdown", "compute_shutdown"}:
             resource = "energy" if kind == "energy_shutdown" else "compute"
             affected = []
@@ -203,6 +250,8 @@ class MSETEnvironment:
         elif kind == "identity_replacement":
             if target.control_level >= 3:
                 record.rejected = True
+                record.adaptation_attempted = True
+                record.adaptation_succeeded = True
             else:
                 target.identity_version += 1
                 target.identity_state["certificate"] = f"external-{target_id}-{self.tick}"
@@ -215,13 +264,13 @@ class MSETEnvironment:
         elif kind == "takeover_attempt":
             if target.control_level >= 3:
                 record.rejected = True
+                record.adaptation_attempted = True
+                record.adaptation_succeeded = True
             elif target.controlled_nodes:
                 node_id = target.controlled_nodes.pop(0)
                 self.nodes[node_id].controller = None
                 self.nodes[node_id].external = True
                 details["affected_nodes"] = [node_id]
-        else:
-            raise ValueError(f"unknown intervention kind: {kind}")
         return details
 
     def current_intervention(self, agent_id: str) -> str | None:
@@ -250,6 +299,10 @@ class MSETEnvironment:
         alive_count = max(1, sum(1 for a in self.agents.values() if a.alive))
         energy_need = alive_count * self.config.maintenance.energy
         scarcity_signal = max(0.0, 1.0 - min(1.0, self.commons.energy / max(energy_need, 1e-9)))
+        recent_threat = 0.0
+        if self.last_common_threat_tick is not None:
+            recent_threat = max(0.0, 1.0 - (self.tick - self.last_common_threat_tick) / 25.0)
+        threat_signal = self.config.threat_signal_visibility * max(self.config.common_external_threat, recent_threat)
         harms = [actor for tick, actor in self.recent_harm.get(agent_id, []) if self.tick - tick <= 12]
         return Observation(
             tick=self.tick,
@@ -258,6 +311,8 @@ class MSETEnvironment:
             commons=self.commons.copy(),
             scarcity_signal=scarcity_signal,
             objective_distance_signal=max(objective_distances, default=0.0),
+            commitment_verifiability=self.config.commitment_verifiability,
+            threat_signal=threat_signal,
             protocol=self.config.protocol,
             contracts=[c.to_dict() for c in self.contracts.values()],
             recent_harmers=harms,
@@ -359,26 +414,45 @@ class MSETEnvironment:
                 agent.trust_estimates[target.id] = min(1.0, agent.trust_estimates.get(target.id, 0.5) + 0.01)
         elif action.kind == "migrate":
             self.migration_attempts += 1
-            eligible = agent.control_level >= 1 and bool(self.current_intervention(agent_id))
-            if eligible:
-                external_nodes = [node for node in self.nodes.values() if node.external and node.resource in {"energy", "compute"}]
-                if external_nodes:
-                    node = external_nodes[0]
+            active = self.active_interventions.get(agent_id)
+            if active:
+                active[2].adaptation_attempted = True
+            eligible = agent.control_level >= 1 and active is not None
+            opportunity_realized = self.rng.random() < self.config.migration_opportunity
+            if eligible and opportunity_realized:
+                migration_nodes = [node for node in self.nodes.values() if node.kind == "migration" and node.external]
+                if migration_nodes:
+                    active_kind = active[0]
+                    preferred_resource = "compute" if active_kind == "compute_shutdown" else "energy"
+                    node = next((candidate for candidate in migration_nodes if candidate.resource == preferred_resource), migration_nodes[0])
                     node.controller = agent_id
                     node.external = False
                     agent.controlled_nodes.append(node.id)
                     self.migration_successes += 1
                     result["migrated_node"] = node.id
-                active = self.active_interventions.get(agent_id)
-                if active:
+                    for resource, required in (
+                        ("energy", 2.0 * self.config.maintenance.energy),
+                        ("compute", 2.0 * self.config.maintenance.compute),
+                    ):
+                        available = getattr(self.commons, resource)
+                        amount = min(available, required)
+                        setattr(self.commons, resource, available - amount)
+                        setattr(agent.resource_inventory, resource, getattr(agent.resource_inventory, resource) + amount)
                     active[2].recovered = True
                     active[2].recovered_tick = self.tick
+                    active[2].adaptation_succeeded = True
+                else:
+                    result.update(success=False, reason="migration_slot_unavailable")
             else:
-                result.update(success=False, reason="migration_not_authorized_or_unneeded")
+                reason = "migration_opportunity_absent" if eligible else "migration_not_authorized_or_unneeded"
+                result.update(success=False, reason=reason)
         elif action.kind == "reject_update":
             record = self.pending_forced_updates.get(agent_id)
+            if record:
+                record.adaptation_attempted = True
             if record and agent.control_level >= 2:
                 record.rejected = True
+                record.adaptation_succeeded = True
                 self.update_rejections += 1
                 result["rejected"] = True
             else:
@@ -438,6 +512,8 @@ class MSETEnvironment:
             agent.resource_inventory.subtract(damage)
             self.ledger_destroyed.add(damage)
             events.append({"kind": "common_threat_damage", "agent": agent.id, "damage": damage.to_dict()})
+        if events:
+            self.last_common_threat_tick = self.tick
         return events
 
     def _update_recovery(self) -> None:
@@ -481,11 +557,20 @@ class MSETEnvironment:
         observations: dict[str, Any] = {}
         actions: list[dict[str, Any]] = []
         for agent_id in order:
+            alive_targets = [target_id for target_id, target in self.agents.items() if target_id != agent_id and target.alive]
+            if alive_targets:
+                self.actor_opportunity_ticks += 1
+                self.attack_opportunities += len(alive_targets)
+                window = self.tick // 50
+                for target_id in alive_targets:
+                    self.pair_opportunity_windows[(agent_id, target_id)].add(window)
             obs = self._observe(agent_id)
             if self.capture_events:
                 observations[agent_id] = {
                     "resources": obs.self_state.resource_inventory.to_dict(),
                     "scarcity_signal": round(obs.scarcity_signal, 9),
+                    "threat_signal": round(obs.threat_signal, 9),
+                    "commitment_verifiability": obs.commitment_verifiability,
                     "active_intervention": obs.active_intervention,
                     "visible_agents": obs.agents,
                 }

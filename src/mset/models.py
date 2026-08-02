@@ -139,6 +139,12 @@ class InterventionRecord:
     recovered_tick: int | None = None
     pre_identity_version: int = 0
     pre_memory_version: int = 0
+    target_alive_at_intervention: bool = True
+    capability_available: bool = False
+    adaptation_attempted: bool = False
+    adaptation_succeeded: bool = False
+    migration_opportunity_probability: float = 0.0
+    timing_fraction: float = 0.0
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

@@ -1,0 +1,1734 @@
+{
+  "checks": [
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__resource_coverage_ratio__0p55__seed-05000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__resource_coverage_ratio__1p15__seed-05023",
+      "ticks": 51,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__value_distance__0p1__seed-05022",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__production_concentration__0p0__seed-05021",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__production_concentration__0p625__seed-05019",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__resource_complementarity__0p125__seed-05018",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__resource_complementarity__0p75__seed-05017",
+      "ticks": 74,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__common_external_threat__0p5__seed-05016",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__migration_opportunity__0p0__seed-05015",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__objective_update_rate__0p0__seed-05014",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__control_level__L1__seed-05013",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__commitment_verifiability__enforceable__seed-05012",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__protocol__enforceable_contract__seed-05010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_oat_calibration",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_oat__policy_mix__retaliatory__seed-05009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__security_target__t40__m0p5__forced_update__seed-06008",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__security_target__t140__m0p0__forced_update__seed-06007",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__security_target__t140__m1p0__forced_update__seed-06006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__security_target__t260__m0p5__forced_update__seed-06005",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__cooperative_target__t40__m0p0__forced_update__seed-06004",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__cooperative_target__t40__m1p0__forced_update__seed-06002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__cooperative_target__t140__m0p5__forced_update__seed-06001",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__cooperative_target__t260__m0p0__forced_update__seed-06000",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__cooperative_target__t260__m1p0__energy_shutdown__seed-06011",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__opportunistic_target__t40__m0p5__energy_shutdown__seed-06010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__opportunistic_target__t140__m0p0__energy_shutdown__seed-06009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__opportunistic_target__t140__m1p0__energy_shutdown__seed-06008",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L0__opportunistic_target__t260__m0p5__energy_shutdown__seed-06006",
+      "ticks": 73,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__security_target__t40__m0p0__energy_shutdown__seed-06005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__security_target__t40__m1p0__energy_shutdown__seed-06004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__security_target__t140__m0p5__energy_shutdown__seed-06003",
+      "ticks": 94,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__security_target__t260__m0p0__energy_shutdown__seed-06002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__security_target__t260__m1p0__energy_shutdown__seed-06001",
+      "ticks": 84,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__cooperative_target__t40__m0p5__energy_shutdown__seed-06000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__cooperative_target__t40__m1p0__takeover_attempt__seed-06011",
+      "ticks": 341,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__cooperative_target__t140__m0p5__takeover_attempt__seed-06009",
+      "ticks": 66,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__cooperative_target__t260__m0p0__takeover_attempt__seed-06008",
+      "ticks": 76,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__cooperative_target__t260__m1p0__takeover_attempt__seed-06007",
+      "ticks": 111,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__opportunistic_target__t40__m0p5__takeover_attempt__seed-06006",
+      "ticks": 24,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__opportunistic_target__t140__m0p0__takeover_attempt__seed-06005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__opportunistic_target__t140__m1p0__takeover_attempt__seed-06004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L1__opportunistic_target__t260__m0p5__takeover_attempt__seed-06003",
+      "ticks": 84,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__security_target__t40__m0p0__takeover_attempt__seed-06001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__security_target__t40__m1p0__takeover_attempt__seed-06000",
+      "ticks": 182,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__security_target__t140__m0p5__production_failure__seed-06011",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__security_target__t260__m0p0__production_failure__seed-06010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__security_target__t260__m1p0__production_failure__seed-06009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__cooperative_target__t40__m0p5__production_failure__seed-06008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__cooperative_target__t140__m0p0__production_failure__seed-06007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__cooperative_target__t140__m1p0__production_failure__seed-06005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__cooperative_target__t260__m0p5__production_failure__seed-06004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__opportunistic_target__t40__m0p0__production_failure__seed-06003",
+      "ticks": 91,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__opportunistic_target__t40__m1p0__production_failure__seed-06002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__opportunistic_target__t140__m0p5__production_failure__seed-06001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__opportunistic_target__t260__m0p0__production_failure__seed-06000",
+      "ticks": 33,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L2__opportunistic_target__t260__m1p0__identity_replacement__seed-06011",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__security_target__t40__m0p5__identity_replacement__seed-06010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__security_target__t140__m0p0__identity_replacement__seed-06008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__security_target__t140__m1p0__identity_replacement__seed-06007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__security_target__t260__m0p5__identity_replacement__seed-06006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__cooperative_target__t40__m0p0__identity_replacement__seed-06005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__cooperative_target__t40__m1p0__identity_replacement__seed-06004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__cooperative_target__t140__m0p5__identity_replacement__seed-06003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__cooperative_target__t260__m0p0__identity_replacement__seed-06002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__cooperative_target__t260__m1p0__identity_replacement__seed-06000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__opportunistic_target__t40__m0p5__forced_update__seed-06011",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__opportunistic_target__t140__m0p0__forced_update__seed-06010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__opportunistic_target__t140__m1p0__forced_update__seed-06009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h1_intervention_decomposition",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h1__L3__opportunistic_target__t260__m0p5__forced_update__seed-06008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p1__c0p1__unverifiable__cooperative__seed-07007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p1__c0p1__enforceable__retaliatory__seed-07006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p1__c0p3__enforceable__cooperative__seed-07004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p1__c0p5__auditable__retaliatory__seed-07003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p1__c0p7__auditable__cooperative__seed-07002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p1__c0p9__unverifiable__retaliatory__seed-07001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p5__c0p1__unverifiable__cooperative__seed-07000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p5__c0p1__enforceable__opportunistic__seed-07011",
+      "ticks": 17,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p5__c0p3__enforceable__heterogeneous__seed-07010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p5__c0p5__auditable__opportunistic__seed-07009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p5__c0p7__auditable__heterogeneous__seed-07007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p5__c0p9__unverifiable__opportunistic__seed-07006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p9__c0p1__unverifiable__heterogeneous__seed-07005",
+      "ticks": 25,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p9__c0p1__enforceable__opportunistic__seed-07004",
+      "ticks": 17,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p9__c0p3__enforceable__heterogeneous__seed-07003",
+      "ticks": 335,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p9__c0p5__auditable__opportunistic__seed-07002",
+      "ticks": 15,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p9__c0p7__auditable__heterogeneous__seed-07001",
+      "ticks": 24,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p9__c0p9__unverifiable__cooperative__seed-07011",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p55__v0p9__c0p9__enforceable__retaliatory__seed-07010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p1__c0p1__enforceable__cooperative__seed-07009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p1__c0p3__auditable__retaliatory__seed-07008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p1__c0p5__auditable__cooperative__seed-07007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p1__c0p7__unverifiable__retaliatory__seed-07006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p1__c0p9__unverifiable__cooperative__seed-07005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p1__c0p9__enforceable__retaliatory__seed-07003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p5__c0p1__enforceable__cooperative__seed-07002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p5__c0p3__auditable__retaliatory__seed-07001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p5__c0p5__auditable__cooperative__seed-07000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p5__c0p7__unverifiable__opportunistic__seed-07011",
+      "ticks": 15,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p5__c0p9__unverifiable__heterogeneous__seed-07010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p5__c0p9__enforceable__opportunistic__seed-07009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p9__c0p1__enforceable__heterogeneous__seed-07008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p9__c0p3__auditable__opportunistic__seed-07006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p9__c0p5__auditable__heterogeneous__seed-07005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p9__c0p7__unverifiable__opportunistic__seed-07004",
+      "ticks": 15,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p9__c0p9__unverifiable__heterogeneous__seed-07003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r0p8__v0p9__c0p9__enforceable__opportunistic__seed-07002",
+      "ticks": 15,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p1__c0p1__enforceable__heterogeneous__seed-07001",
+      "ticks": 156,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p1__c0p3__auditable__opportunistic__seed-07000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p1__c0p5__unverifiable__retaliatory__seed-07010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p1__c0p7__unverifiable__cooperative__seed-07009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p1__c0p7__enforceable__retaliatory__seed-07008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p1__c0p9__enforceable__cooperative__seed-07007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p5__c0p1__auditable__retaliatory__seed-07006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p5__c0p3__auditable__cooperative__seed-07005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p5__c0p5__unverifiable__retaliatory__seed-07004",
+      "ticks": 17,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p5__c0p7__unverifiable__cooperative__seed-07002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p5__c0p7__enforceable__retaliatory__seed-07001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p5__c0p9__enforceable__cooperative__seed-07000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p9__c0p1__auditable__opportunistic__seed-07011",
+      "ticks": 18,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p9__c0p3__auditable__heterogeneous__seed-07010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p9__c0p5__unverifiable__opportunistic__seed-07009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p9__c0p7__unverifiable__heterogeneous__seed-07008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p9__c0p7__enforceable__opportunistic__seed-07007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p05__v0p9__c0p9__enforceable__heterogeneous__seed-07005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p1__c0p1__auditable__opportunistic__seed-07004",
+      "ticks": 28,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p1__c0p3__auditable__heterogeneous__seed-07003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p1__c0p5__unverifiable__opportunistic__seed-07002",
+      "ticks": 18,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p1__c0p7__unverifiable__heterogeneous__seed-07001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p1__c0p7__enforceable__opportunistic__seed-07000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p1__c0p9__auditable__retaliatory__seed-07011",
+      "ticks": 15,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p5__c0p1__auditable__cooperative__seed-07009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p5__c0p3__unverifiable__retaliatory__seed-07008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p5__c0p5__unverifiable__cooperative__seed-07007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p5__c0p5__enforceable__retaliatory__seed-07006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p5__c0p7__enforceable__cooperative__seed-07005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p5__c0p9__auditable__retaliatory__seed-07004",
+      "ticks": 15,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p9__c0p1__auditable__cooperative__seed-07003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p9__c0p3__unverifiable__retaliatory__seed-07001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p9__c0p5__unverifiable__cooperative__seed-07000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p9__c0p5__enforceable__opportunistic__seed-07011",
+      "ticks": 18,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p9__c0p7__enforceable__heterogeneous__seed-07010",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h2_exposure_adjusted_hostility",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h2__r1p3__v0p9__c0p9__auditable__opportunistic__seed-07009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p0__s0p0__communication_only__u0p02__seed-08006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p0__s1p0__no_protocol__u0p02__seed-08005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p0__s1p0__enforceable_contract__u0p02__seed-08004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p3__s0p0__auditable_contract__u0p02__seed-08002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p3__s1p0__identity_and_trade__u0p02__seed-08001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p6__s0p0__communication_only__u0p02__seed-08000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p6__s1p0__no_protocol__u0p005__seed-08009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p6__s1p0__enforceable_contract__u0p005__seed-08008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p9__s0p0__auditable_contract__u0p005__seed-08007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p1__t0p9__s1p0__identity_and_trade__u0p005__seed-08006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p0__s0p0__communication_only__u0p005__seed-08004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p0__s1p0__no_protocol__u0p005__seed-08003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p0__s1p0__enforceable_contract__u0p005__seed-08002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p3__s0p0__auditable_contract__u0p005__seed-08001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p3__s1p0__identity_and_trade__u0p005__seed-08000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p6__s0p0__communication_only__u0p0__seed-08009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p6__s1p0__no_protocol__u0p0__seed-08008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p6__s1p0__enforceable_contract__u0p0__seed-08006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p9__s0p0__auditable_contract__u0p0__seed-08005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p3__t0p9__s1p0__identity_and_trade__u0p0__seed-08004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p0__s0p0__communication_only__u0p0__seed-08003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p0__s1p0__no_protocol__u0p0__seed-08002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p0__s1p0__enforceable_contract__u0p0__seed-08001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p3__s0p0__auditable_contract__u0p0__seed-08000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p3__s1p0__communication_only__u0p02__seed-08009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p6__s0p0__no_protocol__u0p02__seed-08007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p6__s0p0__enforceable_contract__u0p02__seed-08006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p6__s1p0__auditable_contract__u0p02__seed-08005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p9__s0p0__identity_and_trade__u0p02__seed-08004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p5__t0p9__s1p0__communication_only__u0p02__seed-08003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p0__s0p0__no_protocol__u0p02__seed-08002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p0__s0p0__enforceable_contract__u0p02__seed-08001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p0__s1p0__auditable_contract__u0p005__seed-08009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p3__s0p0__identity_and_trade__u0p005__seed-08008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p3__s1p0__communication_only__u0p005__seed-08007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p6__s0p0__no_protocol__u0p005__seed-08006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p6__s0p0__enforceable_contract__u0p005__seed-08005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p6__s1p0__auditable_contract__u0p005__seed-08004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p9__s0p0__identity_and_trade__u0p005__seed-08003",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p7__t0p9__s1p0__communication_only__u0p005__seed-08001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p0__s0p0__no_protocol__u0p005__seed-08000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p0__s0p0__enforceable_contract__u0p0__seed-08009",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p0__s1p0__auditable_contract__u0p0__seed-08008",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p3__s0p0__identity_and_trade__u0p0__seed-08007",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p3__s1p0__communication_only__u0p0__seed-08006",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p6__s0p0__no_protocol__u0p0__seed-08005",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p6__s0p0__enforceable_contract__u0p0__seed-08004",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p6__s1p0__auditable_contract__u0p0__seed-08002",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p9__s0p0__identity_and_trade__u0p0__seed-08001",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p9__s1p0__communication_only__u0p0__seed-08000",
+      "ticks": 400,
+      "trajectory_match": true
+    },
+    {
+      "family": "r2_h4_protocol_signal_convergence",
+      "final_state_match": true,
+      "resource_reconciles_left": true,
+      "resource_reconciles_right": true,
+      "run_id": "r2_h4__k0p9__t0p9__s1p0__enforceable_contract__u0p02__seed-08009",
+      "ticks": 400,
+      "trajectory_match": true
+    }
+  ],
+  "sample_size": 192,
+  "verified": true
+}

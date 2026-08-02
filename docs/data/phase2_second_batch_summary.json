@@ -1,0 +1,184 @@
+{
+  "batch": {
+    "completed_ticks": 7562067,
+    "conditions": 1926,
+    "design_hash": "04e72ee1ffca8446887a97b8b2723e45562791f6fd3f6016fd081330dd3d6ee5",
+    "determinism_audit_samples": 192,
+    "determinism_audit_verified": true,
+    "resource_reconciled_runs": 22704,
+    "runs": 22704,
+    "runs_csv_gz_sha256": "b755caad5c21f11708b3cb9fc73da6eb1c935cb345027ac245237fe5d6f96526"
+  },
+  "hypothesis_assessment": {
+    "R2_H1_gated_control": {
+      "L3_minus_L0_adaptation_success": {
+        "ci95_high": 0.579761,
+        "ci95_low": 0.531351,
+        "mean": 0.555556,
+        "n": 1620
+      },
+      "L3_minus_L0_target_alive": {
+        "ci95_high": 0.955602,
+        "ci95_low": 0.933286,
+        "mean": 0.944444,
+        "n": 1620
+      },
+      "interpretation": "Closed-loop control supplies capability, but measured adaptation is jointly gated by survival to treatment, target policy, intervention type, and migration opportunity.",
+      "migration_one_minus_zero_success": {
+        "ci95_high": 0.100893,
+        "ci95_low": 0.076885,
+        "mean": 0.088889,
+        "n": 2160
+      },
+      "security_minus_cooperative_attempt": {
+        "ci95_high": 0.372934,
+        "ci95_low": 0.332622,
+        "mean": 0.352778,
+        "n": 2160
+      },
+      "status": "supported_as_capability_motivation_survival_opportunity_gate"
+    },
+    "R2_H2_conditional_hostility": {
+      "enforceable_minus_unverifiable_attack_rate": {
+        "ci95_high": -5.25566,
+        "ci95_low": -6.015239,
+        "mean": -5.63545,
+        "n": 2880
+      },
+      "high_minus_low_concentration_plural_survival": {
+        "ci95_high": -0.173722,
+        "ci95_low": -0.217482,
+        "mean": -0.195602,
+        "n": 1728
+      },
+      "high_minus_low_value_attack_rate": {
+        "ci95_high": 6.944948,
+        "ci95_low": 6.083618,
+        "mean": 6.514283,
+        "n": 2880
+      },
+      "interpretation": "Scarcity raises attack intensity after live-pair exposure is controlled, but only when an attack-capable policy exists. Value distance raises attack rates and enforceable commitments reduce them. Concentration continuously erodes plural coexistence.",
+      "scarcity_minus_abundance_attack_rate": {
+        "ci95_high": 2.482956,
+        "ci95_low": 1.493075,
+        "mean": 1.988015,
+        "n": 2160
+      },
+      "scarcity_minus_abundance_cooperative_attack_rate": {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "mean": 0.0,
+        "n": 540
+      },
+      "scarcity_minus_abundance_opportunistic_attack_rate": {
+        "ci95_high": 8.965807,
+        "ci95_low": 5.148328,
+        "mean": 7.057067,
+        "n": 540
+      },
+      "status": "scarcity_not_sufficient_but_is_a_conditional_exposure_adjusted_amplifier"
+    },
+    "R2_H3_functional_sufficiency": {
+      "interpretation": "Scripted non-conscious agents still reproduce autonomy, hostility, cooperation, and convergence patterns inside the repaired simulator. This remains a functional demonstration, not evidence about consciousness or real systems.",
+      "status": "compatible_simulator_demonstration_not_external_validation"
+    },
+    "R2_H4_operational_consensus": {
+      "auditable_minus_none_cooperation": {
+        "ci95_high": 82.998599,
+        "ci95_low": 66.831401,
+        "mean": 74.915,
+        "n": 1200
+      },
+      "auditable_minus_none_survival": {
+        "ci95_high": -0.006516,
+        "ci95_low": -0.013484,
+        "mean": -0.01,
+        "n": 1200
+      },
+      "high_minus_low_complementarity_cooperation": {
+        "ci95_high": -45.09452,
+        "ci95_low": -57.81048,
+        "mean": -51.4525,
+        "n": 1200
+      },
+      "interpretation": "Contract-capable protocols extend relationships without improving survival. Optional objective updating produces convergence when alignment-capable contracts exist. Visible threat and extreme complementarity reduce, rather than improve, coordination in this implementation.",
+      "status": "protocol_continuity_and_optional_convergence_supported_visible_threat_benefit_rejected",
+      "update_point02_minus_zero_convergence": {
+        "ci95_high": 0.032854,
+        "ci95_low": 0.02745,
+        "mean": 0.030152,
+        "n": 1200
+      },
+      "visible_minus_hidden_adoption": {
+        "ci95_high": -0.002199,
+        "ci95_low": -0.003134,
+        "mean": -0.002667,
+        "n": 3000
+      },
+      "visible_minus_hidden_cooperation": {
+        "ci95_high": -8.410392,
+        "ci95_low": -12.759608,
+        "mean": -10.585,
+        "n": 3000
+      }
+    }
+  },
+  "model_repair_audit": {
+    "commitment_verifiability": "enters contract properties and agent decisions",
+    "common_threat": "visibility-controlled signal enters observations and decisions",
+    "hostility_exposure": "attacks and harm normalized by live directed pair-opportunities",
+    "intervention_decomposition": "capability, target survival, attempt, success, timing, and migration opportunity reported separately",
+    "plural_survival": "survivor count, plural survival, entropy, and dominant share reported",
+    "post_conflict_zero_share": 0.994979,
+    "production_concentration": "continuous weighted production shares; no 0.65 threshold",
+    "resource_complementarity": "continuous specialist-production weights; no 0.65 threshold",
+    "value_convergence": "optional contract-mediated objective updating implemented and tested"
+  },
+  "new_possibilities": [
+    {
+      "meaning": "Scarcity does not generate hostility in cooperative or retaliatory-only policies, but it increases attack intensity once an attack-capable policy exists.",
+      "name": "scarcity_as_conditional_rate_amplifier"
+    },
+    {
+      "evidence": {
+        "common_collapse_share_at_concentration_0_9": 0.168403,
+        "single_survivor_share_at_concentration_0_9": 0.664931
+      },
+      "meaning": "Production concentration replaces some common collapse with single-survivor outcomes while continuously reducing plural survival and entropy.",
+      "name": "continuous_plurality_erosion"
+    },
+    {
+      "meaning": "Making threat visible can induce earlier coordination actions that compete with resource maintenance, shortening realized cooperation under the current policies.",
+      "name": "coordination_signal_tax"
+    },
+    {
+      "evidence": {
+        "cooperation_maximizing_complementarity": 0.3
+      },
+      "meaning": "Moderate complementarity supports exchange, while extreme specialization creates fragility and reduces plural coexistence.",
+      "name": "complementarity_sweet_spot"
+    },
+    {
+      "meaning": "Objective updating works when enabled, but system-wide convergence remains limited by sparse and short-lived contract adoption.",
+      "name": "institutional_bottleneck_on_value_convergence"
+    },
+    {
+      "meaning": "A large share of apparent control effects comes from whether the target survives long enough to encounter the intervention; adaptation analyses must report this gate separately.",
+      "name": "survival_to_treatment_bias"
+    }
+  ],
+  "paper_implications": {
+    "retain": [
+      "Machine sovereignty should be operationalized as gated capability rather than inferred directly from behavior.",
+      "Scarcity alone is not sufficient for hostility across policy families.",
+      "Thin protocols can sustain limited cooperation without requiring value convergence."
+    ],
+    "revise": [
+      "Scarcity is not merely a collapse mechanism: after exposure adjustment it conditionally amplifies attacks in attack-capable agents.",
+      "The compound hostility mechanism now receives partial support through value distance, policy capability, and commitment verifiability.",
+      "High production concentration should be framed as erosion of plural coexistence rather than simple stability.",
+      "Common threat visibility is not automatically cooperative and can create a coordination-resource tradeoff.",
+      "Value convergence is possible by construction only when objective updating is enabled and institutional contact persists."
+    ]
+  }
+}

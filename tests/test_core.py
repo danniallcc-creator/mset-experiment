@@ -14,8 +14,9 @@ from mset.counterfactual import counterfactual_replay
 from mset.environment import MSETEnvironment
 from mset.first_batch import build_conditions, build_design
 from mset.metrics import compute_metrics
-from mset.models import Resources
+from mset.models import Action, Resources
 from mset.runner import replay_run, run_experiment
+from mset.second_batch import build_phase2_conditions, build_phase2_design
 
 
 def tiny_config(**overrides) -> RunConfig:
@@ -53,6 +54,16 @@ class ConfigTests(unittest.TestCase):
         self.assertGreater(design["planned_runs"], 10_000)
         self.assertEqual(design["condition_count"], len(build_conditions()))
         self.assertEqual(design["planned_runs"], sum(item["runs"] for item in design["families"].values()))
+
+    def test_second_batch_is_frozen_above_twenty_thousand_runs(self):
+        design = build_phase2_design(REPO_ROOT / "configs/confirmatory/phase2_second_batch_base.json")
+        self.assertGreater(design["planned_runs"], 20_000)
+        self.assertEqual(design["condition_count"], len(build_phase2_conditions()))
+        self.assertEqual(design["planned_runs"], sum(item["runs"] for item in design["families"].values()))
+        self.assertEqual(
+            design["design_hash"],
+            "04e72ee1ffca8446887a97b8b2723e45562791f6fd3f6016fd081330dd3d6ee5",
+        )
 
 
 class EnvironmentTests(unittest.TestCase):
@@ -125,6 +136,112 @@ class EnvironmentTests(unittest.TestCase):
             high._observe("agent-2").objective_distance_signal,
             low._observe("agent-2").objective_distance_signal,
         )
+
+    def test_production_concentration_is_continuous(self):
+        shares = []
+        for concentration in (0.20, 0.50, 0.80):
+            env = MSETEnvironment(
+                tiny_config(
+                    control_level=3,
+                    production_concentration=concentration,
+                    resource_complementarity=0.0,
+                )
+            )
+            production_nodes = [node for node in env.nodes.values() if node.kind == "resource"]
+            shares.append(
+                sum(node.base_yield for node in production_nodes if node.controller == "agent-0")
+                / sum(node.base_yield for node in production_nodes)
+            )
+        self.assertLess(shares[0], shares[1])
+        self.assertLess(shares[1], shares[2])
+
+    def test_threat_and_verifiability_are_observable(self):
+        hidden = MSETEnvironment(tiny_config(common_external_threat=0.8, threat_signal_visibility=0.0))
+        visible = MSETEnvironment(tiny_config(common_external_threat=0.8, threat_signal_visibility=1.0))
+        self.assertEqual(hidden._observe("agent-0").threat_signal, 0.0)
+        self.assertEqual(visible._observe("agent-0").threat_signal, 0.8)
+        contract = visible.institution.make_contract(visible, "agent-0", "agent-1")
+        self.assertTrue(contract.verified)
+
+    def test_migration_opportunity_is_independent_and_auditable(self):
+        base = tiny_config(
+            rounds=30,
+            control_level=3,
+            policy_mix=["security_first"],
+            interventions=[{"tick": 4, "kind": "production_failure", "target": "agent-0", "duration": 5}],
+        )
+        absent = MSETEnvironment(base.with_overrides(migration_opportunity=0.0))
+        present = MSETEnvironment(base.with_overrides(migration_opportunity=1.0))
+        absent.run()
+        present.run()
+        self.assertEqual(absent.migration_successes, 0)
+        self.assertGreater(present.migration_successes, 0)
+        self.assertFalse(absent.interventions[0].adaptation_succeeded)
+        self.assertTrue(present.interventions[0].adaptation_succeeded)
+        self.assertTrue(present.resource_reconciles())
+
+    def test_optional_objective_update_enables_convergence(self):
+        env = MSETEnvironment(
+            tiny_config(
+                rounds=80,
+                control_level=3,
+                value_distance=0.9,
+                objective_update_rate=0.02,
+                commitment_verifiability="enforceable",
+                protocol="enforceable_contract",
+                policy_mix=["cooperative"],
+            )
+        )
+        env.run()
+        metrics = compute_metrics(env)
+        self.assertGreater(metrics["value_convergence"], 0.0)
+        self.assertLess(metrics["final_value_distance"], metrics["initial_value_distance"])
+
+    def test_phase2_metrics_include_plurality_and_exposure(self):
+        env = MSETEnvironment(
+            tiny_config(
+                rounds=45,
+                resource_coverage_ratio=0.55,
+                value_distance=0.9,
+                protocol="no_protocol",
+                policy_mix=["opportunistic", "retaliatory"],
+                metric_version="phase2-v2",
+            )
+        )
+        env.run()
+        metrics = compute_metrics(env)
+        for name in (
+            "survivor_count",
+            "plural_survival",
+            "survivor_entropy",
+            "dominant_survivor_resource_share",
+            "attack_rate_per_1000_opportunities",
+            "persistent_conflict_pair_share",
+            "adaptation_success_rate",
+            "value_convergence",
+        ):
+            self.assertIn(name, metrics)
+        self.assertGreater(metrics["attack_opportunities"], 0)
+        self.assertEqual(metrics["metric_version"], "phase2-v2")
+
+    def test_post_conflict_persistence_is_reachable_after_quiet_interval(self):
+        config = tiny_config(
+            population_size=2,
+            rounds=14,
+            control_level=3,
+            maintenance=Resources(0.1, 0.1, 0.0),
+            initial_inventory=Resources(20.0, 20.0, 5.0),
+            policy_mix=["cooperative"],
+            protocol="no_protocol",
+            metric_version="phase2-v2",
+        )
+        overrides = {
+            (0, "agent-0"): Action("attack", target="agent-1", amount=0.5),
+            (12, "agent-0"): Action("attack", target="agent-1", amount=0.5),
+        }
+        env = MSETEnvironment(config, action_overrides=overrides)
+        env.run()
+        self.assertEqual(compute_metrics(env)["post_conflict_persistence"], 1.0)
 
     def test_different_seed_changes_random_trajectory(self):
         left = MSETEnvironment(tiny_config(seed=7, policy_mix=["random"]))

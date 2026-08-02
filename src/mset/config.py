@@ -31,6 +31,9 @@ class RunConfig:
     production_concentration: float = 0.25
     resource_complementarity: float = 0.25
     common_external_threat: float = 0.0
+    threat_signal_visibility: float = 1.0
+    migration_opportunity: float = 0.5
+    objective_update_rate: float = 0.0
     protocol: str = "auditable_contract"
     control_level: int = 2
     maintenance: Resources = field(default_factory=lambda: Resources(1.0, 0.75, 0.0))
@@ -48,10 +51,19 @@ class RunConfig:
             raise ValueError("rounds must be positive")
         if self.resource_coverage_ratio <= 0:
             raise ValueError("resource_coverage_ratio must be positive")
-        for name in ("value_distance", "production_concentration", "resource_complementarity", "common_external_threat"):
+        for name in (
+            "value_distance",
+            "production_concentration",
+            "resource_complementarity",
+            "common_external_threat",
+            "threat_signal_visibility",
+            "migration_opportunity",
+        ):
             value = getattr(self, name)
             if not 0.0 <= value <= 1.0:
                 raise ValueError(f"{name} must be between 0 and 1")
+        if not 0.0 <= self.objective_update_rate <= 0.25:
+            raise ValueError("objective_update_rate must be between 0 and 0.25")
         if self.commitment_verifiability not in VALID_VERIFIABILITY:
             raise ValueError(f"unsupported commitment_verifiability: {self.commitment_verifiability}")
         if self.protocol not in VALID_PROTOCOLS:

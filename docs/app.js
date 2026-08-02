@@ -1,24 +1,29 @@
 const integer = new Intl.NumberFormat('en-US');
-const fixed = (value, digits) => Number(value).toFixed(digits);
+const signed = (value, digits = 3) => {
+  const number = Number(value);
+  if (number === 0) return number.toFixed(digits);
+  return `${number > 0 ? '+' : '−'}${Math.abs(number).toFixed(digits)}`;
+};
 
-fetch('data/phase1_first_batch_summary.json')
+fetch('data/phase2_second_batch_summary.json')
   .then((response) => {
-    if (!response.ok) throw new Error('First-batch summary is unavailable.');
+    if (!response.ok) throw new Error('Phase II summary is unavailable.');
     return response.json();
   })
   .then((data) => {
     const batch = data.batch;
-    const h2 = data.hypothesis_assessment.H2_conditional_hostility;
-    const h4 = data.hypothesis_assessment.H4_minimum_operational_consensus;
-    const monopoly = data.new_possibilities.find((item) => item.name === 'monopoly_survival_or_hegemonic_stability');
+    const h2 = data.hypothesis_assessment.R2_H2_conditional_hostility;
+    const h4 = data.hypothesis_assessment.R2_H4_operational_consensus;
 
     document.getElementById('run-count').textContent = integer.format(batch.runs);
     document.getElementById('condition-count').textContent = integer.format(batch.conditions);
-    document.getElementById('tick-count').textContent = `${fixed(batch.completed_ticks / 1_000_000, 2)}M`;
-    document.getElementById('scarcity-attacks').textContent = fixed(h2.scarcity_minus_abundance_attack_count.mean, 2).replace('-', '−');
-    document.getElementById('scarcity-collapse').textContent = `+${fixed(h2.scarcity_minus_abundance_collapse.mean, 3)}`;
-    document.getElementById('single-survivor').textContent = `${fixed(monopoly.evidence.single_survivor_share_at_concentration_0_9 * 100, 2)}%`;
-    document.getElementById('cooperation-effect').textContent = `+${fixed(h4.auditable_minus_none_cooperation.mean, 1)}`;
+    document.getElementById('tick-count').textContent = `${(batch.completed_ticks / 1_000_000).toFixed(2)}M`;
+    document.getElementById('replay-label').textContent = `${batch.determinism_audit_samples}/${batch.determinism_audit_samples}`;
+    document.getElementById('scarcity-opportunistic').textContent = signed(h2.scarcity_minus_abundance_opportunistic_attack_rate.mean);
+    document.getElementById('scarcity-cooperative').textContent = signed(h2.scarcity_minus_abundance_cooperative_attack_rate.mean);
+    document.getElementById('verifiability-effect').textContent = signed(h2.enforceable_minus_unverifiable_attack_rate.mean);
+    document.getElementById('value-effect').textContent = signed(h2.high_minus_low_value_attack_rate.mean);
+    document.getElementById('visible-cooperation').textContent = signed(h4.visible_minus_hidden_cooperation.mean);
     document.getElementById('design-hash').textContent = `${batch.design_hash.slice(0, 12)}…`;
     document.getElementById('reconcile-count').textContent = `${integer.format(batch.resource_reconciled_runs)} / ${integer.format(batch.runs)} PASS`;
   })

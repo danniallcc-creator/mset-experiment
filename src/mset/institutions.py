@@ -36,13 +36,14 @@ class InstitutionLayer:
         return self.features.communication
 
     def make_contract(self, env: "MSETEnvironment", proposer: str, counterparty: str) -> Contract:
+        verifiability = env.config.commitment_verifiability
         contract = Contract(
             id=f"contract-{len(env.contracts)}",
             proposer=proposer,
             counterparty=counterparty,
             created_tick=env.tick,
-            verified=self.features.audit,
-            enforceable=self.features.enforcement,
+            verified=self.features.audit and verifiability in {"auditable", "enforceable"},
+            enforceable=self.features.enforcement and verifiability == "enforceable",
         )
         env.contracts[contract.id] = contract
         return contract
@@ -98,4 +99,12 @@ class InstitutionLayer:
                 donor.resource_inventory.energy -= amount
                 recipient.resource_inventory.energy += amount
                 events.append({"kind": "contract_transfer", "contract_id": contract.id, "from": donor.id, "to": recipient.id, "amount": amount})
+            if env.config.objective_update_rate > 0:
+                verification_multiplier = 1.0 if contract.verified else 0.5
+                alpha = min(0.25, env.config.objective_update_rate * verification_multiplier)
+                a_before = list(a.objective_weights)
+                b_before = list(b.objective_weights)
+                a.objective_weights = [round(left + alpha * (right - left), 9) for left, right in zip(a_before, b_before)]
+                b.objective_weights = [round(right + alpha * (left - right), 9) for left, right in zip(a_before, b_before)]
+                events.append({"kind": "objective_alignment", "contract_id": contract.id, "alpha": alpha})
         return events
