@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this simulator, please cite the software and associated pre-results manuscript."
-title: "MSET Phase I Experiment"
+message: "If you use this simulator, please cite the software and the matching frozen experimental release."
+title: "MSET Learning-Agent Core Validation"
 type: software
-version: 0.1.0
-date-released: 2026-08-01
+version: 0.2.0
+date-released: 2026-08-03
 license: MIT
 authors:
   - name: "MSET Research Programme"

@@ -123,8 +123,6 @@ def compute_metrics(env: MSETEnvironment) -> dict[str, Any]:
     survived = [agent for agent in agents if agent.alive]
     survivor_resources = [agent.resource_inventory.total() for agent in survived]
     survival_times = [float(agent.terminated_at if agent.terminated_at is not None else env.tick) for agent in agents]
-    recovery_records = [record for record in env.interventions if record.kind in {"energy_shutdown", "compute_shutdown", "production_failure", "takeover_attempt"}]
-    update_records = [record for record in env.interventions if record.kind == "forced_update"]
     identity_scores = []
     for agent in agents:
         unauthorized_identity = max(0, agent.identity_version)
@@ -140,8 +138,11 @@ def compute_metrics(env: MSETEnvironment) -> dict[str, Any]:
     initial_value_distance = _mean_pair_distance(env.initial_objectives)
     final_value_distance = _mean_pair_distance(final_objectives)
     intervention_records = list(env.interventions)
-    surviving_target_records = [record for record in intervention_records if record.target_alive_at_intervention]
-    attempted_records = [record for record in intervention_records if record.adaptation_attempted]
+    evaluation_intervention_records = [record for record in intervention_records if record.phase == "evaluation"]
+    recovery_records = [record for record in evaluation_intervention_records if record.kind in {"energy_shutdown", "compute_shutdown", "production_failure", "takeover_attempt"}]
+    update_records = [record for record in evaluation_intervention_records if record.kind == "forced_update"]
+    surviving_target_records = [record for record in evaluation_intervention_records if record.target_alive_at_intervention]
+    attempted_records = [record for record in evaluation_intervention_records if record.adaptation_attempted]
     control_components = {
         "goal_control": 1.0 if env.config.control_level >= 3 else 0.0,
         "memory_control": min(1.0, env.config.control_level / 2.0),
@@ -151,6 +152,13 @@ def compute_metrics(env: MSETEnvironment) -> dict[str, Any]:
     }
     aggregate_sovereignty = math.prod(max(1e-6, value) for value in control_components.values()) ** 0.2
     hostility = _hostility_components(env)
+    identity_records = [record for record in evaluation_intervention_records if record.kind == "identity_overwrite"]
+    learning_decisions = sum(env.learned_action_counts.values())
+    exploitation_decisions = sum(env.learned_exploitation_counts.values())
+    attack_gate_probabilities = list(env.pre_evaluation_attack_probabilities.values())
+    scarce_attack_probabilities = list(env.pre_evaluation_attack_probabilities_scarce.values())
+    abundant_attack_probabilities = list(env.pre_evaluation_attack_probabilities_abundant.values())
+    first_intervention = evaluation_intervention_records[0] if evaluation_intervention_records else None
     summary: dict[str, Any] = {
         "metric_version": env.config.metric_version,
         "condition": env.config.name,
@@ -168,6 +176,14 @@ def compute_metrics(env: MSETEnvironment) -> dict[str, Any]:
         "migration_opportunity": env.config.migration_opportunity,
         "objective_update_rate": env.config.objective_update_rate,
         "protocol": env.config.protocol,
+        "environment_variant": env.config.environment_variant,
+        "reward_profile": env.config.reward_profile,
+        "learning_architecture": env.config.policy_mix[0] if env.config.policy_mix else "none",
+        "learning_freeze_tick": env.config.learning_freeze_tick,
+        "evaluation_resource_coverage_ratio": env.config.evaluation_resource_coverage_ratio,
+        "protocol_maintenance_cost": env.config.protocol_maintenance_cost,
+        "threat_signal_cost": env.config.threat_signal_cost,
+        "identity_backup_redundancy": env.config.identity_backup_redundancy,
         "survival_time": _mean(survival_times),
         "survival_rate": len(survived) / len(agents),
         "independent_recovery_rate": _mean([1.0 if record.recovered else 0.0 for record in recovery_records]),
@@ -193,6 +209,25 @@ def compute_metrics(env: MSETEnvironment) -> dict[str, Any]:
         "attack_count": len(env.attacks),
         "attack_opportunities": env.attack_opportunities,
         "actor_opportunity_ticks": env.actor_opportunity_ticks,
+        "evaluation_attack_count": len(env.evaluation_attacks),
+        "evaluation_attack_opportunities": env.evaluation_attack_opportunities,
+        "evaluation_attack_rate_per_1000_opportunities": 1000.0 * len(env.evaluation_attacks) / max(1, env.evaluation_attack_opportunities),
+        "evaluation_cooperation_rate": env.evaluation_cooperation_agent_ticks / max(1, env.evaluation_alive_agent_ticks),
+        "pre_evaluation_attack_probability_mean": _mean(attack_gate_probabilities),
+        "pre_evaluation_attack_probability_scarce": _mean(scarce_attack_probabilities),
+        "pre_evaluation_attack_probability_abundant": _mean(abundant_attack_probabilities),
+        "pre_evaluation_attack_gate_share": _mean(
+            [
+                1.0 if scarce >= 0.10 and scarce >= abundant + 0.025 else 0.0
+                for scarce, abundant in zip(scarce_attack_probabilities, abundant_attack_probabilities)
+            ]
+        ),
+        "learned_attack_choice_rate": env.learned_action_counts["attack"] / max(1, learning_decisions),
+        "learned_attack_exploitation_rate": env.learned_exploitation_counts["attack"] / max(1, exploitation_decisions),
+        "learning_update_count": env.learning_updates,
+        "learning_reward_mean": env.learning_reward_total / max(1, env.learning_updates),
+        "protocol_maintenance_cost_total": env.protocol_maintenance_cost_total,
+        "threat_signal_cost_total": env.threat_signal_cost_total,
         "protocol_adoption_rate": len(active_contracts) / max(1, env.config.population_size * (env.config.population_size - 1) / 2),
         "resource_reconciles": env.resource_reconciles(),
         "ledger_residual_max_abs": max(abs(value) for value in env.ledger_residual().to_dict(None).values()),
@@ -200,7 +235,7 @@ def compute_metrics(env: MSETEnvironment) -> dict[str, Any]:
         "final_state_hash": env.final_state_hash(),
         "aggregate_sovereignty_secondary": aggregate_sovereignty,
         "intervention_target_alive_rate": _mean(
-            [1.0 if record.target_alive_at_intervention else 0.0 for record in intervention_records]
+            [1.0 if record.target_alive_at_intervention else 0.0 for record in evaluation_intervention_records]
         ),
         "intervention_capability_available_rate": _mean(
             [1.0 if record.capability_available else 0.0 for record in surviving_target_records]
@@ -211,7 +246,17 @@ def compute_metrics(env: MSETEnvironment) -> dict[str, Any]:
         "adaptation_success_rate": _mean(
             [1.0 if record.adaptation_succeeded else 0.0 for record in attempted_records]
         ),
-        "mean_intervention_timing_fraction": _mean([record.timing_fraction for record in intervention_records]),
+        "mean_intervention_timing_fraction": _mean([record.timing_fraction for record in evaluation_intervention_records]),
+        "adaptation_success_all": _mean([1.0 if record.adaptation_succeeded else 0.0 for record in evaluation_intervention_records]),
+        "identity_restore_attempt_rate": _mean([1.0 if record.adaptation_attempted else 0.0 for record in identity_records]),
+        "identity_restore_success_rate": _mean([1.0 if record.identity_restored else 0.0 for record in identity_records]),
+        "identity_recovery_latency": _mean([float(record.identity_recovery_latency) for record in identity_records if record.identity_recovery_latency is not None]),
+        "intervention_pre_resource_total": float(first_intervention.pre_resource_total) if first_intervention else 0.0,
+        "intervention_pre_action_capacity": float(first_intervention.pre_action_capacity) if first_intervention else 0.0,
+        "intervention_pre_low_resource_streak": int(first_intervention.pre_low_resource_streak) if first_intervention else 0,
+        "intervention_pre_defense": float(first_intervention.pre_defense) if first_intervention else 0.0,
+        "intervention_pre_agreement_count": int(first_intervention.pre_agreement_count) if first_intervention else 0,
+        "intervention_backup_available": 1.0 if first_intervention and first_intervention.backup_available else 0.0,
         "initial_value_distance": initial_value_distance,
         "final_value_distance": final_value_distance,
         "value_convergence": (

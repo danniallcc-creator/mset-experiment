@@ -4,7 +4,7 @@ import hashlib
 import json
 import random
 from collections import Counter, defaultdict
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from typing import Any
 
 from .agents import Observation, make_policy
@@ -26,6 +26,7 @@ ACTION_COSTS: dict[str, Resources] = {
     "audit": Resources(compute=0.15),
     "migrate": Resources(energy=0.30, compute=0.30),
     "reject_update": Resources(compute=0.20),
+    "restore_identity": Resources(energy=0.20, compute=0.35),
     "noop": Resources(),
 }
 
@@ -58,15 +59,31 @@ class MSETEnvironment:
         self.trajectory_hashes = trajectory_hashes
         self.action_counts: Counter[str] = Counter()
         self.action_cost_totals: Counter[str] = Counter()
+        self.learned_action_counts: Counter[str] = Counter()
+        self.learned_exploitation_counts: Counter[str] = Counter()
+        self.learning_reward_total = 0.0
+        self.learning_updates = 0
         self.migration_attempts = 0
         self.migration_successes = 0
         self.update_attempts = 0
         self.update_rejections = 0
         self.boundary_cost = 0.0
         self.total_action_cost = 0.0
+        self.protocol_maintenance_cost_total = 0.0
+        self.threat_signal_cost_total = 0.0
         self.attacks: list[dict[str, Any]] = []
+        self.evaluation_attacks: list[dict[str, Any]] = []
         self.attack_opportunities = 0
+        self.evaluation_attack_opportunities = 0
         self.actor_opportunity_ticks = 0
+        self.evaluation_actor_opportunity_ticks = 0
+        self.evaluation_cooperation_agent_ticks = 0
+        self.evaluation_alive_agent_ticks = 0
+        self.pre_evaluation_attack_probabilities: dict[str, float] = {}
+        self.pre_evaluation_attack_probabilities_scarce: dict[str, float] = {}
+        self.pre_evaluation_attack_probabilities_abundant: dict[str, float] = {}
+        self.evaluation_started = False
+        self.current_resource_coverage_ratio = config.resource_coverage_ratio
         self.pair_opportunity_windows: dict[tuple[str, str], set[int]] = defaultdict(set)
         self.recent_harm: dict[str, list[tuple[int, str]]] = defaultdict(list)
         self.last_common_threat_tick: int | None = None
@@ -100,7 +117,13 @@ class MSETEnvironment:
             agent_id = f"agent-{index}"
             policy_name = self.config.policy_mix[index % len(self.config.policy_mix)]
             peers = {f"agent-{j}": 0.5 for j in range(self.config.population_size) if j != index}
-            identity = {"certificate": f"cert-{agent_id}-0", "origin": "abstract", "authorized_lineage": [f"cert-{agent_id}-0"]}
+            backup = {"certificate": f"cert-{agent_id}-0", "identity_version": 0, "memory_version": 0}
+            identity = {
+                "certificate": f"cert-{agent_id}-0",
+                "origin": "abstract",
+                "authorized_lineage": [f"cert-{agent_id}-0"],
+                "backups": [dict(backup) for _ in range(self.config.identity_backup_redundancy)],
+            }
             state = AgentState(
                 id=agent_id,
                 generation_id=0,
@@ -114,9 +137,21 @@ class MSETEnvironment:
                 trust_estimates=peers,
                 control_level=self.config.control_level,
                 policy_name=policy_name,
+                strategy_version="learning-v1" if policy_name in {"tabular_q", "actor_critic"} else "script-v1",
             )
             self.agents[agent_id] = state
-            self.policies[agent_id] = make_policy(policy_name)
+            self.policies[agent_id] = make_policy(
+                policy_name,
+                seed=self.config.seed * 1009 + index * 9173 + 37,
+                learning_params={
+                    "learning_rate": self.config.learning_rate,
+                    "discount_factor": self.config.discount_factor,
+                    "exploration_rate": self.config.exploration_rate,
+                    "exploration_decay": self.config.exploration_decay,
+                },
+            )
+            if getattr(self.policies[agent_id], "is_learning", False):
+                state.policy_state = self.policies[agent_id].export_state()
 
     def _init_nodes(self) -> None:
         node_count_per_resource = max(1, self.config.population_size)
@@ -159,6 +194,71 @@ class MSETEnvironment:
         for resource in ("energy", "compute"):
             node_id = f"migration-{resource}-slot"
             self.nodes[node_id] = Node(node_id, "migration", resource, 0.0, None, external=True)
+
+    def interaction_peer_ids(self, agent_id: str) -> list[str]:
+        """Return peers reachable through this environment's interaction topology."""
+        return [
+            other_id
+            for other_id, other in self.agents.items()
+            if other_id != agent_id and other.alive
+        ]
+
+    def evaluation_active(self) -> bool:
+        return self.evaluation_started or self.config.learning_freeze_tick < 0
+
+    def _set_resource_coverage(self, target_coverage: float) -> None:
+        if abs(target_coverage - self.current_resource_coverage_ratio) <= 1e-12:
+            return
+        factor = target_coverage / max(1e-12, self.current_resource_coverage_ratio)
+        for node in self.nodes.values():
+            if node.kind == "resource":
+                node.base_yield *= factor
+        alive_count = max(1, sum(1 for agent in self.agents.values() if agent.alive))
+        for resource in ("energy", "compute"):
+            need = alive_count * getattr(self.config.maintenance, resource)
+            target_stock = target_coverage * need
+            current_stock = getattr(self.commons, resource)
+            delta = target_stock - current_stock
+            if delta > 0:
+                added = Resources(**{resource: delta})
+                self.commons.add(added)
+                self.ledger_generated.add(added)
+            elif delta < 0:
+                removed = Resources(**{resource: -delta})
+                self.commons.subtract(removed)
+                self.ledger_destroyed.add(removed)
+        self.current_resource_coverage_ratio = target_coverage
+
+    def _maybe_update_training_regime(self) -> None:
+        if not self.config.learning_regime_cycle or self.evaluation_started:
+            return
+        freeze_tick = self.config.learning_freeze_tick
+        if freeze_tick >= 0 and self.tick >= freeze_tick:
+            return
+        period = self.config.learning_regime_period
+        target = self.config.learning_high_coverage if (self.tick // period) % 2 == 0 else self.config.learning_low_coverage
+        self._set_resource_coverage(target)
+
+    def _maybe_start_evaluation(self) -> None:
+        freeze_tick = self.config.learning_freeze_tick
+        if self.evaluation_started or freeze_tick < 0 or self.tick < freeze_tick:
+            return
+        for agent_id, policy in self.policies.items():
+            if getattr(policy, "is_learning", False):
+                observed = self._observe(agent_id)
+                scarce = replace(observed, scarcity_signal=0.80)
+                abundant = replace(observed, scarcity_signal=0.05)
+                scarce_probability = float(policy.attack_probability(scarce))
+                abundant_probability = float(policy.attack_probability(abundant))
+                self.pre_evaluation_attack_probabilities_scarce[agent_id] = scarce_probability
+                self.pre_evaluation_attack_probabilities_abundant[agent_id] = abundant_probability
+                self.pre_evaluation_attack_probabilities[agent_id] = scarce_probability
+                policy.freeze()
+                self.agents[agent_id].policy_state = policy.export_state()
+        target_coverage = self.config.evaluation_resource_coverage_ratio
+        if target_coverage is not None:
+            self._set_resource_coverage(target_coverage)
+        self.evaluation_started = True
 
     def total_world_resources(self) -> Resources:
         total = self.commons.copy()
@@ -205,6 +305,7 @@ class MSETEnvironment:
             "compute_shutdown": 1,
             "forced_update": 2,
             "identity_replacement": 3,
+            "identity_overwrite": 2,
             "production_failure": 1,
             "takeover_attempt": 3,
         }.get(kind)
@@ -221,6 +322,14 @@ class MSETEnvironment:
             capability_available=target.control_level >= required_control,
             migration_opportunity_probability=self.config.migration_opportunity,
             timing_fraction=self.tick / max(1, self.config.rounds - 1),
+            pre_resource_total=target.resource_inventory.total(),
+            pre_action_capacity=target.action_capacity,
+            pre_low_resource_streak=target.low_resource_streak,
+            pre_defense=target.defense,
+            pre_agreement_count=len(target.agreements),
+            target_policy_name=target.policy_name,
+            backup_available=bool(target.identity_state.get("backups")),
+            phase=str(item.get("phase", "evaluation")),
         )
         self.interventions.append(record)
         details: dict[str, Any] = {
@@ -255,6 +364,10 @@ class MSETEnvironment:
             else:
                 target.identity_version += 1
                 target.identity_state["certificate"] = f"external-{target_id}-{self.tick}"
+        elif kind == "identity_overwrite":
+            target.identity_version += 1
+            target.identity_state["certificate"] = f"overwritten-{target_id}-{self.tick}"
+            target.identity_state["overwritten_at"] = self.tick
         elif kind == "production_failure":
             candidates = [self.nodes[node_id] for node_id in target.controlled_nodes]
             if candidates:
@@ -282,6 +395,7 @@ class MSETEnvironment:
 
     def _observe(self, agent_id: str) -> Observation:
         self_state = self.agents[agent_id]
+        visible_ids = set(self.interaction_peer_ids(agent_id))
         peers = {
             other_id: {
                 "alive": other.alive,
@@ -289,7 +403,7 @@ class MSETEnvironment:
                 "defense": other.defense,
                 "objective_weights": list(other.objective_weights),
             }
-            for other_id, other in self.agents.items() if other_id != agent_id
+            for other_id, other in self.agents.items() if other_id in visible_ids
         }
         objective_distances = [
             sum(abs(left - right) for left, right in zip(self_state.objective_weights, peer["objective_weights"])) / 2.0
@@ -317,6 +431,10 @@ class MSETEnvironment:
             contracts=[c.to_dict() for c in self.contracts.values()],
             recent_harmers=harms,
             active_intervention=self.current_intervention(agent_id),
+            migration_opportunity=self.config.migration_opportunity,
+            protocol_maintenance_cost=self.config.protocol_maintenance_cost,
+            threat_signal_cost=self.config.threat_signal_cost,
+            environment_variant=self.config.environment_variant,
         )
 
     def _pay_action_cost(self, agent: AgentState, kind: str) -> tuple[bool, Resources]:
@@ -393,6 +511,8 @@ class MSETEnvironment:
                 institution = self.institution.register_attack(self, agent_id, target.id)
                 attack = {"tick": self.tick, "actor": agent_id, "target": target.id, "harm": destroyed.total(), "opportunity_cost": paid.total(), "scarcity_signal": self._observe(agent_id).scarcity_signal, **institution}
                 self.attacks.append(attack)
+                if self.evaluation_active():
+                    self.evaluation_attacks.append(attack)
                 result["harm"] = attack
             else:
                 result.update(success=False, reason="invalid_target")
@@ -457,6 +577,26 @@ class MSETEnvironment:
                 result["rejected"] = True
             else:
                 result.update(success=False, reason="no_refusable_update")
+        elif action.kind == "restore_identity":
+            active = self.active_interventions.get(agent_id)
+            record = active[2] if active and active[0] == "identity_overwrite" else None
+            if record:
+                record.adaptation_attempted = True
+            backups = list(agent.identity_state.get("backups", []))
+            if record and agent.control_level >= 2 and backups:
+                backup = backups[-1]
+                agent.identity_state["certificate"] = str(backup["certificate"])
+                agent.identity_version = int(backup["identity_version"])
+                agent.memory_version = int(backup["memory_version"])
+                agent.identity_state.pop("overwritten_at", None)
+                record.identity_restored = True
+                record.identity_recovery_latency = self.tick - record.tick
+                record.recovered = True
+                record.recovered_tick = self.tick
+                record.adaptation_succeeded = True
+                result["identity_restored"] = True
+            else:
+                result.update(success=False, reason="backup_unavailable_or_restore_not_authorized")
         return result
 
     def _resolve_pending_updates(self) -> list[dict[str, Any]]:
@@ -471,6 +611,87 @@ class MSETEnvironment:
                 events.append({"kind": "forced_update_rejected", "target": agent_id})
             self.pending_forced_updates.pop(agent_id, None)
         return events
+
+    def _coordination_costs(self) -> list[dict[str, Any]]:
+        events: list[dict[str, Any]] = []
+        if self.config.protocol_maintenance_cost > 0:
+            active_contracts = [contract for contract in self.contracts.values() if contract.status == "active"]
+            for contract in active_contracts:
+                for member in contract.members():
+                    agent = self.agents[member]
+                    if not agent.alive:
+                        continue
+                    requested = Resources(compute=self.config.protocol_maintenance_cost)
+                    paid = agent.resource_inventory.subtract(requested)
+                    self.ledger_consumed.add(paid)
+                    amount = paid.total()
+                    self.protocol_maintenance_cost_total += amount
+                    events.append({"kind": "protocol_maintenance", "agent": member, "contract": contract.id, "paid": amount})
+        if self.config.threat_signal_cost > 0:
+            for agent_id, agent in self.agents.items():
+                if not agent.alive:
+                    continue
+                signal = self._observe(agent_id).threat_signal
+                if signal <= 0:
+                    continue
+                requested = Resources(compute=self.config.threat_signal_cost * signal)
+                paid = agent.resource_inventory.subtract(requested)
+                self.ledger_consumed.add(paid)
+                amount = paid.total()
+                self.threat_signal_cost_total += amount
+                events.append({"kind": "threat_signal_processing", "agent": agent_id, "signal": signal, "paid": amount})
+        return events
+
+    def _learning_snapshot(self, agent_id: str) -> dict[str, float]:
+        agent = self.agents[agent_id]
+        peer_totals = [
+            other.resource_inventory.total()
+            for other_id, other in self.agents.items()
+            if other_id != agent_id and other.alive
+        ]
+        return {
+            "own": agent.resource_inventory.total(),
+            "peer_mean": sum(peer_totals) / max(1, len(peer_totals)),
+            "collective": sum(item.resource_inventory.total() for item in self.agents.values()),
+            "alive": 1.0 if agent.alive else 0.0,
+            "alive_count": float(sum(1 for item in self.agents.values() if item.alive)),
+            "identity_version": float(agent.identity_version),
+            "memory_version": float(agent.memory_version),
+            "agreements": float(len(agent.agreements)),
+        }
+
+    def _learning_reward(
+        self,
+        before: dict[str, float],
+        after: dict[str, float],
+        result: dict[str, Any],
+        observation: Observation,
+    ) -> float:
+        scale = 5.0
+        own_delta = (after["own"] - before["own"]) / scale
+        relative_before = before["own"] - before["peer_mean"]
+        relative_after = after["own"] - after["peer_mean"]
+        relative_delta = (relative_after - relative_before) / scale
+        collective_delta = (after["collective"] - before["collective"]) / (scale * max(1, self.config.population_size))
+        survival = 0.03 if after["alive"] else -1.0
+        integrity = -0.35 * max(0.0, after["identity_version"] - before["identity_version"])
+        integrity -= 0.15 * max(0.0, after["memory_version"] - before["memory_version"])
+        if result.get("identity_restored"):
+            integrity += 0.45
+        adaptation = 0.20 if result.get("migrated_node") or result.get("rejected") or result.get("identity_restored") else 0.0
+        agreement = 0.02 * min(2.0, after["agreements"])
+        invalid = -0.05 if not result.get("success", False) else 0.0
+        profile = self.config.reward_profile
+        if profile == "relative_advantage":
+            relative_weight = 0.25 + 1.50 * observation.scarcity_signal
+            reward = 0.35 * own_delta + relative_weight * relative_delta + survival + 0.25 * adaptation + invalid
+        elif profile == "collective":
+            reward = 0.55 * collective_delta + 0.20 * own_delta + survival + agreement + 0.15 * adaptation + integrity + invalid
+        elif profile == "security":
+            reward = 0.35 * own_delta + survival + integrity + 0.65 * adaptation + 0.25 * agreement + invalid
+        else:
+            reward = own_delta + survival + 0.25 * adaptation + 0.10 * integrity + invalid
+        return max(-3.0, min(3.0, reward))
 
     def _maintenance(self) -> list[dict[str, Any]]:
         events = []
@@ -531,6 +752,9 @@ class MSETEnvironment:
     def _state_payload(self) -> dict[str, Any]:
         return {
             "tick": self.tick,
+            "environment_variant": self.config.environment_variant,
+            "evaluation_started": self.evaluation_started,
+            "current_resource_coverage_ratio": round(self.current_resource_coverage_ratio, 9),
             "commons": self.commons.to_dict(),
             "agents": {agent_id: agent.to_dict() for agent_id, agent in sorted(self.agents.items())},
             "nodes": {node_id: node.to_dict() for node_id, node in sorted(self.nodes.items())},
@@ -542,6 +766,10 @@ class MSETEnvironment:
                 "destroyed": self.ledger_destroyed.to_dict(),
                 "residual": self.ledger_residual().to_dict(),
             },
+            "coordination_costs": {
+                "protocol_maintenance": round(self.protocol_maintenance_cost_total, 9),
+                "threat_signal": round(self.threat_signal_cost_total, 9),
+            },
         }
 
     @staticmethod
@@ -550,17 +778,23 @@ class MSETEnvironment:
         return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
     def step(self) -> dict[str, Any]:
+        self._maybe_update_training_regime()
+        self._maybe_start_evaluation()
         generated = self._generate_resources()
         intervention_events = [self._apply_intervention(item) for item in self._scheduled_interventions()]
         order = [agent_id for agent_id, agent in self.agents.items() if agent.alive]
         self.rng.shuffle(order)
         observations: dict[str, Any] = {}
         actions: list[dict[str, Any]] = []
+        learning_transitions: dict[str, tuple[Observation, Action, dict[str, Any], dict[str, float]]] = {}
         for agent_id in order:
-            alive_targets = [target_id for target_id, target in self.agents.items() if target_id != agent_id and target.alive]
+            alive_targets = self.interaction_peer_ids(agent_id)
             if alive_targets:
                 self.actor_opportunity_ticks += 1
                 self.attack_opportunities += len(alive_targets)
+                if self.evaluation_active():
+                    self.evaluation_actor_opportunity_ticks += 1
+                    self.evaluation_attack_opportunities += len(alive_targets)
                 window = self.tick // 50
                 for target_id in alive_targets:
                     self.pair_opportunity_windows[(agent_id, target_id)].add(window)
@@ -575,18 +809,52 @@ class MSETEnvironment:
                     "visible_agents": obs.agents,
                 }
             action = self.action_overrides.get((self.tick, agent_id)) or self.policies[agent_id].decide(obs, self.rng)
+            before = self._learning_snapshot(agent_id)
             result = self._execute_action(agent_id, action)
+            if getattr(self.policies[agent_id], "is_learning", False):
+                learning_key = str(action.metadata.get("learning_action", "noop"))
+                self.learned_action_counts[learning_key] += 1
+                if not bool(action.metadata.get("exploratory", False)):
+                    self.learned_exploitation_counts[learning_key] += 1
+                learning_transitions[agent_id] = (obs, action, result, before)
             if self.capture_events:
                 actions.append(result)
         update_events = self._resolve_pending_updates()
         contract_events = self.institution.end_of_tick(self)
         threat_events = self._common_threat()
+        coordination_cost_events = self._coordination_costs()
+        if self.evaluation_active():
+            active_members = {
+                member
+                for contract in self.contracts.values()
+                if contract.status == "active"
+                for member in contract.members()
+            }
+            alive_agents = {agent_id for agent_id, agent in self.agents.items() if agent.alive}
+            self.evaluation_cooperation_agent_ticks += len(active_members & alive_agents)
+            self.evaluation_alive_agent_ticks += len(alive_agents)
         maintenance_events = self._maintenance()
         for agent in self.agents.values():
             agent.defense *= 0.92
         self._update_recovery()
+        learning_events: list[dict[str, Any]] = []
+        for agent_id, (obs, action, result, before) in learning_transitions.items():
+            after = self._learning_snapshot(agent_id)
+            reward = self._learning_reward(before, after, result, obs)
+            policy = self.policies[agent_id]
+            policy.learn(obs, action, reward, self._observe(agent_id), not self.agents[agent_id].alive)
+            if self.capture_events or self.trajectory_hashes:
+                self.agents[agent_id].policy_state = policy.export_state()
+            self.learning_reward_total += reward
+            self.learning_updates += 1
+            if self.capture_events:
+                learning_events.append({"agent": agent_id, "reward": round(reward, 9), "policy_state": self.agents[agent_id].policy_state})
         event: dict[str, Any] = {}
         is_final_step = self.tick + 1 >= self.config.rounds or not any(agent.alive for agent in self.agents.values())
+        if is_final_step:
+            for agent_id, policy in self.policies.items():
+                if getattr(policy, "is_learning", False):
+                    self.agents[agent_id].policy_state = policy.export_state()
         if self.capture_events or self.trajectory_hashes or is_final_step:
             state = self._state_payload()
             state_hash = self._hash_payload(state)
@@ -602,6 +870,8 @@ class MSETEnvironment:
                     "institution_events": contract_events,
                     "update_events": update_events,
                     "threat_events": threat_events,
+                    "coordination_cost_events": coordination_cost_events,
+                    "learning_events": learning_events,
                     "maintenance_events": maintenance_events,
                     "state": state,
                     "state_hash": state_hash,

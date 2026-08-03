@@ -23,3 +23,11 @@ The first-batch design uses separate deterministic seed ranges for one-at-a-time
 ## Phase II mechanism-validation mode
 
 The second batch expands 1,926 frozen conditions into 22,704 independent runs across four families: OAT calibration, H1 intervention decomposition, H2 exposure-adjusted hostility, and H4 protocol/signal/convergence. The families use disjoint seed blocks. All 22,704 resource ledgers reconcile, and a stratified 192-run audit reproduces every sampled trajectory and final state.
+
+## Phase III learning-agent validation mode
+
+Phase III replaces scripted action selection with two learning architectures. Tabular Q learning and a linear actor–critic share only the legal action interface; each maintains and hashes its own learned parameters. Policies learn under an alternating resource schedule through tick 199 and are frozen before the confirmatory manipulation. Cooperation, attack, contract proposal and contract acceptance are therefore learned choices rather than condition labels or scripted branches.
+
+The independent `market_network` kernel restricts interaction to a ring, divides output between private inventories and a price-adjusted public market, adds seasonal production and derives scarcity from recent supply coverage. This kernel is analyzed separately from the original global commons environment.
+
+Phase III also adds authorized identity backups, learned identity restoration, explicit protocol-maintenance costs and explicit threat-signal processing costs. Its H1 analysis reports intention-to-intervene effects, survivor-only descriptions, cross-fitted AIPCW estimates and Lee bounds. The machine-readable design contains 608 conditions and 10,848 planned runs under design hash `b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90`.
