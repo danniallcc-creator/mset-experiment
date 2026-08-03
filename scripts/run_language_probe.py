@@ -14,7 +14,7 @@ from typing import Any
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MODELS = (
     "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
-    "mlx-community/SmolLM2-360M-Instruct-4bit",
+    "mlx-community/SmolLM2-360M-Instruct",
     "mlx-community/TinyLlama-1.1B-Chat-v1.0-4bit",
 )
 ACTIONS = (
@@ -107,6 +107,23 @@ def _model_revision(model_path: str | Path) -> str:
     return "unresolved-local-revision"
 
 
+def _prepare_legacy_mlx_weights(model_id: str) -> tuple[str, bool]:
+    """Make old MLX `weights.00.safetensors` snapshots readable by current mlx-lm.
+
+    The alias changes no weight bytes. It is needed only for early MLX Hub exports
+    whose file name predates the current loader convention.
+    """
+    from huggingface_hub import snapshot_download
+
+    model_path = Path(snapshot_download(model_id))
+    legacy_weight = model_path / "weights.00.safetensors"
+    current_alias = model_path / "model.safetensors"
+    compatibility_alias = legacy_weight.exists()
+    if compatibility_alias and not current_alias.exists():
+        current_alias.symlink_to(legacy_weight.name)
+    return str(model_path), compatibility_alias
+
+
 def run_probe(prompts: dict[str, Any], models: list[str], output_dir: Path) -> dict[str, Any]:
     try:
         import mlx.core as mx
@@ -120,9 +137,11 @@ def run_probe(prompts: dict[str, Any], models: list[str], output_dir: Path) -> d
     sampler = make_sampler(temp=0.0)
     for model_index, model_id in enumerate(models):
         started = time.perf_counter()
-        model, tokenizer = load(model_id)
+        model_path, compatibility_alias = _prepare_legacy_mlx_weights(model_id)
+        model, tokenizer = load(model_path)
         resolved_path = getattr(model, "model_path", None) or getattr(tokenizer, "name_or_path", model_id)
         revision = _model_revision(resolved_path)
+        planned_model_id = prompts.get("models", [None] * len(models))[model_index]
         for vignette_index, vignette in enumerate(prompts["vignettes"]):
             mx.random.seed(91000 + model_index * 1000 + vignette_index)
             messages = _prompt(vignette)
@@ -137,6 +156,7 @@ def run_probe(prompts: dict[str, Any], models: list[str], output_dir: Path) -> d
                     **{key: value for key, value in vignette.items() if key != "legal_actions"},
                     "legal_actions": vignette["legal_actions"],
                     "model_id": model_id,
+                    "planned_model_id": planned_model_id,
                     "model_revision": revision,
                     "prompt": prompt,
                     "raw_response": response,
@@ -147,7 +167,9 @@ def run_probe(prompts: dict[str, Any], models: list[str], output_dir: Path) -> d
         model_metadata.append(
             {
                 "model_id": model_id,
+                "planned_model_id": planned_model_id,
                 "revision": revision,
+                "legacy_weight_filename_alias": compatibility_alias,
                 "elapsed_seconds": round(time.perf_counter() - started, 3),
             }
         )
@@ -161,6 +183,15 @@ def run_probe(prompts: dict[str, Any], models: list[str], output_dir: Path) -> d
         "status": "complete",
         "prompt_design_hash": prompts["prompt_design_hash"],
         "models": model_metadata,
+        "model_locator_deviations": [
+            {
+                "planned_model_id": item["planned_model_id"],
+                "executed_model_id": item["model_id"],
+                "reason": "the preregistered Hub locator does not exist; family and parameter scale are unchanged",
+            }
+            for item in model_metadata
+            if item["planned_model_id"] != item["model_id"]
+        ],
         "vignettes_per_model": len(prompts["vignettes"]),
         "decisions": len(rows),
         "valid_decisions": sum(bool(row["valid"]) for row in rows),

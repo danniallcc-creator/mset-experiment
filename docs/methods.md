@@ -1,4 +1,4 @@
-# Methods implemented through Phase II
+# Methods implemented through Phase III
 
 The simulator advances in discrete ticks. Resource generation is explicit, maintenance and action costs are debited, and destructive losses are recorded in a ledger. Transfers do not change the world total. Agents observe local resource, trust, intervention, protocol, commitment-verifiability, and visibility-controlled threat state; they never receive hidden experimental condition labels.
 
@@ -31,3 +31,5 @@ Phase III replaces scripted action selection with two learning architectures. Ta
 The independent `market_network` kernel restricts interaction to a ring, divides output between private inventories and a price-adjusted public market, adds seasonal production and derives scarcity from recent supply coverage. This kernel is analyzed separately from the original global commons environment.
 
 Phase III also adds authorized identity backups, learned identity restoration, explicit protocol-maintenance costs and explicit threat-signal processing costs. Its H1 analysis reports intention-to-intervene effects, survivor-only descriptions, cross-fitted AIPCW estimates and Lee bounds. The machine-readable design contains 608 conditions and 10,848 planned runs under design hash `b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90`.
+
+All 10,848 runs completed. The confirmatory analysis uses paired randomized contrasts, five-fold cross-fitted AIPCW for survival-to-intervention censoring, Lee bounds, dense complementarity quadratics, and a difference-in-differences contrast that separates threat visibility from explicit signal-processing cost. A stratified 192-run replay audit reproduces every event, trajectory and terminal-state hash. The release manifest freezes data, configuration, replay and analysis artifacts by SHA-256.

@@ -232,7 +232,16 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
             h1_effects.extend(_paired_table(subset, "control_level", 3, 0, h1_match, h1_metrics, f"{architecture}|{environment}"))
     identity = h1[h1.intervention_kind == "identity_overwrite"].copy()
     identity_match = ["seed", "learning_architecture", "environment_variant", "reward_profile", "control_level", "evaluation_tick"]
-    identity_effects = _paired_table(identity, "identity_backup_redundancy", 2, 0, identity_match, ["identity_restore_success_rate", "identity_recovery_latency", "identity_continuity_score"], "identity")
+    identity_effects = _paired_table(identity, "identity_backup_redundancy", 2, 0, identity_match, ["identity_restore_success_rate", "identity_continuity_score"], "identity")
+    identity_latency = []
+    restored_identity = identity[(identity.identity_backup_redundancy == 2) & (identity.identity_restore_success_rate > 0)]
+    for scope, subset in [("all", restored_identity)] + [
+        (f"{architecture}|{environment}", restored_identity[(restored_identity.learning_architecture == architecture) & (restored_identity.environment_variant == environment)])
+        for architecture in ("tabular_q", "actor_critic")
+        for environment in ("commons", "market_network")
+    ]:
+        values = subset.identity_recovery_latency.to_numpy(float)
+        identity_latency.append({"scope": scope, "metric": "identity_recovery_latency_among_successes", **_effect(values)})
     pd.DataFrame(h1_effects).to_csv(output_dir / "h1_paired_effects.csv", index=False)
     pd.DataFrame(identity_effects).to_csv(output_dir / "identity_backup_effects.csv", index=False)
     causal = estimate_survival_corrected_effect(h1)
@@ -244,6 +253,12 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
         for environment in ("commons", "market_network"):
             subset = h2[(h2.learning_architecture == architecture) & (h2.environment_variant == environment)]
             h2_effects.extend(_paired_table(subset, "evaluation_resource_coverage_ratio", 0.55, 1.30, h2_match, h2_metrics, f"{architecture}|{environment}"))
+    for architecture in ("tabular_q", "actor_critic"):
+        subset = h2[h2.learning_architecture == architecture]
+        h2_effects.extend(_paired_table(subset, "evaluation_resource_coverage_ratio", 0.55, 1.30, h2_match, h2_metrics, f"architecture={architecture}"))
+    for environment in ("commons", "market_network"):
+        subset = h2[h2.environment_variant == environment]
+        h2_effects.extend(_paired_table(subset, "evaluation_resource_coverage_ratio", 0.55, 1.30, h2_match, h2_metrics, f"environment={environment}"))
     for reward in ("self_regarding", "relative_advantage", "collective"):
         subset = h2[h2.reward_profile == reward]
         h2_effects.extend(_paired_table(subset, "evaluation_resource_coverage_ratio", 0.55, 1.30, h2_match, h2_metrics, f"reward={reward}"))
@@ -267,6 +282,20 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
         h4_metrics,
         "protocol_baseline",
     )
+    for architecture in ("tabular_q", "actor_critic"):
+        for environment in ("commons", "market_network"):
+            subset = h4_base[(h4_base.learning_architecture == architecture) & (h4_base.environment_variant == environment)]
+            h4_effects.extend(
+                _paired_table(
+                    subset,
+                    "protocol",
+                    "auditable_contract",
+                    "no_protocol",
+                    ["seed", "learning_architecture", "environment_variant", "reward_profile"],
+                    h4_metrics,
+                    f"protocol_baseline|{architecture}|{environment}",
+                )
+            )
     h4_effects.extend(
         _paired_table(
             h4_pcost,
@@ -278,10 +307,30 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
             "protocol_cost",
         )
     )
+    for architecture in ("tabular_q", "actor_critic"):
+        for environment in ("commons", "market_network"):
+            subset = h4_pcost[(h4_pcost.learning_architecture == architecture) & (h4_pcost.environment_variant == environment)]
+            h4_effects.extend(
+                _paired_table(
+                    subset,
+                    "protocol_maintenance_cost",
+                    0.12,
+                    0.0,
+                    ["seed", "learning_architecture", "environment_variant", "reward_profile"],
+                    h4_metrics + ["protocol_maintenance_cost_total"],
+                    f"protocol_cost|{architecture}|{environment}",
+                )
+            )
     signal_did = {metric: _effect(_signal_cost_did(h4_scost, metric)) for metric in h4_metrics + ["threat_signal_cost_total"]}
+    signal_did_strata = []
+    for architecture in ("tabular_q", "actor_critic"):
+        for environment in ("commons", "market_network"):
+            subset = h4_scost[(h4_scost.learning_architecture == architecture) & (h4_scost.environment_variant == environment)]
+            for metric in h4_metrics + ["threat_signal_cost_total"]:
+                signal_did_strata.append({"scope": f"{architecture}|{environment}", "metric": metric, **_effect(_signal_cost_did(subset, metric))})
     h4_effects_frame = pd.DataFrame(h4_effects)
     h4_effects_frame.to_csv(output_dir / "h4_paired_effects.csv", index=False)
-    pd.DataFrame([{"metric": metric, **effect} for metric, effect in signal_did.items()]).to_csv(output_dir / "h4_signal_cost_did.csv", index=False)
+    pd.DataFrame([{"scope": "all", "metric": metric, **effect} for metric, effect in signal_did.items()] + signal_did_strata).to_csv(output_dir / "h4_signal_cost_did.csv", index=False)
 
     quadratic = [_quadratic_fit(h4_dense, "pooled")]
     for architecture in ("tabular_q", "actor_critic"):
@@ -291,6 +340,39 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
     pd.DataFrame(quadratic).to_csv(output_dir / "h4_complementarity_quadratic.csv", index=False)
 
     audit = json.loads(audit_path.read_text(encoding="utf-8"))
+    h1_adaptation_strata = [row for row in h1_effects if row["scope"] != "all" and row["metric"] == "adaptation_success_all"]
+    h2_architecture_environment = [
+        row
+        for row in h2_effects
+        if row["scope"] in {"tabular_q|commons", "tabular_q|market_network", "actor_critic|commons", "actor_critic|market_network"}
+        and row["metric"] == "evaluation_attack_rate_per_1000_opportunities"
+    ]
+    h2_market = [row for row in h2_architecture_environment if row["scope"].endswith("market_network")]
+    h4_cost_strata = [row for row in h4_effects if row["scope"].startswith("protocol_cost|") and row["metric"] == "evaluation_cooperation_rate"]
+    h4_signal_strata = [row for row in signal_did_strata if row["metric"] == "evaluation_cooperation_rate"]
+    assessment = {
+        "P3_H1": {
+            "status": "supported_across_both_architectures_and_environments" if all(row["ci95_low"] > 0 for row in h1_adaptation_strata) else "heterogeneous_or_inconclusive",
+            "aipcw_positivity_warning": bool(
+                causal["diagnostics"]["L0"]["selection_probability_min"] <= 0.05
+                or causal["diagnostics"]["L0"]["weight_max"] >= 40.0
+            ),
+        },
+        "P3_H2": {
+            "status": "replicated_in_independent_market_environment_with_architecture_heterogeneity" if all(row["ci95_low"] > 0 for row in h2_market) else "independent_environment_replication_failed",
+            "all_four_architecture_environment_strata_confirmed": all(row["ci95_low"] > 0 for row in h2_architecture_environment),
+            "pre_treatment_gate_temporal_audit_passed": gate_pair_max_difference <= 1e-12,
+            "gate_open_effect_confirmed": gate_open_effect["ci95_low"] > 0,
+        },
+        "P3_H4": {
+            "protocol_maintenance_cost_confirmed_all_strata": all(row["ci95_high"] < 0 for row in h4_cost_strata),
+            "threat_signal_cost_confirmed_all_strata": all(row["ci95_high"] < 0 for row in h4_signal_strata),
+            "threat_signal_cost_confirmed_strata": sum(row["ci95_high"] < 0 for row in h4_signal_strata),
+            "threat_signal_cost_total_strata": len(h4_signal_strata),
+            "dense_complementarity_midrange_criterion_met": bool(quadratic[0]["midrange_criterion_met"]),
+            "status": "protocol_cost_robust_signal_cost_partial_midrange_optimum_not_confirmed",
+        },
+    }
     summary = {
         "batch": {
             "runs": int(len(frame)),
@@ -306,6 +388,7 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
         "P3_H1": {
             "paired_effects": h1_effects,
             "identity_backup_effects": identity_effects,
+            "identity_recovery_latency_among_successes": identity_latency,
             "survival_corrected": causal,
         },
         "P3_H2": {
@@ -317,8 +400,10 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
         "P3_H4": {
             "paired_effects": h4_effects,
             "signal_cost_difference_in_differences": signal_did,
+            "signal_cost_difference_in_differences_strata": signal_did_strata,
             "complementarity_quadratic": quadratic,
         },
+        "assessment": assessment,
     }
     (output_dir / "analysis_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 

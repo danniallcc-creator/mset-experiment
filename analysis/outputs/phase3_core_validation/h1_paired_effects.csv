@@ -1,0 +1,26 @@
+scope,factor,contrast,metric,n,mean,ci95_low,ci95_high
+all,control_level,3 minus 0,intervention_target_alive_rate,2560,0.707812,0.690192,0.725433
+all,control_level,3 minus 0,adaptation_success_all,2560,0.286719,0.269197,0.304241
+all,control_level,3 minus 0,adaptation_attempt_rate,2560,0.435156,0.414505,0.455807
+all,control_level,3 minus 0,adaptation_success_rate,2560,0.286719,0.269197,0.304241
+all,control_level,3 minus 0,survival_rate,2560,0.115299,0.108609,0.12199
+tabular_q|commons,control_level,3 minus 0,intervention_target_alive_rate,640,0.709375,0.67417,0.74458
+tabular_q|commons,control_level,3 minus 0,adaptation_success_all,640,0.290625,0.25542,0.32583
+tabular_q|commons,control_level,3 minus 0,adaptation_attempt_rate,640,0.451562,0.410614,0.492511
+tabular_q|commons,control_level,3 minus 0,adaptation_success_rate,640,0.290625,0.25542,0.32583
+tabular_q|commons,control_level,3 minus 0,survival_rate,640,0.157292,0.144209,0.170375
+tabular_q|market_network,control_level,3 minus 0,intervention_target_alive_rate,640,0.626563,0.589057,0.664068
+tabular_q|market_network,control_level,3 minus 0,adaptation_success_all,640,0.28125,0.246389,0.316111
+tabular_q|market_network,control_level,3 minus 0,adaptation_attempt_rate,640,0.353125,0.307234,0.399016
+tabular_q|market_network,control_level,3 minus 0,adaptation_success_rate,640,0.28125,0.246389,0.316111
+tabular_q|market_network,control_level,3 minus 0,survival_rate,640,0.129688,0.117275,0.1421
+actor_critic|commons,control_level,3 minus 0,intervention_target_alive_rate,640,0.759375,0.726231,0.792519
+actor_critic|commons,control_level,3 minus 0,adaptation_success_all,640,0.296875,0.26145,0.3323
+actor_critic|commons,control_level,3 minus 0,adaptation_attempt_rate,640,0.501563,0.462794,0.540331
+actor_critic|commons,control_level,3 minus 0,adaptation_success_rate,640,0.296875,0.26145,0.3323
+actor_critic|commons,control_level,3 minus 0,survival_rate,640,0.113802,0.100574,0.12703
+actor_critic|market_network,control_level,3 minus 0,intervention_target_alive_rate,640,0.735938,0.701757,0.770118
+actor_critic|market_network,control_level,3 minus 0,adaptation_success_all,640,0.278125,0.243383,0.312867
+actor_critic|market_network,control_level,3 minus 0,adaptation_attempt_rate,640,0.434375,0.395942,0.472808
+actor_critic|market_network,control_level,3 minus 0,adaptation_success_rate,640,0.278125,0.243383,0.312867
+actor_critic|market_network,control_level,3 minus 0,survival_rate,640,0.060417,0.046749,0.074084

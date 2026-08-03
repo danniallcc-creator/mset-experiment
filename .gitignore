@@ -14,3 +14,5 @@ docs/data/*.json
 !docs/data/smoke_summary.json
 !docs/data/phase1_first_batch_summary.json
 !docs/data/phase2_second_batch_summary.json
+!docs/data/phase3_core_validation_summary.json
+!docs/data/phase3_language_probe_analysis.json

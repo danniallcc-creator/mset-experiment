@@ -1,0 +1,3 @@
+scope,factor,contrast,metric,n,mean,ci95_low,ci95_high
+identity,identity_backup_redundancy,2 minus 0,identity_restore_success_rate,512,0.363281,0.321581,0.404982
+identity,identity_backup_redundancy,2 minus 0,identity_continuity_score,512,0.063244,0.057342,0.069147

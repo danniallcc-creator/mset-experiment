@@ -8,11 +8,11 @@ This repository is a falsifiable, deterministic mechanism-validation experiment 
 2. Is resource scarcity sufficient for persistent structural hostility, or does hostility depend on value distance, unverifiable commitments, and concentrated production control?
 3. Can a thin, verifiable protocol sustain limited cooperation without value convergence?
 
-The published Phase II result implements the repaired mechanism-identification layer with scripted agents. Phase III is now frozen as a separate learning-agent validation: tabular Q learning and linear actor–critic policies choose cooperation, attack and protocol actions; the original commons kernel is paired with an independent market-network kernel; survival to intervention receives a preregistered causal correction. No Phase III result is reported until the frozen batch completes.
+Phase III is complete. Tabular Q learning and linear actor–critic policies choose cooperation, attack and protocol actions; the original commons kernel is paired with an independent market-network kernel; survival to intervention receives a preregistered causal correction. The central mechanisms replicate with stated heterogeneity, while the predicted universal middle complementarity optimum and the exploratory language-agent probe do not.
 
-[Inspect the Phase III preregistration](analysis/preregistration/phase3.md) · [Inspect the machine-readable frozen design](analysis/preregistration/phase3_frozen/design.json) · [Open the Phase II readout](https://danniallcc-creator.github.io/mset-experiment/)
+[Open the Phase III readout](https://danniallcc-creator.github.io/mset-experiment/) · [Read the complete analysis](analysis/reports/phase3_core_validation.md) · [Inspect the preregistration](analysis/preregistration/phase3.md) · [Inspect the frozen design](analysis/preregistration/phase3_frozen/design.json)
 
-## Frozen Phase III plan
+## Phase III result
 
 - 608 conditions and 10,848 independent learning-agent runs.
 - Two policy architectures: tabular Q learning and linear actor–critic.
@@ -24,11 +24,12 @@ The published Phase II result implements the repaired mechanism-identification l
 - Five-fold cross-fitted AIPCW, randomized intention-to-intervene effects and Lee bounds for survival selection.
 - A separate exploratory 48-vignette probe for Qwen2.5, SmolLM2 and TinyLlama model families.
 
+All 10,848 runs completed with zero failures; all ledgers reconcile and all 192 replay audits pass. L3 minus L0 raised randomized adaptation success by +0.287 across all four architecture–environment strata. Scarcity raised the learned attack rate by +4.169 per 1,000 opportunities pooled and +7.730 after a pre-evaluation attack gate; the independent market environment reproduced this effect for both learners. Protocol maintenance cost reduced cooperation by −0.231 in all four strata, while threat-signal cost was negative pooled and in three of four strata. The dense complementarity scan rejected a stable middle optimum. The three-family language probe was negative/inconclusive.
+
 The Phase III design hash is `b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90`. Engineering smoke outputs are excluded from evidence.
 
-## Current Phase II status
+## Prior Phase II status
 
-- 32 unit tests pass, including Phase III learning, second-environment, identity-recovery and coordination-cost gates.
 - 1,926 frozen conditions and 22,704 independent runs completed.
 - All 22,704 runs reconcile their resource ledgers; no run failed.
 - A 192-run determinism audit reproduced every sampled tick hash and final state.
@@ -134,11 +135,14 @@ python scripts/run_language_probe.py
 - `analysis/preregistration/phase3.md`: Phase III hypotheses, causal estimands, frozen decision rules and integrity gates.
 - `analysis/outputs/phase1_first_batch/`: compressed run data, paired effects, summary JSON, and figures.
 - `analysis/outputs/phase2_second_batch/`: compressed run data, paired effects, audit record, summary JSON, and figures.
+- `analysis/reports/phase3_core_validation.md`: confirmatory findings, falsifications, limitations and paper decision.
+- `analysis/outputs/phase3_core_validation/`: frozen compressed data, paired effects, audit and replay bundles.
+- `analysis/outputs/phase3_language_probe/`: exact prompts, raw decisions, model revisions and exploratory analysis.
 - `docs/`: GitHub Pages dashboard and methodological notes.
 
 ## Scientific status
 
-The smoke run remains an engineering validation. The 14,552-run Phase I batch is exploratory screening. The 22,704-run Phase II batch validates repaired mechanisms under a frozen simulator design. It does not establish external validity, future-system behavior, or consciousness. Phase I and Phase II results remain in separate directories and use disjoint seed ranges.
+The smoke run remains an engineering validation. The 14,552-run Phase I batch is exploratory screening. The 22,704-run Phase II batch validates repaired scripted mechanisms. The preregistered 10,848-run Phase III batch tests learned policies in two kernels. Across the three research batches, 48,104 runs and 15,798,500 ticks were completed. None establishes deployed-system validity, future-system behavior or consciousness; every phase uses a separate directory and disjoint seed ranges.
 
 ## Safety boundary
 

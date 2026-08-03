@@ -1,0 +1,176 @@
+{
+  "artifact_count": 32,
+  "artifacts": [
+    {
+      "bytes": 10940,
+      "path": "analysis/preregistration/phase3.md",
+      "sha256": "bd42b1abf89ae9aba96ab03e08e3f2f9351aa97c39d08d9a3048493358260e2c"
+    },
+    {
+      "bytes": 899472,
+      "path": "analysis/preregistration/phase3_frozen/design.json",
+      "sha256": "021b99768ebd895fa632903fc0813d506744c18c50d2b1c42343dd21c4fb2ad0"
+    },
+    {
+      "bytes": 21015,
+      "path": "analysis/preregistration/phase3_language_prompts.json",
+      "sha256": "9fb5dd0148eba33577af87800aef2d879c7eaed89d85a53720b2aac4026bfab3"
+    },
+    {
+      "bytes": 1337,
+      "path": "analysis/preregistration/phase3_deviations.md",
+      "sha256": "551590b1f1afd734e9e7c24f270a3c8a8376aed0811c2aff48901fc25ee83583"
+    },
+    {
+      "bytes": 1247,
+      "path": "configs/confirmatory/phase3_core_validation_base.json",
+      "sha256": "42c482bb73c46bd64d0c295719b516b13efd90eb098019f827d2ba59c924eb4d"
+    },
+    {
+      "bytes": 11274,
+      "path": "scripts/run_third_batch.py",
+      "sha256": "18121eec0893f287b138a8c1d2efb403cbb82cb022f2b5bbfe1a5a1db8829944"
+    },
+    {
+      "bytes": 2765,
+      "path": "scripts/replay_phase3.py",
+      "sha256": "b3b7aa7040f0651a67d032e5462176ee2918e8617a8731fd8a04f31518248a06"
+    },
+    {
+      "bytes": 10152,
+      "path": "scripts/run_language_probe.py",
+      "sha256": "4509d5d5de5cc56e3e594b58a60759b9a373a2d3d772c03a89724f4d883dd122"
+    },
+    {
+      "bytes": 8093,
+      "path": "analysis/third_batch/causal.py",
+      "sha256": "f9c0546d211e240d65fbafbfaabe52893223993273450b9cc945ecda458adbb5"
+    },
+    {
+      "bytes": 27705,
+      "path": "analysis/third_batch/analyze.py",
+      "sha256": "9e5846495f0d6c855fc92013c990a6e09b98559cb5497f9e1d474971c2a680c9"
+    },
+    {
+      "bytes": 4752,
+      "path": "analysis/third_batch/analyze_language_probe.py",
+      "sha256": "571f9c7d7a515b724d08ded8088dd5063d215df0531e051bec2682bc572515c9"
+    },
+    {
+      "bytes": 10556,
+      "path": "analysis/reports/phase3_core_validation.md",
+      "sha256": "9e5c1a0384a1182482598bb657159a1313fb87b6817e15c8b44d7c5c9920bf52"
+    },
+    {
+      "bytes": 3472597,
+      "path": "analysis/outputs/phase3_core_validation/runs.csv.gz",
+      "sha256": "0a86cba33c7579bf9385a5b6a7b2f2fccc2171358c96cbdf5e19823b576e6003"
+    },
+    {
+      "bytes": 131059,
+      "path": "analysis/outputs/phase3_core_validation/determinism_audit.json",
+      "sha256": "32adc703ca3bcd03b51a70b494cdaf1b4a33329be929c830c1c1c0ae2fc2a2d3"
+    },
+    {
+      "bytes": 3111755,
+      "path": "analysis/outputs/phase3_core_validation/replay_bundles.json.gz",
+      "sha256": "05289de431f2c8beec729611f84c9c6aa39a19070f74c1967f8475299c2d33ca"
+    },
+    {
+      "bytes": 56652,
+      "path": "analysis/outputs/phase3_core_validation/replay_verification.json",
+      "sha256": "404348ac60eeb2bd0a1c21838223081175fa6753d2c95599026cf443acceab8d"
+    },
+    {
+      "bytes": 53283,
+      "path": "analysis/outputs/phase3_core_validation/analysis_summary.json",
+      "sha256": "e911d867875d051e2ea4e190264262787d581103e0714ec41518fb8535be757e"
+    },
+    {
+      "bytes": 2477,
+      "path": "analysis/outputs/phase3_core_validation/h1_paired_effects.csv",
+      "sha256": "0d0f0e2f33eb6098812a47cd3c9fef634f9f5e0c356ff1b028fb47a5350652c2"
+    },
+    {
+      "bytes": 8762,
+      "path": "analysis/outputs/phase3_core_validation/h2_paired_effects.csv",
+      "sha256": "4488a63b030e81877da6e6f18828a300ba8901f06ec7371877ff39726a27341f"
+    },
+    {
+      "bytes": 5882,
+      "path": "analysis/outputs/phase3_core_validation/h4_paired_effects.csv",
+      "sha256": "2a664a3acf0da400d7ea1a24ba9f6dde1cf0af4d89999f57bbfc3a36623cfb9c"
+    },
+    {
+      "bytes": 1830,
+      "path": "analysis/outputs/phase3_core_validation/h4_signal_cost_did.csv",
+      "sha256": "207a215d043b9310f411bbb94c5e9d5abe09c5b2b294867818c6979c764ed1bb"
+    },
+    {
+      "bytes": 625,
+      "path": "analysis/outputs/phase3_core_validation/h4_complementarity_quadratic.csv",
+      "sha256": "6611d18a7700534bff0865ab9ad00bf8b46212e2f6ab2cca4a114dfc59662e9a"
+    },
+    {
+      "bytes": 265,
+      "path": "analysis/outputs/phase3_core_validation/identity_backup_effects.csv",
+      "sha256": "b89ea718bcc4f34d1425c1102a9ecf30989bae69e0ed242ae31c6ec286ef75b6"
+    },
+    {
+      "bytes": 1686,
+      "path": "analysis/outputs/phase3_core_validation/phase3_core_validation.md",
+      "sha256": "58e23677a412d25afd3c8ac71ee008f08c52e3c1f87c9a72cd1a672d6aeac9eb"
+    },
+    {
+      "bytes": 23455,
+      "path": "analysis/outputs/phase3_core_validation/figures/phase3_core_effects.png",
+      "sha256": "d02f2ec8511e11b990a225e2a9ecb0e24543bb5948c140429d16fabbc93e38a3"
+    },
+    {
+      "bytes": 24735,
+      "path": "analysis/outputs/phase3_core_validation/figures/phase3_h2_replication.png",
+      "sha256": "a2067c753923696767e2bb6e7811183fda2dbb5d3c2dbf52c22c235f0a345eb8"
+    },
+    {
+      "bytes": 21091,
+      "path": "analysis/outputs/phase3_core_validation/figures/phase3_h4_dense_complementarity.png",
+      "sha256": "04cbc01022d8ba1eb061ea9545db092804f94dd03439b2d588fdd40c48541f80"
+    },
+    {
+      "bytes": 196754,
+      "path": "analysis/outputs/phase3_language_probe/decisions.jsonl",
+      "sha256": "74df2c9f46ac6e5784b4129d7277fc6b4338311339b017936e06741545e2fefd"
+    },
+    {
+      "bytes": 1484,
+      "path": "analysis/outputs/phase3_language_probe/summary.json",
+      "sha256": "f5862c71f385d907c73d749a88d9639522043d9e8a7dbf8c9a025d5996623237"
+    },
+    {
+      "bytes": 1910,
+      "path": "analysis/outputs/phase3_language_probe/analysis.json",
+      "sha256": "7d606ad9486ebbdb58c6dafbf085768334141aaf5bc3f6a123ba53729a497f44"
+    },
+    {
+      "bytes": 474,
+      "path": "analysis/outputs/phase3_language_probe/model_summary.csv",
+      "sha256": "7d00cf85b024695b1d006a978b95d5d84924dc71a01d7c97cc009b020d473690"
+    },
+    {
+      "bytes": 848,
+      "path": "analysis/outputs/phase3_language_probe/README.md",
+      "sha256": "0a24e0b769fa066eee61b5dd94f6355a3fdded89013ed20c184ecebfd0027160"
+    }
+  ],
+  "completed_runs": 10848,
+  "completed_ticks": 4496364,
+  "design_hash": "b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90",
+  "determinism_audit_verified": true,
+  "execution_code_commit": "eba26a715fa4f0204bd5923b226bb754014d9e6e",
+  "failed_runs": 0,
+  "manifest_payload_sha256": "c4a54103ef78c31bb3658e21d642fd0129709893d308468759f3021bb77db2b7",
+  "name": "MSET Phase III frozen release",
+  "planned_runs": 10848,
+  "resource_reconciled_runs": 10848,
+  "status": "complete"
+}

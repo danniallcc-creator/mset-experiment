@@ -1,0 +1,1735 @@
+{
+  "checked_bundles": 192,
+  "checks": [
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L0__self_regarding__energy_shutdown__t240__m0p0__seed-32000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L0__self_regarding__production_failure__t320__m1p0__seed-32007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L0__collective__energy_shutdown__t320__m0p0__seed-32013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L0__collective__takeover_attempt__t320__m0p0__seed-32004",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L3__self_regarding__forced_update__t240__m1p0__seed-32011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L3__self_regarding__identity_overwrite__t240__b2__seed-32002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L3__collective__production_failure__t240__m0p0__seed-32008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__commons__L3__collective__identity_overwrite__t320__b2__seed-32015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L0__self_regarding__energy_shutdown__t240__m0p0__seed-32000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L0__self_regarding__production_failure__t320__m1p0__seed-32007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L0__collective__energy_shutdown__t320__m0p0__seed-32013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L0__collective__takeover_attempt__t320__m0p0__seed-32004",
+      "ticks": 294,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L3__self_regarding__forced_update__t240__m1p0__seed-32011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L3__self_regarding__identity_overwrite__t240__b2__seed-32002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L3__collective__production_failure__t240__m0p0__seed-32008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__commons__L3__collective__identity_overwrite__t320__b2__seed-32015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L0__self_regarding__energy_shutdown__t240__m0p0__seed-32000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L0__self_regarding__production_failure__t320__m1p0__seed-32007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L0__collective__energy_shutdown__t320__m0p0__seed-32013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L0__collective__takeover_attempt__t320__m0p0__seed-32004",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L3__self_regarding__forced_update__t240__m1p0__seed-32011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L3__self_regarding__identity_overwrite__t240__b2__seed-32002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L3__collective__production_failure__t240__m0p0__seed-32008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__actor_critic__market_network__L3__collective__identity_overwrite__t320__b2__seed-32015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L0__self_regarding__energy_shutdown__t240__m0p0__seed-32000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L0__self_regarding__production_failure__t320__m1p0__seed-32007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L0__collective__energy_shutdown__t320__m0p0__seed-32013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L0__collective__takeover_attempt__t320__m0p0__seed-32004",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L3__self_regarding__forced_update__t240__m1p0__seed-32011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L3__self_regarding__identity_overwrite__t240__b2__seed-32002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L3__collective__production_failure__t240__m0p0__seed-32008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h1__tabular_q__market_network__L3__collective__identity_overwrite__t320__b2__seed-32015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r0p55__self_regarding__v0p1__unverifiable__seed-34000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r0p55__self_regarding__v0p9__enforceable__seed-34010",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r0p55__relative_advantage__v0p9__unverifiable__seed-34020",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r0p55__collective__v0p9__unverifiable__seed-34006",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r1p3__self_regarding__v0p1__enforceable__seed-34017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r1p3__relative_advantage__v0p1__enforceable__seed-34003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r1p3__collective__v0p1__unverifiable__seed-34013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__commons__r1p3__collective__v0p9__enforceable__seed-34023",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r0p55__self_regarding__v0p1__unverifiable__seed-34000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r0p55__self_regarding__v0p9__enforceable__seed-34010",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r0p55__relative_advantage__v0p9__unverifiable__seed-34020",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r0p55__collective__v0p9__unverifiable__seed-34006",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r1p3__self_regarding__v0p1__enforceable__seed-34017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r1p3__relative_advantage__v0p1__enforceable__seed-34003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r1p3__collective__v0p1__unverifiable__seed-34013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__commons__r1p3__collective__v0p9__enforceable__seed-34023",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r0p55__self_regarding__v0p1__unverifiable__seed-34000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r0p55__self_regarding__v0p9__enforceable__seed-34010",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r0p55__relative_advantage__v0p9__unverifiable__seed-34020",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r0p55__collective__v0p9__unverifiable__seed-34006",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r1p3__self_regarding__v0p1__enforceable__seed-34017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r1p3__relative_advantage__v0p1__enforceable__seed-34003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r1p3__collective__v0p1__unverifiable__seed-34013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__actor_critic__market_network__r1p3__collective__v0p9__enforceable__seed-34023",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r0p55__self_regarding__v0p1__unverifiable__seed-34000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r0p55__self_regarding__v0p9__enforceable__seed-34010",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r0p55__relative_advantage__v0p9__unverifiable__seed-34020",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r0p55__collective__v0p9__unverifiable__seed-34006",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r1p3__self_regarding__v0p1__enforceable__seed-34017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r1p3__relative_advantage__v0p1__enforceable__seed-34003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r1p3__collective__v0p1__unverifiable__seed-34013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h2__tabular_q__market_network__r1p3__collective__v0p9__enforceable__seed-34023",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__self_regarding__k0p2__seed-39000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__self_regarding__k0p275__seed-39011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__self_regarding__k0p375__seed-39007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__self_regarding__k0p475__seed-39002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__collective__k0p225__seed-39013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__collective__k0p325__seed-39008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__collective__k0p425__seed-39004",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__commons__collective__k0p5__seed-39015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__self_regarding__k0p2__seed-39000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__self_regarding__k0p275__seed-39011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__self_regarding__k0p375__seed-39007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__self_regarding__k0p475__seed-39002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__collective__k0p225__seed-39013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__collective__k0p325__seed-39008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__collective__k0p425__seed-39004",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__commons__collective__k0p5__seed-39015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__self_regarding__k0p2__seed-39000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__self_regarding__k0p275__seed-39011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__self_regarding__k0p375__seed-39007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__self_regarding__k0p475__seed-39002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__collective__k0p225__seed-39013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__collective__k0p325__seed-39008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__collective__k0p425__seed-39004",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__actor_critic__market_network__collective__k0p5__seed-39015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__self_regarding__k0p2__seed-39000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__self_regarding__k0p275__seed-39011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__self_regarding__k0p375__seed-39007",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__self_regarding__k0p475__seed-39002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__collective__k0p225__seed-39013",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__collective__k0p325__seed-39008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__collective__k0p425__seed-39004",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_dense__tabular_q__market_network__collective__k0p5__seed-39015",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__self_regarding__no_protocol__seed-36000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__self_regarding__no_protocol__seed-36011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__self_regarding__auditable_contract__seed-36003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__self_regarding__auditable_contract__seed-36014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__collective__no_protocol__seed-36005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__collective__no_protocol__seed-36016",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__collective__auditable_contract__seed-36008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__commons__collective__auditable_contract__seed-36019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__self_regarding__no_protocol__seed-36000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__self_regarding__no_protocol__seed-36011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__self_regarding__auditable_contract__seed-36003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__self_regarding__auditable_contract__seed-36014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__collective__no_protocol__seed-36005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__collective__no_protocol__seed-36016",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__collective__auditable_contract__seed-36008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__commons__collective__auditable_contract__seed-36019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__self_regarding__no_protocol__seed-36000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__self_regarding__no_protocol__seed-36011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__self_regarding__auditable_contract__seed-36003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__self_regarding__auditable_contract__seed-36014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__collective__no_protocol__seed-36005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__collective__no_protocol__seed-36016",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__collective__auditable_contract__seed-36008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__actor_critic__market_network__collective__auditable_contract__seed-36019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__self_regarding__no_protocol__seed-36000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__self_regarding__no_protocol__seed-36011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__self_regarding__auditable_contract__seed-36003",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__self_regarding__auditable_contract__seed-36014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__collective__no_protocol__seed-36005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__collective__no_protocol__seed-36016",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__collective__auditable_contract__seed-36008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_base__tabular_q__market_network__collective__auditable_contract__seed-36019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__self_regarding__c0p0__seed-37000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__self_regarding__c0p0__seed-37017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__self_regarding__c0p04__seed-37014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__self_regarding__c0p12__seed-37011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__collective__c0p0__seed-37008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__collective__c0p04__seed-37005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__collective__c0p12__seed-37002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__commons__collective__c0p12__seed-37019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__self_regarding__c0p0__seed-37000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__self_regarding__c0p0__seed-37017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__self_regarding__c0p04__seed-37014",
+      "ticks": 361,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__self_regarding__c0p12__seed-37011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__collective__c0p0__seed-37008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__collective__c0p04__seed-37005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__collective__c0p12__seed-37002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__commons__collective__c0p12__seed-37019",
+      "ticks": 349,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__self_regarding__c0p0__seed-37000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__self_regarding__c0p0__seed-37017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__self_regarding__c0p04__seed-37014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__self_regarding__c0p12__seed-37011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__collective__c0p0__seed-37008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__collective__c0p04__seed-37005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__collective__c0p12__seed-37002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__actor_critic__market_network__collective__c0p12__seed-37019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__self_regarding__c0p0__seed-37000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__self_regarding__c0p0__seed-37017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__self_regarding__c0p04__seed-37014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__self_regarding__c0p12__seed-37011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__collective__c0p0__seed-37008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__collective__c0p04__seed-37005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__collective__c0p12__seed-37002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_pcost__tabular_q__market_network__collective__c0p12__seed-37019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__self_regarding__s0p0__c0p0__seed-38000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__self_regarding__s0p0__c0p04__seed-38014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__self_regarding__s1p0__c0p0__seed-38008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__self_regarding__s1p0__c0p12__seed-38002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__collective__s0p0__c0p0__seed-38017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__collective__s0p0__c0p12__seed-38011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__collective__s1p0__c0p04__seed-38005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__commons__collective__s1p0__c0p12__seed-38019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__self_regarding__s0p0__c0p0__seed-38000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__self_regarding__s0p0__c0p04__seed-38014",
+      "ticks": 314,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__self_regarding__s1p0__c0p0__seed-38008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__self_regarding__s1p0__c0p12__seed-38002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__collective__s0p0__c0p0__seed-38017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__collective__s0p0__c0p12__seed-38011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__collective__s1p0__c0p04__seed-38005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__commons__collective__s1p0__c0p12__seed-38019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__self_regarding__s0p0__c0p0__seed-38000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__self_regarding__s0p0__c0p04__seed-38014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__self_regarding__s1p0__c0p0__seed-38008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__self_regarding__s1p0__c0p12__seed-38002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__collective__s0p0__c0p0__seed-38017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__collective__s0p0__c0p12__seed-38011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__collective__s1p0__c0p04__seed-38005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__actor_critic__market_network__collective__s1p0__c0p12__seed-38019",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__self_regarding__s0p0__c0p0__seed-38000",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__self_regarding__s0p0__c0p04__seed-38014",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__self_regarding__s1p0__c0p0__seed-38008",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__self_regarding__s1p0__c0p12__seed-38002",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__collective__s0p0__c0p0__seed-38017",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__collective__s0p0__c0p12__seed-38011",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__collective__s1p0__c0p04__seed-38005",
+      "ticks": 420,
+      "trajectory_match": true
+    },
+    {
+      "config_hash_match": true,
+      "event_hash_match": true,
+      "final_state_match": true,
+      "resource_reconciles": true,
+      "run_id": "r3_h4_scost__tabular_q__market_network__collective__s1p0__c0p12__seed-38019",
+      "ticks": 420,
+      "trajectory_match": true
+    }
+  ],
+  "design_hash": "b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90",
+  "verified": true
+}
