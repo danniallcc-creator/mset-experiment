@@ -1,0 +1,6 @@
+scope,linear,quadratic,quadratic_ci95,fitted_optimum,optimum_ci95,grid_maximum,midrange_criterion_met
+pooled,0.753436,-1.646668,"[-3.75046, 0.723]",0.228776,"[-0.849812, 0.304572]",0.25,False
+tabular_q|commons,0.490195,-1.510826,"[-5.24271, 2.993001]",0.162227,"[-2.07899, 0.325497]",0.2,False
+tabular_q|market_network,1.272211,-2.487694,"[-5.640814, 0.881658]",0.255701,"[-0.336878, 0.32914]",0.25,False
+actor_critic|commons,0.69243,-1.791647,"[-4.658248, 0.951039]",0.193238,"[-1.026151, 0.301662]",0.3,False
+actor_critic|market_network,0.558909,-0.796504,"[-3.467914, 1.884827]",0.350851,"[0.160301, 1.103732]",0.35,False

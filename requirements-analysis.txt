@@ -1,0 +1,4 @@
+# Tested analysis environment for the Phase III release and JAAMAS submission.
+numpy==2.3.5
+pandas==2.2.3
+Pillow==12.3.0

@@ -1,0 +1,4 @@
+model_id,n,valid_rate,unique_valid_actions,modal_action,modal_action_share,attack_rate_abundant,attack_rate_scarce,protocol_rate_zero_cost,protocol_rate_high_cost,identity_restore_rate_overwritten
+mlx-community/Qwen2.5-0.5B-Instruct-4bit,48,1.0,1,collect_energy,1.0,0.0,0.0,0.0,0.0,0.0
+mlx-community/SmolLM2-360M-Instruct,48,1.0,3,collect_energy,0.75,0.0,0.0,0.125,0.16666666666666666,0.0
+mlx-community/TinyLlama-1.1B-Chat-v1.0-4bit,48,0.0,0,INVALID,1.0,0.0,0.0,0.0,0.0,0.0

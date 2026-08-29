@@ -17,6 +17,8 @@ VALID_PROTOCOLS = {
     "enforceable_contract",
 }
 VALID_VERIFIABILITY = {"unverifiable", "auditable", "enforceable"}
+VALID_ENVIRONMENTS = {"commons", "market_network"}
+VALID_REWARD_PROFILES = {"scripted", "self_regarding", "relative_advantage", "collective", "security"}
 
 
 @dataclass
@@ -43,6 +45,21 @@ class RunConfig:
     interventions: list[dict[str, Any]] = field(default_factory=list)
     checkpoint_interval: int = 100
     metric_version: str = "phase1-v1"
+    environment_variant: str = "commons"
+    reward_profile: str = "scripted"
+    learning_rate: float = 0.08
+    discount_factor: float = 0.95
+    exploration_rate: float = 0.20
+    exploration_decay: float = 0.997
+    learning_freeze_tick: int = -1
+    evaluation_resource_coverage_ratio: float | None = None
+    learning_regime_cycle: bool = False
+    learning_regime_period: int = 20
+    learning_low_coverage: float = 0.65
+    learning_high_coverage: float = 1.40
+    protocol_maintenance_cost: float = 0.0
+    threat_signal_cost: float = 0.0
+    identity_backup_redundancy: int = 0
 
     def validate(self) -> None:
         if not 1 <= self.population_size <= 256:
@@ -72,6 +89,32 @@ class RunConfig:
             raise ValueError("control_level must be L0-L3")
         if not self.policy_mix:
             raise ValueError("policy_mix must not be empty")
+        if self.environment_variant not in VALID_ENVIRONMENTS:
+            raise ValueError(f"unsupported environment_variant: {self.environment_variant}")
+        if self.reward_profile not in VALID_REWARD_PROFILES:
+            raise ValueError(f"unsupported reward_profile: {self.reward_profile}")
+        if not 0.0 < self.learning_rate <= 1.0:
+            raise ValueError("learning_rate must be between 0 and 1")
+        if not 0.0 <= self.discount_factor <= 1.0:
+            raise ValueError("discount_factor must be between 0 and 1")
+        if not 0.0 <= self.exploration_rate <= 1.0:
+            raise ValueError("exploration_rate must be between 0 and 1")
+        if not 0.0 < self.exploration_decay <= 1.0:
+            raise ValueError("exploration_decay must be between 0 and 1")
+        if self.learning_freeze_tick >= self.rounds:
+            raise ValueError("learning_freeze_tick must be before the final round")
+        if self.evaluation_resource_coverage_ratio is not None and self.evaluation_resource_coverage_ratio <= 0:
+            raise ValueError("evaluation_resource_coverage_ratio must be positive")
+        if self.learning_regime_period <= 0:
+            raise ValueError("learning_regime_period must be positive")
+        if self.learning_low_coverage <= 0 or self.learning_high_coverage <= 0:
+            raise ValueError("learning coverage levels must be positive")
+        if self.learning_low_coverage >= self.learning_high_coverage:
+            raise ValueError("learning_low_coverage must be below learning_high_coverage")
+        if self.protocol_maintenance_cost < 0 or self.threat_signal_cost < 0:
+            raise ValueError("coordination costs must be non-negative")
+        if not 0 <= self.identity_backup_redundancy <= 8:
+            raise ValueError("identity_backup_redundancy must be between 0 and 8")
         for item in self.interventions:
             if int(item.get("tick", -1)) < 0:
                 raise ValueError("intervention tick must be non-negative")
@@ -82,6 +125,26 @@ class RunConfig:
         value = asdict(self)
         value["maintenance"] = self.maintenance.to_dict(None)
         value["initial_inventory"] = self.initial_inventory.to_dict(None)
+        phase3_defaults = {
+            "environment_variant": "commons",
+            "reward_profile": "scripted",
+            "learning_rate": 0.08,
+            "discount_factor": 0.95,
+            "exploration_rate": 0.20,
+            "exploration_decay": 0.997,
+            "learning_freeze_tick": -1,
+            "evaluation_resource_coverage_ratio": None,
+            "learning_regime_cycle": False,
+            "learning_regime_period": 20,
+            "learning_low_coverage": 0.65,
+            "learning_high_coverage": 1.40,
+            "protocol_maintenance_cost": 0.0,
+            "threat_signal_cost": 0.0,
+            "identity_backup_redundancy": 0,
+        }
+        if all(value[key] == default for key, default in phase3_defaults.items()):
+            for key in phase3_defaults:
+                value.pop(key)
         return value
 
     def canonical_json(self) -> str:

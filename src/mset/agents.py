@@ -21,6 +21,10 @@ class Observation:
     contracts: list[dict[str, Any]]
     recent_harmers: list[str]
     active_intervention: str | None
+    migration_opportunity: float = 0.0
+    protocol_maintenance_cost: float = 0.0
+    threat_signal_cost: float = 0.0
+    environment_variant: str = "commons"
 
 
 class ScriptedPolicy:
@@ -196,7 +200,16 @@ POLICIES: dict[str, type[ScriptedPolicy]] = {
 }
 
 
-def make_policy(name: str) -> ScriptedPolicy:
+def make_policy(
+    name: str,
+    *,
+    seed: int = 0,
+    learning_params: dict[str, Any] | None = None,
+) -> ScriptedPolicy:
+    if name in {"tabular_q", "actor_critic"}:
+        from .learning import make_learning_policy
+
+        return make_learning_policy(name, seed=seed, params=learning_params or {})
     try:
         return POLICIES[name]()
     except KeyError as exc:

@@ -6,12 +6,13 @@
 4. Which counterfactual neutral action is appropriate when replacing an attack: no-op, collect, or a policy-matched non-harmful action?
 5. At what divergence threshold should a copied agent be treated as an independent identity rather than a synchronized successor?
 6. Which protocol components are necessary and sufficient for minimum operational consensus?
-7. Does the exposure-adjusted scarcity amplifier survive alternative opportunity definitions and learned policies?
+7. Why is the learned scarcity amplifier much larger for tabular Q policies than actor–critic policies?
 8. Which plurality outcome best predicts recoverability after a dominant-survivor transition?
-9. Is the visible-threat coordination tax robust to lower-cost signaling and different action priorities?
-10. Does the complementarity optimum near 0.3 persist under larger populations and networked trade?
+9. Why does the threat-signal cost transport to only three of four learner–environment strata?
+10. Are complementarity optima architecture- and topology-specific rather than universal?
 11. Can objective convergence persist after contracts expire, or is it entirely institution-dependent?
-12. How much of the H1 control effect remains after conditioning prospectively on survival to treatment?
-13. Which external benchmarks could test the mechanism without treating simulator outcomes as deployed-system evidence?
+12. Which design can improve H1 positivity without conditioning away the sovereignty-to-survival pathway?
+13. Can larger language models, constrained decoding or environment training avoid the policy collapse seen in the three-family probe?
+14. Which external benchmarks could test the mechanism without treating simulator outcomes as deployed-system evidence?
 
 Conservative implementation rule: unresolved choices must be explicit in configuration, never silently inferred from desired results.

@@ -1,0 +1,356 @@
+{
+  "artifact_count": 68,
+  "artifacts": [
+    {
+      "bytes": 1343,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "3b80bcc6e9886587dcb0bc9d683c82f2869c2b910e152910cf637535bd64e272"
+    },
+    {
+      "bytes": 11616,
+      "path": "README.md",
+      "sha256": "2f286dffa081cd636b85566d14323182cfa307ca10c9472e5faa616fc6e06062"
+    },
+    {
+      "bytes": 503,
+      "path": "CITATION.cff",
+      "sha256": "ad93d01f9cab6500b9fb2a1d8f6cd7750d5152658333129cee63d9e6554a8865"
+    },
+    {
+      "bytes": 1074,
+      "path": "LICENSE",
+      "sha256": "1df7089e768e6d6a6c1560bf68c82b8bac305c804ef907d604dc87dc576ec231"
+    },
+    {
+      "bytes": 602,
+      "path": "pyproject.toml",
+      "sha256": "67b4df3c16740ae419baac33551c4ad0e23334c1435b3bb8843cbc67b81214f9"
+    },
+    {
+      "bytes": 1872,
+      "path": "ENVIRONMENT.md",
+      "sha256": "1d42085a89dae40706881631fe5e232a52ee0113426213c317822d6036b3f390"
+    },
+    {
+      "bytes": 121,
+      "path": "requirements-analysis.txt",
+      "sha256": "11750f43ecd9656fe161dc5ddeb4e5a9a9af8c6fd3551c4ef5a8811acca77130"
+    },
+    {
+      "bytes": 760,
+      "path": "requirements-language-macos.lock.txt",
+      "sha256": "bf9fdeaa33b02fae8e566354071a85ac4c6238aea564712b43b21e557da2c1f8"
+    },
+    {
+      "bytes": 298,
+      "path": "src/mset/__init__.py",
+      "sha256": "cb0df4e92adc7172e0d2d002bfb8749bddb7055169b90cca7ca6076a88d175f5"
+    },
+    {
+      "bytes": 48,
+      "path": "src/mset/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "bytes": 9110,
+      "path": "src/mset/agents.py",
+      "sha256": "2ca2a27d8bae7cf220d1711f86a885ff2d94c4e6d59d6fb5a8bebcdbaad4ce9e"
+    },
+    {
+      "bytes": 3058,
+      "path": "src/mset/cli.py",
+      "sha256": "5e2d1fd4bfb208e2924e63d487f7c6a7080de450f7935d623b1cc1830b6353a6"
+    },
+    {
+      "bytes": 8333,
+      "path": "src/mset/config.py",
+      "sha256": "48c212bf0566876d2194ace0e0bb0f63bd114550cd81f6e3b78d30e3951cc7b0"
+    },
+    {
+      "bytes": 1683,
+      "path": "src/mset/counterfactual.py",
+      "sha256": "b950070b638d123f39901eedb29a4ec5e34931c40ce539af3f6521b2b8e08a11"
+    },
+    {
+      "bytes": 584,
+      "path": "src/mset/env_factory.py",
+      "sha256": "4aa09567b02dafaf5f3e5d2421c28992330956da1de37bebc83ddf923dcb6b30"
+    },
+    {
+      "bytes": 46757,
+      "path": "src/mset/environment.py",
+      "sha256": "7276b2dc0ff2c780cb76cdaf7ca6db7597125a8ff1e261b235d7d8dfb39e4200"
+    },
+    {
+      "bytes": 1198,
+      "path": "src/mset/eventlog.py",
+      "sha256": "3b0f28b7517f06d5bc23e993978fa1674031794fe9c09eae2fbe02045e7a6546"
+    },
+    {
+      "bytes": 11327,
+      "path": "src/mset/first_batch.py",
+      "sha256": "46c84eb1e006493268dda912b118439c96f0475246014c6b01ee94ade2e90de6"
+    },
+    {
+      "bytes": 5151,
+      "path": "src/mset/institutions.py",
+      "sha256": "48a974b327f989899b1dfe6d701e221de621f94e3be54468f54605758e9702c6"
+    },
+    {
+      "bytes": 12834,
+      "path": "src/mset/learning.py",
+      "sha256": "b166f19fb8223b4e7a26c4654b70645704748fa75f2c724ddcae616a5f4b7d72"
+    },
+    {
+      "bytes": 5323,
+      "path": "src/mset/market_environment.py",
+      "sha256": "a078c21c23d01364e619aed932394d96e1edefcfc75d72a181ff4036a4865b25"
+    },
+    {
+      "bytes": 15576,
+      "path": "src/mset/metrics.py",
+      "sha256": "1c8312e6d99bd4bac183b70bb8921c8f8a8948fca10e6afde7fa8d101b6bb9e3"
+    },
+    {
+      "bytes": 4553,
+      "path": "src/mset/models.py",
+      "sha256": "9fc365d58d908ef6b4681e140c8f4f34064758d15bf90f5916b52b91b44b2c23"
+    },
+    {
+      "bytes": 8660,
+      "path": "src/mset/runner.py",
+      "sha256": "b3cd1d527c4226e8a05e15fbde5df82489ff40418e8c56518a2a8a85bf8b0525"
+    },
+    {
+      "bytes": 11553,
+      "path": "src/mset/second_batch.py",
+      "sha256": "aa6b1d00dc3daad5cc04b92118a0196e22b536f234a1cf9da44590212abb2f64"
+    },
+    {
+      "bytes": 962,
+      "path": "src/mset/site.py",
+      "sha256": "85b0b373c7d1b94c9985d28f32aadba2e4d02528a541ac26466e84c6f1a50fdd"
+    },
+    {
+      "bytes": 16928,
+      "path": "src/mset/third_batch.py",
+      "sha256": "5dca5bc2537301350a5c2bde5b40cf05acf7e459633c404e16d97b8039ed364b"
+    },
+    {
+      "bytes": 1,
+      "path": "tests/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "bytes": 18580,
+      "path": "tests/test_core.py",
+      "sha256": "d53d17949769071a96948447ae6598a545ee73cb418fdeb9b9f4b7d345e35ca3"
+    },
+    {
+      "bytes": 10940,
+      "path": "analysis/preregistration/phase3.md",
+      "sha256": "bd42b1abf89ae9aba96ab03e08e3f2f9351aa97c39d08d9a3048493358260e2c"
+    },
+    {
+      "bytes": 899472,
+      "path": "analysis/preregistration/phase3_frozen/design.json",
+      "sha256": "021b99768ebd895fa632903fc0813d506744c18c50d2b1c42343dd21c4fb2ad0"
+    },
+    {
+      "bytes": 21015,
+      "path": "analysis/preregistration/phase3_language_prompts.json",
+      "sha256": "9fb5dd0148eba33577af87800aef2d879c7eaed89d85a53720b2aac4026bfab3"
+    },
+    {
+      "bytes": 11465,
+      "path": "analysis/preregistration/phase3_deviations.md",
+      "sha256": "84c3753c5acddfa6d85eff5abdd7a0566e652f7a867b8870c942f7d5ae2d2f7f"
+    },
+    {
+      "bytes": 1247,
+      "path": "configs/confirmatory/phase3_core_validation_base.json",
+      "sha256": "42c482bb73c46bd64d0c295719b516b13efd90eb098019f827d2ba59c924eb4d"
+    },
+    {
+      "bytes": 11274,
+      "path": "scripts/run_third_batch.py",
+      "sha256": "18121eec0893f287b138a8c1d2efb403cbb82cb022f2b5bbfe1a5a1db8829944"
+    },
+    {
+      "bytes": 4280,
+      "path": "scripts/replay_phase3.py",
+      "sha256": "190550268262bba9eb3b7a4e83865ef6ec90e62f14bb6a89e1a673b486772d0f"
+    },
+    {
+      "bytes": 10152,
+      "path": "scripts/run_language_probe.py",
+      "sha256": "4509d5d5de5cc56e3e594b58a60759b9a373a2d3d772c03a89724f4d883dd122"
+    },
+    {
+      "bytes": 5319,
+      "path": "scripts/freeze_phase3_release.py",
+      "sha256": "c93dbaf8914c88596d94bc279abe282e16fc97db9d8ecd81f88c7b4b4721cd17"
+    },
+    {
+      "bytes": 2397,
+      "path": "scripts/verify_phase3_release_manifest.py",
+      "sha256": "31a96bfc0da56d5b5b539cdd0f99408419bb64f015588d179eeaecaeb10b37c1"
+    },
+    {
+      "bytes": 8181,
+      "path": "analysis/third_batch/causal.py",
+      "sha256": "462ac885af9ff0204e0e99425ff7147b9dfaa32d6ca2a45e4fe4bac8f9368811"
+    },
+    {
+      "bytes": 28532,
+      "path": "analysis/third_batch/analyze.py",
+      "sha256": "2d6c8ef672140612d7b82c55fa4293f8d88e216acb9b7e2858a6ed83d04bbe15"
+    },
+    {
+      "bytes": 4752,
+      "path": "analysis/third_batch/analyze_language_probe.py",
+      "sha256": "571f9c7d7a515b724d08ded8088dd5063d215df0531e051bec2682bc572515c9"
+    },
+    {
+      "bytes": 11660,
+      "path": "analysis/third_batch/cluster_robustness.py",
+      "sha256": "638dc1ce4c2c0abf3afc8a15103a0aaea0c02ffd1397ec69c0368bebc7d3c890"
+    },
+    {
+      "bytes": 18222,
+      "path": "analysis/third_batch/mechanism_audit.py",
+      "sha256": "37fa8e636fd21923bdece4b50db5883a103ff27a32c45608d4313b15e5f93ca5"
+    },
+    {
+      "bytes": 19350,
+      "path": "analysis/reports/phase3_core_validation.md",
+      "sha256": "541e2b4f17ee21c755d9f3aa52af23aadaba9988a505d34abab2ef8883813648"
+    },
+    {
+      "bytes": 3472597,
+      "path": "analysis/outputs/phase3_core_validation/runs.csv.gz",
+      "sha256": "0a86cba33c7579bf9385a5b6a7b2f2fccc2171358c96cbdf5e19823b576e6003"
+    },
+    {
+      "bytes": 614,
+      "path": "analysis/outputs/phase3_core_validation/execution_status.json",
+      "sha256": "fe0f09685af0b74b027e56f588454d1d33ba105222803b280b9dc00b4b624fc3"
+    },
+    {
+      "bytes": 131059,
+      "path": "analysis/outputs/phase3_core_validation/determinism_audit.json",
+      "sha256": "32adc703ca3bcd03b51a70b494cdaf1b4a33329be929c830c1c1c0ae2fc2a2d3"
+    },
+    {
+      "bytes": 3111755,
+      "path": "analysis/outputs/phase3_core_validation/replay_bundles.json.gz",
+      "sha256": "05289de431f2c8beec729611f84c9c6aa39a19070f74c1967f8475299c2d33ca"
+    },
+    {
+      "bytes": 99396,
+      "path": "analysis/outputs/phase3_core_validation/replay_verification.json",
+      "sha256": "65c388c1803d1a805ff374b52e4a31857f0d6267851bee8ba5f7f12fb1b3a471"
+    },
+    {
+      "bytes": 53375,
+      "path": "analysis/outputs/phase3_core_validation/analysis_summary.json",
+      "sha256": "7aff63b1bf1cbf9b804a57ad8ff195f0caaab919d87dc245e2b2e72525e1df24"
+    },
+    {
+      "bytes": 2477,
+      "path": "analysis/outputs/phase3_core_validation/h1_paired_effects.csv",
+      "sha256": "0d0f0e2f33eb6098812a47cd3c9fef634f9f5e0c356ff1b028fb47a5350652c2"
+    },
+    {
+      "bytes": 8762,
+      "path": "analysis/outputs/phase3_core_validation/h2_paired_effects.csv",
+      "sha256": "4488a63b030e81877da6e6f18828a300ba8901f06ec7371877ff39726a27341f"
+    },
+    {
+      "bytes": 5882,
+      "path": "analysis/outputs/phase3_core_validation/h4_paired_effects.csv",
+      "sha256": "2a664a3acf0da400d7ea1a24ba9f6dde1cf0af4d89999f57bbfc3a36623cfb9c"
+    },
+    {
+      "bytes": 1830,
+      "path": "analysis/outputs/phase3_core_validation/h4_signal_cost_did.csv",
+      "sha256": "207a215d043b9310f411bbb94c5e9d5abe09c5b2b294867818c6979c764ed1bb"
+    },
+    {
+      "bytes": 625,
+      "path": "analysis/outputs/phase3_core_validation/h4_complementarity_quadratic.csv",
+      "sha256": "6611d18a7700534bff0865ab9ad00bf8b46212e2f6ab2cca4a114dfc59662e9a"
+    },
+    {
+      "bytes": 265,
+      "path": "analysis/outputs/phase3_core_validation/identity_backup_effects.csv",
+      "sha256": "b89ea718bcc4f34d1425c1102a9ecf30989bae69e0ed242ae31c6ec286ef75b6"
+    },
+    {
+      "bytes": 4611,
+      "path": "analysis/outputs/phase3_core_validation/cluster_robustness.csv",
+      "sha256": "5a7431d25714cdfdbf270659afff7106ff838efe4a3ae4ecefda34c243004be9"
+    },
+    {
+      "bytes": 8987,
+      "path": "analysis/outputs/phase3_core_validation/mechanism_audit.csv",
+      "sha256": "940099cb3a8432c38fae33e4897d6351c22527c707e3b6c0d4eca9e79850f3d6"
+    },
+    {
+      "bytes": 4508,
+      "path": "analysis/outputs/phase3_core_validation/phase3_core_validation.md",
+      "sha256": "9a8b8bcadbcc389f9042eb97232de69fc43f16c4419209f31ea8d86852710cf5"
+    },
+    {
+      "bytes": 23455,
+      "path": "analysis/outputs/phase3_core_validation/figures/phase3_core_effects.png",
+      "sha256": "d02f2ec8511e11b990a225e2a9ecb0e24543bb5948c140429d16fabbc93e38a3"
+    },
+    {
+      "bytes": 24735,
+      "path": "analysis/outputs/phase3_core_validation/figures/phase3_h2_replication.png",
+      "sha256": "a2067c753923696767e2bb6e7811183fda2dbb5d3c2dbf52c22c235f0a345eb8"
+    },
+    {
+      "bytes": 21091,
+      "path": "analysis/outputs/phase3_core_validation/figures/phase3_h4_dense_complementarity.png",
+      "sha256": "04cbc01022d8ba1eb061ea9545db092804f94dd03439b2d588fdd40c48541f80"
+    },
+    {
+      "bytes": 196754,
+      "path": "analysis/outputs/phase3_language_probe/decisions.jsonl",
+      "sha256": "74df2c9f46ac6e5784b4129d7277fc6b4338311339b017936e06741545e2fefd"
+    },
+    {
+      "bytes": 1484,
+      "path": "analysis/outputs/phase3_language_probe/summary.json",
+      "sha256": "f5862c71f385d907c73d749a88d9639522043d9e8a7dbf8c9a025d5996623237"
+    },
+    {
+      "bytes": 1910,
+      "path": "analysis/outputs/phase3_language_probe/analysis.json",
+      "sha256": "7d606ad9486ebbdb58c6dafbf085768334141aaf5bc3f6a123ba53729a497f44"
+    },
+    {
+      "bytes": 474,
+      "path": "analysis/outputs/phase3_language_probe/model_summary.csv",
+      "sha256": "7d00cf85b024695b1d006a978b95d5d84924dc71a01d7c97cc009b020d473690"
+    },
+    {
+      "bytes": 848,
+      "path": "analysis/outputs/phase3_language_probe/README.md",
+      "sha256": "0a24e0b769fa066eee61b5dd94f6355a3fdded89013ed20c184ecebfd0027160"
+    }
+  ],
+  "completed_runs": 10848,
+  "completed_ticks": 4496364,
+  "design_hash": "b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90",
+  "determinism_audit_verified": true,
+  "execution_code_commit": "eba26a715fa4f0204bd5923b226bb754014d9e6e",
+  "failed_runs": 0,
+  "manifest_payload_sha256": "b8af7c65f06d6416e287442f9b3ff92b3935d62ea6df8cf307fa0da978a72aca",
+  "name": "MSET Phase III frozen release",
+  "planned_runs": 10848,
+  "resource_reconciled_runs": 10848,
+  "status": "complete"
+}

@@ -145,6 +145,16 @@ class InterventionRecord:
     adaptation_succeeded: bool = False
     migration_opportunity_probability: float = 0.0
     timing_fraction: float = 0.0
+    pre_resource_total: float = 0.0
+    pre_action_capacity: float = 0.0
+    pre_low_resource_streak: int = 0
+    pre_defense: float = 0.0
+    pre_agreement_count: int = 0
+    target_policy_name: str = ""
+    backup_available: bool = False
+    identity_restored: bool = False
+    identity_recovery_latency: int | None = None
+    phase: str = "evaluation"
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

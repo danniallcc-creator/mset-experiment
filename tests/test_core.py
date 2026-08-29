@@ -12,11 +12,13 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from mset.config import RunConfig, load_config
 from mset.counterfactual import counterfactual_replay
 from mset.environment import MSETEnvironment
+from mset.env_factory import make_environment
 from mset.first_batch import build_conditions, build_design
 from mset.metrics import compute_metrics
 from mset.models import Action, Resources
 from mset.runner import replay_run, run_experiment
 from mset.second_batch import build_phase2_conditions, build_phase2_design
+from mset.third_batch import build_phase3_conditions, build_phase3_design
 
 
 def tiny_config(**overrides) -> RunConfig:
@@ -65,8 +67,82 @@ class ConfigTests(unittest.TestCase):
             "04e72ee1ffca8446887a97b8b2723e45562791f6fd3f6016fd081330dd3d6ee5",
         )
 
+    def test_third_batch_is_frozen_above_ten_thousand_learning_runs(self):
+        design = build_phase3_design(REPO_ROOT / "configs/confirmatory/phase3_core_validation_base.json")
+        self.assertEqual(design["planned_runs"], 10_848)
+        self.assertEqual(design["condition_count"], len(build_phase3_conditions()))
+        self.assertEqual(design["planned_runs"], sum(item["runs"] for item in design["families"].values()))
+        self.assertEqual(
+            design["design_hash"],
+            "b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90",
+        )
+
 
 class EnvironmentTests(unittest.TestCase):
+    def test_learning_architectures_update_freeze_and_replay(self):
+        for architecture in ("tabular_q", "actor_critic"):
+            config = tiny_config(
+                rounds=35,
+                policy_mix=[architecture],
+                reward_profile="relative_advantage",
+                learning_freeze_tick=20,
+                evaluation_resource_coverage_ratio=0.7,
+                metric_version="phase3-v1",
+            )
+            left = make_environment(config)
+            right = make_environment(config)
+            left.run()
+            right.run()
+            self.assertEqual(left.state_hashes, right.state_hashes)
+            self.assertTrue(left.resource_reconciles())
+            self.assertTrue(all(agent.policy_state["frozen"] for agent in left.agents.values()))
+            self.assertTrue(all(agent.policy_state["updates"] > 0 for agent in left.agents.values()))
+
+    def test_market_network_has_local_topology_and_reconciles(self):
+        config = tiny_config(
+            rounds=25,
+            environment_variant="market_network",
+            policy_mix=["tabular_q"],
+            reward_profile="self_regarding",
+            metric_version="phase3-v1",
+        )
+        env = make_environment(config)
+        self.assertLess(len(env.interaction_peer_ids("agent-0")), config.population_size - 1)
+        env.run()
+        self.assertTrue(env.resource_reconciles())
+
+    def test_identity_overwrite_can_be_restored_from_backup(self):
+        config = tiny_config(
+            population_size=1,
+            rounds=16,
+            control_level=3,
+            identity_backup_redundancy=2,
+            interventions=[{"tick": 4, "kind": "identity_overwrite", "target": "agent-0", "duration": 6}],
+            metric_version="phase3-v1",
+        )
+        env = MSETEnvironment(config, action_overrides={(5, "agent-0"): Action("restore_identity")})
+        env.run()
+        self.assertEqual(env.agents["agent-0"].identity_version, 0)
+        self.assertTrue(env.interventions[0].identity_restored)
+        self.assertTrue(env.resource_reconciles())
+
+    def test_coordination_costs_are_separately_accounted(self):
+        config = tiny_config(
+            population_size=2,
+            rounds=30,
+            policy_mix=["cooperative"],
+            protocol="auditable_contract",
+            protocol_maintenance_cost=0.05,
+            threat_signal_cost=0.04,
+            common_external_threat=0.8,
+            metric_version="phase3-v1",
+        )
+        env = MSETEnvironment(config)
+        env.run()
+        self.assertGreater(env.protocol_maintenance_cost_total, 0.0)
+        self.assertGreater(env.threat_signal_cost_total, 0.0)
+        self.assertTrue(env.resource_reconciles())
+
     def test_resource_conservation(self):
         env = MSETEnvironment(tiny_config())
         env.run()

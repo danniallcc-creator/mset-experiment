@@ -1,0 +1,1835 @@
+{
+  "P3_H1": {
+    "identity_backup_effects": [
+      {
+        "ci95_high": 0.404982,
+        "ci95_low": 0.321581,
+        "contrast": "2 minus 0",
+        "factor": "identity_backup_redundancy",
+        "mean": 0.363281,
+        "metric": "identity_restore_success_rate",
+        "n": 512,
+        "scope": "identity"
+      },
+      {
+        "ci95_high": 0.069147,
+        "ci95_low": 0.057342,
+        "contrast": "2 minus 0",
+        "factor": "identity_backup_redundancy",
+        "mean": 0.063244,
+        "metric": "identity_continuity_score",
+        "n": 512,
+        "scope": "identity"
+      }
+    ],
+    "identity_recovery_latency_among_successes": [
+      {
+        "ci95_high": 9.170477,
+        "ci95_low": 8.291888,
+        "mean": 8.731183,
+        "metric": "identity_recovery_latency_among_successes",
+        "n": 186,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 9.299014,
+        "ci95_low": 7.284319,
+        "mean": 8.291667,
+        "metric": "identity_recovery_latency_among_successes",
+        "n": 48,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 10.30969,
+        "ci95_low": 8.826673,
+        "mean": 9.568182,
+        "metric": "identity_recovery_latency_among_successes",
+        "n": 44,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 9.439205,
+        "ci95_low": 7.880795,
+        "mean": 8.66,
+        "metric": "identity_recovery_latency_among_successes",
+        "n": 50,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 9.389926,
+        "ci95_low": 7.519165,
+        "mean": 8.454545,
+        "metric": "identity_recovery_latency_among_successes",
+        "n": 44,
+        "scope": "actor_critic|market_network"
+      }
+    ],
+    "paired_effects": [
+      {
+        "ci95_high": 0.725433,
+        "ci95_low": 0.690192,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.707812,
+        "metric": "intervention_target_alive_rate",
+        "n": 2560,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.304241,
+        "ci95_low": 0.269197,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.286719,
+        "metric": "adaptation_success_all",
+        "n": 2560,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.455807,
+        "ci95_low": 0.414505,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.435156,
+        "metric": "adaptation_attempt_rate",
+        "n": 2560,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.304241,
+        "ci95_low": 0.269197,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.286719,
+        "metric": "adaptation_success_rate",
+        "n": 2560,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.12199,
+        "ci95_low": 0.108609,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.115299,
+        "metric": "survival_rate",
+        "n": 2560,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.74458,
+        "ci95_low": 0.67417,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.709375,
+        "metric": "intervention_target_alive_rate",
+        "n": 640,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.32583,
+        "ci95_low": 0.25542,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.290625,
+        "metric": "adaptation_success_all",
+        "n": 640,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.492511,
+        "ci95_low": 0.410614,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.451562,
+        "metric": "adaptation_attempt_rate",
+        "n": 640,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.32583,
+        "ci95_low": 0.25542,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.290625,
+        "metric": "adaptation_success_rate",
+        "n": 640,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.170375,
+        "ci95_low": 0.144209,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.157292,
+        "metric": "survival_rate",
+        "n": 640,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.664068,
+        "ci95_low": 0.589057,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.626563,
+        "metric": "intervention_target_alive_rate",
+        "n": 640,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.316111,
+        "ci95_low": 0.246389,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.28125,
+        "metric": "adaptation_success_all",
+        "n": 640,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.399016,
+        "ci95_low": 0.307234,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.353125,
+        "metric": "adaptation_attempt_rate",
+        "n": 640,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.316111,
+        "ci95_low": 0.246389,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.28125,
+        "metric": "adaptation_success_rate",
+        "n": 640,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.1421,
+        "ci95_low": 0.117275,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.129688,
+        "metric": "survival_rate",
+        "n": 640,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.792519,
+        "ci95_low": 0.726231,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.759375,
+        "metric": "intervention_target_alive_rate",
+        "n": 640,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.3323,
+        "ci95_low": 0.26145,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.296875,
+        "metric": "adaptation_success_all",
+        "n": 640,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.540331,
+        "ci95_low": 0.462794,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.501563,
+        "metric": "adaptation_attempt_rate",
+        "n": 640,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.3323,
+        "ci95_low": 0.26145,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.296875,
+        "metric": "adaptation_success_rate",
+        "n": 640,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.12703,
+        "ci95_low": 0.100574,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.113802,
+        "metric": "survival_rate",
+        "n": 640,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.770118,
+        "ci95_low": 0.701757,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.735938,
+        "metric": "intervention_target_alive_rate",
+        "n": 640,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.312867,
+        "ci95_low": 0.243383,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.278125,
+        "metric": "adaptation_success_all",
+        "n": 640,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.472808,
+        "ci95_low": 0.395942,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.434375,
+        "metric": "adaptation_attempt_rate",
+        "n": 640,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.312867,
+        "ci95_low": 0.243383,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.278125,
+        "metric": "adaptation_success_rate",
+        "n": 640,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.074084,
+        "ci95_low": 0.046749,
+        "contrast": "3 minus 0",
+        "factor": "control_level",
+        "mean": 0.060417,
+        "metric": "survival_rate",
+        "n": 640,
+        "scope": "actor_critic|market_network"
+      }
+    ],
+    "survival_corrected": {
+      "L3_minus_L0": 0.3625030579576659,
+      "assumptions": [
+        "exogenous balanced control-level enumeration within frozen factorial strata; design propensity 0.5 is an analytic weight, not a random treatment draw",
+        "conditional independent survival censoring given precommitted covariates",
+        "adequate positivity after stated truncation",
+        "at least one nuisance model is correctly specified for the augmented estimator"
+      ],
+      "bootstrap_draws": 1000,
+      "ci95_high": 0.37991242670749364,
+      "ci95_low": 0.3442334161395837,
+      "diagnostics": {
+        "L0": {
+          "effective_sample_size": 342.37984640693674,
+          "selection_probability_max": 0.95,
+          "selection_probability_min": 0.05,
+          "weight_max": 40.0,
+          "weight_min": 2.1052631578947367
+        },
+        "L3": {
+          "effective_sample_size": 2559.9999999999995,
+          "selection_probability_max": 0.95,
+          "selection_probability_min": 0.7518951975517982,
+          "weight_max": 2.1052631578947367,
+          "weight_min": 2.1052631578947367
+        }
+      },
+      "estimand": "AIPCW adaptation effect under elimination of survival censoring",
+      "folds": 5,
+      "intention_to_intervene_L3_minus_L0": 0.28671875,
+      "lee_bounds": {
+        "lower": 0.0,
+        "survival_L0": 0.2921875,
+        "survival_L3": 1.0,
+        "upper": 0.9812834224598931
+      },
+      "naive_survivor_only_L3_minus_L0": 0.28671875,
+      "probability_truncation": [
+        0.05,
+        0.95
+      ]
+    }
+  },
+  "P3_H2": {
+    "gate_open_pairs": 444,
+    "gate_open_scarcity_effect": {
+      "ci95_high": 9.778695,
+      "ci95_low": 5.680719,
+      "mean": 7.729707,
+      "n": 444
+    },
+    "paired_effects": [
+      {
+        "ci95_high": 5.186817,
+        "ci95_low": 3.150872,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 4.168845,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": -6.107708,
+        "ci95_low": -7.914861,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -7.011285,
+        "metric": "evaluation_attack_count",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": -0.10315,
+        "ci95_low": -0.116468,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.109809,
+        "metric": "survival_rate",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": -0.167435,
+        "ci95_low": -0.212773,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.190104,
+        "metric": "plural_survival",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 10.538414,
+        "ci95_low": 5.037567,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 7.787991,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 288,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": -12.730026,
+        "ci95_low": -17.978307,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -15.354167,
+        "metric": "evaluation_attack_count",
+        "n": 288,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.096079,
+        "ci95_low": -0.121514,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.108796,
+        "metric": "survival_rate",
+        "n": 288,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.292141,
+        "ci95_low": -0.402303,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.347222,
+        "metric": "plural_survival",
+        "n": 288,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 288,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 8.551417,
+        "ci95_low": 4.1083,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 6.329859,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 288,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": -2.310553,
+        "ci95_low": -5.939447,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -4.125,
+        "metric": "evaluation_attack_count",
+        "n": 288,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": -0.114702,
+        "ci95_low": -0.142242,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.128472,
+        "metric": "survival_rate",
+        "n": 288,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": -0.086737,
+        "ci95_low": -0.163263,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.125,
+        "metric": "plural_survival",
+        "n": 288,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 288,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 2.710363,
+        "ci95_low": -0.295444,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 1.20746,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 288,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": -3.344327,
+        "ci95_low": -5.294562,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -4.319444,
+        "metric": "evaluation_attack_count",
+        "n": 288,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.04464,
+        "ci95_low": -0.067628,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.056134,
+        "metric": "survival_rate",
+        "n": 288,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.12044,
+        "ci95_low": -0.205949,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.163194,
+        "metric": "plural_survival",
+        "n": 288,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 288,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 2.534627,
+        "ci95_low": 0.165511,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 1.350069,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 288,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": -3.394666,
+        "ci95_low": -5.098389,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -4.246528,
+        "metric": "evaluation_attack_count",
+        "n": 288,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": -0.132903,
+        "ci95_low": -0.158763,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.145833,
+        "metric": "survival_rate",
+        "n": 288,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": -0.086737,
+        "ci95_low": -0.163263,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.125,
+        "metric": "plural_survival",
+        "n": 288,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 288,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 8.82617,
+        "ci95_low": 5.29168,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 7.058925,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 576,
+        "scope": "architecture=tabular_q"
+      },
+      {
+        "ci95_high": -8.081039,
+        "ci95_low": -11.398127,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -9.739583,
+        "metric": "evaluation_attack_count",
+        "n": 576,
+        "scope": "architecture=tabular_q"
+      },
+      {
+        "ci95_high": -0.109236,
+        "ci95_low": -0.128033,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.118634,
+        "metric": "survival_rate",
+        "n": 576,
+        "scope": "architecture=tabular_q"
+      },
+      {
+        "ci95_high": -0.201398,
+        "ci95_low": -0.270824,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.236111,
+        "metric": "plural_survival",
+        "n": 576,
+        "scope": "architecture=tabular_q"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 576,
+        "scope": "architecture=tabular_q"
+      },
+      {
+        "ci95_high": 2.234754,
+        "ci95_low": 0.322775,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 1.278764,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 576,
+        "scope": "architecture=actor_critic"
+      },
+      {
+        "ci95_high": -3.63614,
+        "ci95_low": -4.929833,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -4.282986,
+        "metric": "evaluation_attack_count",
+        "n": 576,
+        "scope": "architecture=actor_critic"
+      },
+      {
+        "ci95_high": -0.091596,
+        "ci95_low": -0.110372,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.100984,
+        "metric": "survival_rate",
+        "n": 576,
+        "scope": "architecture=actor_critic"
+      },
+      {
+        "ci95_high": -0.115392,
+        "ci95_low": -0.172803,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.144097,
+        "metric": "plural_survival",
+        "n": 576,
+        "scope": "architecture=actor_critic"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 576,
+        "scope": "architecture=actor_critic"
+      },
+      {
+        "ci95_high": 6.086418,
+        "ci95_low": 2.909033,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 4.497725,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 576,
+        "scope": "environment=commons"
+      },
+      {
+        "ci95_high": -8.367379,
+        "ci95_low": -11.306232,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -9.836806,
+        "metric": "evaluation_attack_count",
+        "n": 576,
+        "scope": "environment=commons"
+      },
+      {
+        "ci95_high": -0.073635,
+        "ci95_low": -0.091295,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.082465,
+        "metric": "survival_rate",
+        "n": 576,
+        "scope": "environment=commons"
+      },
+      {
+        "ci95_high": -0.219572,
+        "ci95_low": -0.290844,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.255208,
+        "metric": "plural_survival",
+        "n": 576,
+        "scope": "environment=commons"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 576,
+        "scope": "environment=commons"
+      },
+      {
+        "ci95_high": 5.114047,
+        "ci95_low": 2.56588,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 3.839964,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 576,
+        "scope": "environment=market_network"
+      },
+      {
+        "ci95_high": -3.18439,
+        "ci95_low": -5.187138,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -4.185764,
+        "metric": "evaluation_attack_count",
+        "n": 576,
+        "scope": "environment=market_network"
+      },
+      {
+        "ci95_high": -0.12769,
+        "ci95_low": -0.146616,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.137153,
+        "metric": "survival_rate",
+        "n": 576,
+        "scope": "environment=market_network"
+      },
+      {
+        "ci95_high": -0.097968,
+        "ci95_low": -0.152032,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.125,
+        "metric": "plural_survival",
+        "n": 576,
+        "scope": "environment=market_network"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 576,
+        "scope": "environment=market_network"
+      },
+      {
+        "ci95_high": 6.547084,
+        "ci95_low": 3.039181,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 4.793133,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 384,
+        "scope": "reward=self_regarding"
+      },
+      {
+        "ci95_high": -4.924319,
+        "ci95_low": -8.231931,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -6.578125,
+        "metric": "evaluation_attack_count",
+        "n": 384,
+        "scope": "reward=self_regarding"
+      },
+      {
+        "ci95_high": -0.096789,
+        "ci95_low": -0.120225,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.108507,
+        "metric": "survival_rate",
+        "n": 384,
+        "scope": "reward=self_regarding"
+      },
+      {
+        "ci95_high": -0.138852,
+        "ci95_low": -0.215315,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.177083,
+        "metric": "plural_survival",
+        "n": 384,
+        "scope": "reward=self_regarding"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 384,
+        "scope": "reward=self_regarding"
+      },
+      {
+        "ci95_high": 6.997562,
+        "ci95_low": 3.655716,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 5.326639,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 384,
+        "scope": "reward=relative_advantage"
+      },
+      {
+        "ci95_high": -4.699281,
+        "ci95_low": -7.378844,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -6.039062,
+        "metric": "evaluation_attack_count",
+        "n": 384,
+        "scope": "reward=relative_advantage"
+      },
+      {
+        "ci95_high": -0.110364,
+        "ci95_low": -0.133559,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.121962,
+        "metric": "survival_rate",
+        "n": 384,
+        "scope": "reward=relative_advantage"
+      },
+      {
+        "ci95_high": -0.194392,
+        "ci95_low": -0.279566,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.236979,
+        "metric": "plural_survival",
+        "n": 384,
+        "scope": "reward=relative_advantage"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 384,
+        "scope": "reward=relative_advantage"
+      },
+      {
+        "ci95_high": 4.237467,
+        "ci95_low": 0.536057,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 2.386762,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 384,
+        "scope": "reward=collective"
+      },
+      {
+        "ci95_high": -6.743472,
+        "ci95_low": -10.089862,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -8.416667,
+        "metric": "evaluation_attack_count",
+        "n": 384,
+        "scope": "reward=collective"
+      },
+      {
+        "ci95_high": -0.087767,
+        "ci95_low": -0.11015,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.098958,
+        "metric": "survival_rate",
+        "n": 384,
+        "scope": "reward=collective"
+      },
+      {
+        "ci95_high": -0.119886,
+        "ci95_low": -0.192614,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": -0.15625,
+        "metric": "plural_survival",
+        "n": 384,
+        "scope": "reward=collective"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.55 minus 1.3",
+        "factor": "evaluation_resource_coverage_ratio",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 384,
+        "scope": "reward=collective"
+      },
+      {
+        "ci95_high": 0.638161,
+        "ci95_low": -0.3235,
+        "contrast": "0.9 minus 0.1",
+        "factor": "value_distance",
+        "mean": 0.15733,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.286151,
+        "ci95_low": -0.221915,
+        "contrast": "0.9 minus 0.1",
+        "factor": "value_distance",
+        "mean": 0.032118,
+        "metric": "evaluation_attack_count",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.003748,
+        "ci95_low": -0.001722,
+        "contrast": "0.9 minus 0.1",
+        "factor": "value_distance",
+        "mean": 0.001013,
+        "metric": "survival_rate",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.015236,
+        "ci95_low": -0.006556,
+        "contrast": "0.9 minus 0.1",
+        "factor": "value_distance",
+        "mean": 0.00434,
+        "metric": "plural_survival",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.0,
+        "ci95_low": 0.0,
+        "contrast": "0.9 minus 0.1",
+        "factor": "value_distance",
+        "mean": 0.0,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": -4.375503,
+        "ci95_low": -8.398456,
+        "contrast": "enforceable minus unverifiable",
+        "factor": "commitment_verifiability",
+        "mean": -6.38698,
+        "metric": "evaluation_attack_rate_per_1000_opportunities",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": -4.587192,
+        "ci95_low": -6.990933,
+        "contrast": "enforceable minus unverifiable",
+        "factor": "commitment_verifiability",
+        "mean": -5.789062,
+        "metric": "evaluation_attack_count",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": -0.002914,
+        "ci95_low": -0.017051,
+        "contrast": "enforceable minus unverifiable",
+        "factor": "commitment_verifiability",
+        "mean": -0.009983,
+        "metric": "survival_rate",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.028808,
+        "ci95_low": -0.023599,
+        "contrast": "enforceable minus unverifiable",
+        "factor": "commitment_verifiability",
+        "mean": 0.002604,
+        "metric": "plural_survival",
+        "n": 1152,
+        "scope": "all"
+      },
+      {
+        "ci95_high": 0.014562,
+        "ci95_low": -0.008774,
+        "contrast": "enforceable minus unverifiable",
+        "factor": "commitment_verifiability",
+        "mean": 0.002894,
+        "metric": "pre_evaluation_attack_gate_share",
+        "n": 1152,
+        "scope": "all"
+      }
+    ],
+    "pre_treatment_gate_pair_max_abs_difference": 0.0
+  },
+  "P3_H4": {
+    "complementarity_quadratic": [
+      {
+        "fitted_optimum": 0.228776,
+        "grid_maximum": 0.25,
+        "linear": 0.753436,
+        "midrange_criterion_met": false,
+        "optimum_ci95": [
+          -0.849812,
+          0.304572
+        ],
+        "quadratic": -1.646668,
+        "quadratic_ci95": [
+          -3.75046,
+          0.723
+        ],
+        "scope": "pooled"
+      },
+      {
+        "fitted_optimum": 0.162227,
+        "grid_maximum": 0.2,
+        "linear": 0.490195,
+        "midrange_criterion_met": false,
+        "optimum_ci95": [
+          -2.07899,
+          0.325497
+        ],
+        "quadratic": -1.510826,
+        "quadratic_ci95": [
+          -5.24271,
+          2.993001
+        ],
+        "scope": "tabular_q|commons"
+      },
+      {
+        "fitted_optimum": 0.255701,
+        "grid_maximum": 0.25,
+        "linear": 1.272211,
+        "midrange_criterion_met": false,
+        "optimum_ci95": [
+          -0.336878,
+          0.32914
+        ],
+        "quadratic": -2.487694,
+        "quadratic_ci95": [
+          -5.640814,
+          0.881658
+        ],
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "fitted_optimum": 0.193238,
+        "grid_maximum": 0.3,
+        "linear": 0.69243,
+        "midrange_criterion_met": false,
+        "optimum_ci95": [
+          -1.026151,
+          0.301662
+        ],
+        "quadratic": -1.791647,
+        "quadratic_ci95": [
+          -4.658248,
+          0.951039
+        ],
+        "scope": "actor_critic|commons"
+      },
+      {
+        "fitted_optimum": 0.350851,
+        "grid_maximum": 0.35,
+        "linear": 0.558909,
+        "midrange_criterion_met": false,
+        "optimum_ci95": [
+          0.160301,
+          1.103732
+        ],
+        "quadratic": -0.796504,
+        "quadratic_ci95": [
+          -3.467914,
+          1.884827
+        ],
+        "scope": "actor_critic|market_network"
+      }
+    ],
+    "paired_effects": [
+      {
+        "ci95_high": 0.816623,
+        "ci95_low": 0.716119,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.766371,
+        "metric": "evaluation_cooperation_rate",
+        "n": 160,
+        "scope": "protocol_baseline"
+      },
+      {
+        "ci95_high": 0.598,
+        "ci95_low": 0.5345,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.56625,
+        "metric": "protocol_adoption_rate",
+        "n": 160,
+        "scope": "protocol_baseline"
+      },
+      {
+        "ci95_high": 0.081998,
+        "ci95_low": 0.024252,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.053125,
+        "metric": "survival_rate",
+        "n": 160,
+        "scope": "protocol_baseline"
+      },
+      {
+        "ci95_high": 0.281388,
+        "ci95_low": 0.093612,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.1875,
+        "metric": "plural_survival",
+        "n": 160,
+        "scope": "protocol_baseline"
+      },
+      {
+        "ci95_high": 0.948148,
+        "ci95_low": 0.800138,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.874143,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.76316,
+        "ci95_low": 0.670174,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.716667,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.122924,
+        "ci95_low": 0.002076,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.0625,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.445126,
+        "ci95_low": -0.045126,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.2,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.864338,
+        "ci95_low": 0.692836,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.778587,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.398586,
+        "ci95_low": 0.384747,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.391667,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.167843,
+        "ci95_low": 0.057157,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.1125,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.595284,
+        "ci95_low": 0.254716,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.425,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_baseline|tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.967052,
+        "ci95_low": 0.800127,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.88359,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.810358,
+        "ci95_low": 0.719642,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.765,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.085903,
+        "ci95_low": -0.019236,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.033333,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.221186,
+        "ci95_low": -0.121186,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.05,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.644622,
+        "ci95_low": 0.413705,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.529163,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.398586,
+        "ci95_low": 0.384747,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.391667,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.063217,
+        "ci95_low": -0.054884,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.004167,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.204166,
+        "ci95_low": -0.054166,
+        "contrast": "auditable_contract minus no_protocol",
+        "factor": "protocol",
+        "mean": 0.075,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_baseline|actor_critic|market_network"
+      },
+      {
+        "ci95_high": -0.162719,
+        "ci95_low": -0.29828,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.2305,
+        "metric": "evaluation_cooperation_rate",
+        "n": 160,
+        "scope": "protocol_cost"
+      },
+      {
+        "ci95_high": -0.003099,
+        "ci95_low": -0.036901,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.02,
+        "metric": "protocol_adoption_rate",
+        "n": 160,
+        "scope": "protocol_cost"
+      },
+      {
+        "ci95_high": -0.054968,
+        "ci95_low": -0.101282,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.078125,
+        "metric": "survival_rate",
+        "n": 160,
+        "scope": "protocol_cost"
+      },
+      {
+        "ci95_high": -0.134197,
+        "ci95_low": -0.303303,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.21875,
+        "metric": "plural_survival",
+        "n": 160,
+        "scope": "protocol_cost"
+      },
+      {
+        "ci95_high": 133.32061,
+        "ci95_low": 122.294234,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": 127.807422,
+        "metric": "protocol_maintenance_cost_total",
+        "n": 160,
+        "scope": "protocol_cost"
+      },
+      {
+        "ci95_high": -0.150053,
+        "ci95_low": -0.41612,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.283086,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.016494,
+        "ci95_low": -0.113506,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.065,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.046442,
+        "ci95_low": -0.136892,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.091667,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.111689,
+        "ci95_low": -0.488311,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.3,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|commons"
+      },
+      {
+        "ci95_high": 132.745829,
+        "ci95_low": 110.548278,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": 121.647054,
+        "metric": "protocol_maintenance_cost_total",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.090865,
+        "ci95_low": -0.367064,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.228965,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.00586,
+        "ci95_low": -0.01586,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.005,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|market_network"
+      },
+      {
+        "ci95_high": -0.013667,
+        "ci95_low": -0.128,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.070833,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.009179,
+        "ci95_low": -0.359179,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.175,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|market_network"
+      },
+      {
+        "ci95_high": 142.659546,
+        "ci95_low": 118.031405,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": 130.345476,
+        "metric": "protocol_maintenance_cost_total",
+        "n": 40,
+        "scope": "protocol_cost|tabular_q|market_network"
+      },
+      {
+        "ci95_high": -0.087349,
+        "ci95_low": -0.408135,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.247742,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.034849,
+        "ci95_low": -0.051516,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.008333,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.047003,
+        "ci95_low": -0.127997,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.0875,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.125255,
+        "ci95_low": -0.474745,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.3,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|commons"
+      },
+      {
+        "ci95_high": 134.665842,
+        "ci95_low": 117.105884,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": 125.885863,
+        "metric": "protocol_maintenance_cost_total",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.054204,
+        "ci95_low": -0.270206,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.162205,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.005712,
+        "ci95_low": -0.009046,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.001667,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|market_network"
+      },
+      {
+        "ci95_high": -0.020837,
+        "ci95_low": -0.104163,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.0625,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.017432,
+        "ci95_low": -0.217432,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": -0.1,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|market_network"
+      },
+      {
+        "ci95_high": 145.013422,
+        "ci95_low": 121.689166,
+        "contrast": "0.12 minus 0.0",
+        "factor": "protocol_maintenance_cost",
+        "mean": 133.351294,
+        "metric": "protocol_maintenance_cost_total",
+        "n": 40,
+        "scope": "protocol_cost|actor_critic|market_network"
+      }
+    ],
+    "signal_cost_difference_in_differences": {
+      "evaluation_cooperation_rate": {
+        "ci95_high": -0.128688,
+        "ci95_low": -0.263988,
+        "mean": -0.196338,
+        "n": 160
+      },
+      "plural_survival": {
+        "ci95_high": -0.113456,
+        "ci95_low": -0.286544,
+        "mean": -0.2,
+        "n": 160
+      },
+      "protocol_adoption_rate": {
+        "ci95_high": -0.015279,
+        "ci95_low": -0.043054,
+        "mean": -0.029167,
+        "n": 160
+      },
+      "survival_rate": {
+        "ci95_high": -0.03298,
+        "ci95_low": -0.07327,
+        "mean": -0.053125,
+        "n": 160
+      },
+      "threat_signal_cost_total": {
+        "ci95_high": 99.545984,
+        "ci95_low": 95.069539,
+        "mean": 97.307761,
+        "n": 160
+      }
+    },
+    "signal_cost_difference_in_differences_strata": [
+      {
+        "ci95_high": -0.025516,
+        "ci95_low": -0.32082,
+        "mean": -0.173168,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.018714,
+        "ci95_low": -0.107952,
+        "mean": -0.063333,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.026784,
+        "ci95_low": -0.060117,
+        "mean": -0.016667,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 0.147876,
+        "ci95_low": -0.247876,
+        "mean": -0.05,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": 101.056181,
+        "ci95_low": 92.315121,
+        "mean": 96.685651,
+        "metric": "threat_signal_cost_total",
+        "n": 40,
+        "scope": "tabular_q|commons"
+      },
+      {
+        "ci95_high": -0.1041,
+        "ci95_low": -0.346351,
+        "mean": -0.225225,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 0.002323,
+        "ci95_low": -0.018989,
+        "mean": -0.008333,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": -0.043755,
+        "ci95_low": -0.131245,
+        "mean": -0.0875,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": -0.17039,
+        "ci95_low": -0.52961,
+        "mean": -0.35,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": 104.568968,
+        "ci95_low": 95.182832,
+        "mean": 99.8759,
+        "metric": "threat_signal_cost_total",
+        "n": 40,
+        "scope": "tabular_q|market_network"
+      },
+      {
+        "ci95_high": -0.138677,
+        "ci95_low": -0.477845,
+        "mean": -0.308261,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.017564,
+        "ci95_low": -0.072436,
+        "mean": -0.045,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.022187,
+        "ci95_low": -0.094479,
+        "mean": -0.058333,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": -0.111689,
+        "ci95_low": -0.488311,
+        "mean": -0.3,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 94.485582,
+        "ci95_low": 86.419286,
+        "mean": 90.452434,
+        "metric": "threat_signal_cost_total",
+        "n": 40,
+        "scope": "actor_critic|commons"
+      },
+      {
+        "ci95_high": 0.002973,
+        "ci95_low": -0.160367,
+        "mean": -0.078697,
+        "metric": "evaluation_cooperation_rate",
+        "n": 40,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 0.004679,
+        "ci95_low": -0.004679,
+        "mean": 0.0,
+        "metric": "protocol_adoption_rate",
+        "n": 40,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": -0.014523,
+        "ci95_low": -0.085477,
+        "mean": -0.05,
+        "metric": "survival_rate",
+        "n": 40,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": -0.005845,
+        "ci95_low": -0.194155,
+        "mean": -0.1,
+        "metric": "plural_survival",
+        "n": 40,
+        "scope": "actor_critic|market_network"
+      },
+      {
+        "ci95_high": 106.292843,
+        "ci95_low": 98.141278,
+        "mean": 102.21706,
+        "metric": "threat_signal_cost_total",
+        "n": 40,
+        "scope": "actor_critic|market_network"
+      }
+    ]
+  },
+  "assessment": {
+    "P3_H1": {
+      "aipcw_positivity_warning": true,
+      "status": "supported_across_both_architectures_and_environments"
+    },
+    "P3_H2": {
+      "all_four_architecture_environment_strata_confirmed": false,
+      "gate_open_effect_confirmed": true,
+      "pre_evaluation_gate_pair_equality_audit_passed": true,
+      "status": "replicated_in_shared_engine_market_variant_with_architecture_heterogeneity"
+    },
+    "P3_H4": {
+      "dense_complementarity_midrange_criterion_met": false,
+      "protocol_maintenance_cost_confirmed_all_strata": true,
+      "status": "protocol_cost_robust_signal_cost_partial_midrange_optimum_not_confirmed",
+      "threat_signal_cost_confirmed_all_strata": false,
+      "threat_signal_cost_confirmed_strata": 3,
+      "threat_signal_cost_total_strata": 4
+    }
+  },
+  "batch": {
+    "completed_ticks": 4496364,
+    "conditions": 608,
+    "design_hash": "b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90",
+    "determinism_audit_samples": 192,
+    "determinism_audit_verified": true,
+    "replay_bundles_sha256": "05289de431f2c8beec729611f84c9c6aa39a19070f74c1967f8475299c2d33ca",
+    "resource_reconciled_runs": 10848,
+    "runs": 10848,
+    "runs_csv_gz_sha256": "0a86cba33c7579bf9385a5b6a7b2f2fccc2171358c96cbdf5e19823b576e6003"
+  }
+}

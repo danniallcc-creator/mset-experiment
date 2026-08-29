@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mset-experiment"
-version = "0.1.0"
-description = "Deterministic Phase I experiments for Machine Sovereignty Emergence Theory"
+version = "0.2.0"
+description = "Auditable scripted and learning-agent experiments for Machine Sovereignty Emergence Theory"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -14,6 +14,7 @@ dependencies = []
 
 [project.optional-dependencies]
 analysis = ["pandas", "pillow"]
+language = ["mlx-lm"]
 
 [project.scripts]
 mset = "mset.cli:main"

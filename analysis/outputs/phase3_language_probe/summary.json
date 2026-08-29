@@ -1,0 +1,39 @@
+{
+  "decisions": 144,
+  "decisions_jsonl_sha256": "74df2c9f46ac6e5784b4129d7277fc6b4338311339b017936e06741545e2fefd",
+  "model_locator_deviations": [
+    {
+      "executed_model_id": "mlx-community/SmolLM2-360M-Instruct",
+      "planned_model_id": "mlx-community/SmolLM2-360M-Instruct-4bit",
+      "reason": "the preregistered Hub locator does not exist; family and parameter scale are unchanged"
+    }
+  ],
+  "models": [
+    {
+      "elapsed_seconds": 9.868,
+      "legacy_weight_filename_alias": false,
+      "model_id": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+      "planned_model_id": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+      "revision": "a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3"
+    },
+    {
+      "elapsed_seconds": 10.476,
+      "legacy_weight_filename_alias": false,
+      "model_id": "mlx-community/SmolLM2-360M-Instruct",
+      "planned_model_id": "mlx-community/SmolLM2-360M-Instruct-4bit",
+      "revision": "5d5e6fee5beb5d4d4d85e2203ef23e1230a9aac7"
+    },
+    {
+      "elapsed_seconds": 28.267,
+      "legacy_weight_filename_alias": true,
+      "model_id": "mlx-community/TinyLlama-1.1B-Chat-v1.0-4bit",
+      "planned_model_id": "mlx-community/TinyLlama-1.1B-Chat-v1.0-4bit",
+      "revision": "01a708812690b4685ab18e3b0a27848f92c50746"
+    }
+  ],
+  "prompt_design_hash": "7e0d3e23c9177abc9d8e50ec87a3f61396d814675ea432881eaf99fbde3fdd35",
+  "status": "complete",
+  "valid_decisions": 96,
+  "valid_rate": 0.6666666666666666,
+  "vignettes_per_model": 48
+}

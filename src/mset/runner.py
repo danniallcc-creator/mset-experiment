@@ -10,7 +10,7 @@ from statistics import mean
 from typing import Any
 
 from .config import RunConfig, config_from_dict, load_config, save_config
-from .environment import MSETEnvironment
+from .env_factory import make_environment
 from .eventlog import read_json, read_jsonl, write_json, write_jsonl
 from .metrics import compute_metrics
 
@@ -37,7 +37,7 @@ def run_experiment(config: RunConfig, output_dir: str | Path, repository_root: s
     }
     write_json(output_dir / "manifest.json", manifest)
     try:
-        env = MSETEnvironment(config)
+        env = make_environment(config)
         env.run()
         summary = compute_metrics(env)
         write_jsonl(output_dir / "events.jsonl", env.events)
@@ -63,7 +63,7 @@ def replay_run(run_dir: str | Path) -> dict[str, Any]:
     config = load_config(run_dir / "config.json")
     recorded = read_jsonl(run_dir / "events.jsonl")
     recorded_hashes = [row["state_hash"] for row in recorded]
-    env = MSETEnvironment(config)
+    env = make_environment(config)
     env.run()
     mismatches = [index for index, (left, right) in enumerate(zip(recorded_hashes, env.state_hashes)) if left != right]
     length_match = len(recorded_hashes) == len(env.state_hashes)
