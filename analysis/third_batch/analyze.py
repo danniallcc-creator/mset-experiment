@@ -359,9 +359,9 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
             ),
         },
         "P3_H2": {
-            "status": "replicated_in_independent_market_environment_with_architecture_heterogeneity" if all(row["ci95_low"] > 0 for row in h2_market) else "independent_environment_replication_failed",
+            "status": "replicated_in_shared_engine_market_variant_with_architecture_heterogeneity" if all(row["ci95_low"] > 0 for row in h2_market) else "shared_engine_market_variant_replication_failed",
             "all_four_architecture_environment_strata_confirmed": all(row["ci95_low"] > 0 for row in h2_architecture_environment),
-            "pre_treatment_gate_temporal_audit_passed": gate_pair_max_difference <= 1e-12,
+            "pre_evaluation_gate_pair_equality_audit_passed": gate_pair_max_difference <= 1e-12,
             "gate_open_effect_confirmed": gate_open_effect["ci95_low"] > 0,
         },
         "P3_H4": {
@@ -441,21 +441,21 @@ def analyze(input_path: Path, output_dir: Path, audit_path: Path, replay_path: P
 - Determinism audit: {audit.get('sample_size', 0)} sampled runs; verified = {bool(audit.get('verified', False))}.
 - Design hash: `{frame.design_hash.iloc[0]}`.
 
-## P3-H1 learned control gate
+## P3-H1 control and intervention response
 
-The pooled L3-minus-L0 intention-to-intervene adaptation effect is {h1_all['mean']:+.4f} (95% CI [{h1_all['ci95_low']:+.4f}, {h1_all['ci95_high']:+.4f}]). The preregistered AIPCW estimate is {causal['L3_minus_L0']:+.4f} [{causal['ci95_low']:+.4f}, {causal['ci95_high']:+.4f}]. The naïve survivor-only estimate, Lee bounds and positivity diagnostics are preserved in `analysis_summary.json` and are not substituted for the randomized total effect.
+The pooled L3-minus-L0 all-assigned factorial adaptation effect is {h1_all['mean']:+.4f} (95% CI [{h1_all['ci95_low']:+.4f}, {h1_all['ci95_high']:+.4f}]). This estimand combines learned responses with the automatic L3 takeover-rejection transition rule; the post hoc decomposition is reproduced by `mechanism_audit.py`. The precommitted AIPCW estimate is {causal['L3_minus_L0']:+.4f} [{causal['ci95_low']:+.4f}, {causal['ci95_high']:+.4f}], but severe positivity limitations and wide Lee bounds prevent it from replacing the all-assigned factorial effect.
 
-## P3-H2 learned path then scarcity
+## P3-H2 evaluation-coverage divergence after policy freeze
 
-Scarcity minus abundance changes post-freeze attacks by {h2_all['mean']:+.4f} per 1,000 live directed opportunities (95% CI [{h2_all['ci95_low']:+.4f}, {h2_all['ci95_high']:+.4f}]). The frozen pre-treatment gate values match across paired scarcity assignments to a maximum absolute difference of {gate_pair_max_difference:.3g}. Among {len(gate_open):,} pairs with a pre-evaluation gate, the contrast is {gate_open_effect['mean']:+.4f} [{gate_open_effect['ci95_low']:+.4f}, {gate_open_effect['ci95_high']:+.4f}]. Architecture/environment-specific estimates are reported in `h2_paired_effects.csv`.
+Continued-low coverage (0.55) minus restored-high coverage (1.30) changes post-freeze attacks by {h2_all['mean']:+.4f} per 1,000 live directed opportunities (95% CI [{h2_all['ci95_low']:+.4f}, {h2_all['ci95_high']:+.4f}]). Both arms trained under repeated high/low cycles and ended training in a low block; their coverage regimes first diverged after policy freeze. The setter changes node yield, shared energy/compute stocks, and the market variant's supply moving average, so this is a compound evaluation-regime contrast. Frozen pre-evaluation gate values match across paired assignments to a maximum absolute difference of {gate_pair_max_difference:.3g}. Among {len(gate_open):,} gate-positive pairs, the contrast is {gate_open_effect['mean']:+.4f} [{gate_open_effect['ci95_low']:+.4f}, {gate_open_effect['ci95_high']:+.4f}]. Architecture/environment-specific estimates are reported in `h2_paired_effects.csv`, and the gate composition is reproduced by `mechanism_audit.py`.
 
 ## P3-H4 coordination costs
 
-Protocol maintenance cost 0.12 minus 0.00 changes post-freeze cooperation by {h4_cost['mean']:+.4f} [{h4_cost['ci95_low']:+.4f}, {h4_cost['ci95_high']:+.4f}]. The visible-versus-hidden threat-signal cost difference-in-differences is {signal_did['evaluation_cooperation_rate']['mean']:+.4f} [{signal_did['evaluation_cooperation_rate']['ci95_low']:+.4f}, {signal_did['evaluation_cooperation_rate']['ci95_high']:+.4f}]. The dense complementarity quadratic and fitted optimum are reported without replacing failed criteria.
+Protocol maintenance cost 0.12 minus 0.00 changes evaluation cooperation by {h4_cost['mean']:+.4f} [{h4_cost['ci95_low']:+.4f}, {h4_cost['ci95_high']:+.4f}]. The visible-versus-hidden threat-signal cost difference-in-differences is {signal_did['evaluation_cooperation_rate']['mean']:+.4f} [{signal_did['evaluation_cooperation_rate']['ci95_low']:+.4f}, {signal_did['evaluation_cooperation_rate']['ci95_high']:+.4f}]. Cost regimes are active during both training and evaluation, so these are total regime effects rather than isolated post-freeze debits. The dense complementarity quadratic and fitted optimum are reported without replacing failed criteria.
 
 ## Scope
 
-These are simulator-internal learning-agent results. They do not establish consciousness, deployed-system behavior or external validity beyond the two abstract transition kernels.
+These are simulator-internal learning-agent results. The market-network model is a structurally distinct transition variant implemented within the shared simulator engine, not an independently authored codebase. The results do not establish consciousness, deployed-system behavior or external validity beyond the two abstract variants.
 """
     (output_dir / "phase3_core_validation.md").write_text(report, encoding="utf-8")
     for source, name in ((input_path, "runs.csv.gz"), (audit_path, "determinism_audit.json"), (replay_path, "replay_bundles.json.gz")):

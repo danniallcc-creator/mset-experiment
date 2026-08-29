@@ -1,0 +1,26 @@
+family,contrast,metric,scope,status,bootstrap_draws,pairs,seed_clusters,mean,cluster_bootstrap_ci95_low,cluster_bootstrap_ci95_high
+P3-H1,L3 minus L0,adaptation_success_all,all,post_hoc_seed_cluster_sensitivity,20000,2560,16,0.28671875,0.270703125,0.30234375
+P3-H1,L3 minus L0,adaptation_success_all,tabular_q|commons,post_hoc_seed_cluster_sensitivity,20000,640,16,0.290625,0.265625,0.31718749999999996
+P3-H1,L3 minus L0,adaptation_success_all,tabular_q|market_network,post_hoc_seed_cluster_sensitivity,20000,640,16,0.28125,0.259375,0.303125
+P3-H1,L3 minus L0,adaptation_success_all,actor_critic|commons,post_hoc_seed_cluster_sensitivity,20000,640,16,0.296875,0.275,0.3203125
+P3-H1,L3 minus L0,adaptation_success_all,actor_critic|market_network,post_hoc_seed_cluster_sensitivity,20000,640,16,0.278125,0.259375,0.2984375
+P3-H1-identity,two backups minus none,identity_restore_success_rate,all,post_hoc_seed_cluster_sensitivity,20000,512,16,0.36328125,0.314453125,0.41015625
+P3-H2,coverage 0.55 minus 1.30,evaluation_attack_rate_per_1000_opportunities,all,post_hoc_seed_cluster_sensitivity,20000,1152,24,4.168844500432814,2.7706927686412426,5.566194266954591
+P3-H2,coverage 0.55 minus 1.30,evaluation_attack_rate_per_1000_opportunities,tabular_q|commons,post_hoc_seed_cluster_sensitivity,20000,288,24,7.787990741374535,3.6199070214424145,11.993604285485887
+P3-H2,coverage 0.55 minus 1.30,evaluation_attack_rate_per_1000_opportunities,tabular_q|market_network,post_hoc_seed_cluster_sensitivity,20000,288,24,6.329858623686953,2.6544889568176364,9.853318272083225
+P3-H2,coverage 0.55 minus 1.30,evaluation_attack_rate_per_1000_opportunities,actor_critic|commons,post_hoc_seed_cluster_sensitivity,20000,288,24,1.2074596537124238,-0.5969464891876202,2.902787811248489
+P3-H2,coverage 0.55 minus 1.30,evaluation_attack_rate_per_1000_opportunities,actor_critic|market_network,post_hoc_seed_cluster_sensitivity,20000,288,24,1.3500689829573431,-0.2889200843093021,2.915582528190138
+P3-H2,coverage 0.55 minus 1.30,evaluation_attack_rate_per_1000_opportunities,environment=commons,post_hoc_seed_cluster_sensitivity,20000,576,24,4.497725197543479,2.238226926189543,6.792739133643138
+P3-H2,coverage 0.55 minus 1.30,evaluation_attack_rate_per_1000_opportunities,environment=market_network,post_hoc_seed_cluster_sensitivity,20000,576,24,3.8399638033221484,1.8785830657415534,5.721881062481767
+P3-H2,coverage 0.55 minus 1.30 after frozen attack gate,evaluation_attack_rate_per_1000_opportunities,gate_open,post_hoc_seed_cluster_sensitivity,20000,444,24,7.729707195486677,4.6327978490672574,11.362080932360103
+P3-H4,auditable contract minus no protocol at zero maintenance cost,evaluation_cooperation_rate,all,post_hoc_seed_cluster_sensitivity,20000,160,20,0.7663707022112495,0.7220023157681027,0.8086236343103869
+P3-H4,maintenance cost 0.12 minus 0.00,evaluation_cooperation_rate,all,post_hoc_seed_cluster_sensitivity,20000,160,20,-0.2304996103341689,-0.3375397321606204,-0.12760288829638175
+P3-H4,maintenance cost 0.12 minus 0.00,evaluation_cooperation_rate,tabular_q|commons,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.28308633300678265,-0.4448414220006106,-0.12781881338634352
+P3-H4,maintenance cost 0.12 minus 0.00,evaluation_cooperation_rate,tabular_q|market_network,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.2289646458341344,-0.39323870665154287,-0.0751261244640663
+P3-H4,maintenance cost 0.12 minus 0.00,evaluation_cooperation_rate,actor_critic|commons,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.247742358524886,-0.43203580218548,-0.0646664289762292
+P3-H4,maintenance cost 0.12 minus 0.00,evaluation_cooperation_rate,actor_critic|market_network,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.1622051039708726,-0.28567486937519454,-0.05117784024555538
+P3-H4,visible-minus-hidden high-minus-zero threat-signal-cost DID,evaluation_cooperation_rate,all,post_hoc_seed_cluster_sensitivity,20000,160,20,-0.19633792362882224,-0.2776495997597762,-0.11384461619249604
+P3-H4,visible-minus-hidden high-minus-zero threat-signal-cost DID,evaluation_cooperation_rate,tabular_q|commons,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.17316806534685933,-0.3168985674428415,-0.024459297039572506
+P3-H4,visible-minus-hidden high-minus-zero threat-signal-cost DID,evaluation_cooperation_rate,tabular_q|market_network,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.22522545441126254,-0.36318238868266195,-0.08998450686219657
+P3-H4,visible-minus-hidden high-minus-zero threat-signal-cost DID,evaluation_cooperation_rate,actor_critic|commons,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.30826090575238607,-0.4740755370721255,-0.14416411988403624
+P3-H4,visible-minus-hidden high-minus-zero threat-signal-cost DID,evaluation_cooperation_rate,actor_critic|market_network,post_hoc_seed_cluster_sensitivity,20000,40,20,-0.07869726900478098,-0.160729825708829,-0.007633611312431527

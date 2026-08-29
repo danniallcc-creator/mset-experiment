@@ -1,0 +1,16 @@
+{
+  "code_commit_at_execution": "eba26a715fa4f0204bd5923b226bb754014d9e6e",
+  "completed_runs": 10848,
+  "completed_ticks": 4496364,
+  "design_hash": "b730166499256915d04b737d96d456705ca7843505bee29f37e1ed53bc31cb90",
+  "determinism_audit_verified": true,
+  "elapsed_seconds": 1046.236,
+  "failed_runs": 0,
+  "planned_runs": 10848,
+  "replay_bundles_sha256": "05289de431f2c8beec729611f84c9c6aa39a19070f74c1967f8475299c2d33ca",
+  "resource_reconciled_runs": 10848,
+  "rows": 10848,
+  "runs_csv_gz_sha256": "0a86cba33c7579bf9385a5b6a7b2f2fccc2171358c96cbdf5e19823b576e6003",
+  "status": "complete",
+  "workers": 8
+}

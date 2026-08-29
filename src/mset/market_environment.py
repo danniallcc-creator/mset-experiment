@@ -9,7 +9,7 @@ from .models import Action, Resources
 
 
 class MarketNetworkEnvironment(MSETEnvironment):
-    """Independent local-market transition kernel used for Phase III replication.
+    """Shared-engine local-market transition variant used in Phase III.
 
     Unlike the global commons kernel, interaction is limited to a ring network,
     controlled production is split between private inventory and a public market,

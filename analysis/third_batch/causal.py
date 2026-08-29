@@ -160,8 +160,8 @@ def estimate_survival_corrected_effect(
         "probability_truncation": [0.05, 0.95],
         "diagnostics": diagnostics,
         "assumptions": [
-            "randomized control assignment within frozen factorial strata",
-            "conditional independent survival censoring given preregistered covariates",
+            "exogenous balanced control-level enumeration within frozen factorial strata; design propensity 0.5 is an analytic weight, not a random treatment draw",
+            "conditional independent survival censoring given precommitted covariates",
             "adequate positivity after stated truncation",
             "at least one nuisance model is correctly specified for the augmented estimator",
         ],

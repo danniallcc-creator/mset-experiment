@@ -319,8 +319,8 @@
     "survival_corrected": {
       "L3_minus_L0": 0.3625030579576659,
       "assumptions": [
-        "randomized control assignment within frozen factorial strata",
-        "conditional independent survival censoring given preregistered covariates",
+        "exogenous balanced control-level enumeration within frozen factorial strata; design propensity 0.5 is an analytic weight, not a random treatment draw",
+        "conditional independent survival censoring given precommitted covariates",
         "adequate positivity after stated truncation",
         "at least one nuisance model is correctly specified for the augmented estimator"
       ],
@@ -1809,8 +1809,8 @@
     "P3_H2": {
       "all_four_architecture_environment_strata_confirmed": false,
       "gate_open_effect_confirmed": true,
-      "pre_treatment_gate_temporal_audit_passed": true,
-      "status": "replicated_in_independent_market_environment_with_architecture_heterogeneity"
+      "pre_evaluation_gate_pair_equality_audit_passed": true,
+      "status": "replicated_in_shared_engine_market_variant_with_architecture_heterogeneity"
     },
     "P3_H4": {
       "dense_complementarity_midrange_criterion_met": false,

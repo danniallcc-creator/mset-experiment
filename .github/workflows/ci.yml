@@ -1,4 +1,4 @@
-name: phase1-ci
+name: research-integrity-ci
 
 on:
   push:
@@ -21,3 +21,16 @@ jobs:
         run: |
           PYTHONPATH=src python -m mset run configs/smoke/base.json --output results/ci
           PYTHONPATH=src python -m mset replay results/ci
+      - name: Verify frozen Phase III artifacts
+        run: python scripts/verify_phase3_release_manifest.py
+      - name: Smoke-check Phase III replay and capture-mode semantics
+        run: python scripts/replay_phase3.py --limit 4 --output /tmp/phase3_replay_verification.json
+      - name: Reproduce post hoc cluster sensitivity
+        run: |
+          python -m pip install -r requirements-analysis.txt
+          python analysis/third_batch/cluster_robustness.py
+          git diff --exit-code -- analysis/outputs/phase3_core_validation/cluster_robustness.csv
+      - name: Reproduce manuscript-stage mechanism audit
+        run: |
+          python analysis/third_batch/mechanism_audit.py
+          git diff --exit-code -- analysis/outputs/phase3_core_validation/mechanism_audit.csv

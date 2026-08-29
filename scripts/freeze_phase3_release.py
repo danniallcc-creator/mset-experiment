@@ -9,6 +9,35 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "analysis/outputs/phase3_release_manifest.json"
 ARTIFACTS = (
+    ".github/workflows/ci.yml",
+    "README.md",
+    "CITATION.cff",
+    "LICENSE",
+    "pyproject.toml",
+    "ENVIRONMENT.md",
+    "requirements-analysis.txt",
+    "requirements-language-macos.lock.txt",
+    "src/mset/__init__.py",
+    "src/mset/__main__.py",
+    "src/mset/agents.py",
+    "src/mset/cli.py",
+    "src/mset/config.py",
+    "src/mset/counterfactual.py",
+    "src/mset/env_factory.py",
+    "src/mset/environment.py",
+    "src/mset/eventlog.py",
+    "src/mset/first_batch.py",
+    "src/mset/institutions.py",
+    "src/mset/learning.py",
+    "src/mset/market_environment.py",
+    "src/mset/metrics.py",
+    "src/mset/models.py",
+    "src/mset/runner.py",
+    "src/mset/second_batch.py",
+    "src/mset/site.py",
+    "src/mset/third_batch.py",
+    "tests/__init__.py",
+    "tests/test_core.py",
     "analysis/preregistration/phase3.md",
     "analysis/preregistration/phase3_frozen/design.json",
     "analysis/preregistration/phase3_language_prompts.json",
@@ -17,11 +46,16 @@ ARTIFACTS = (
     "scripts/run_third_batch.py",
     "scripts/replay_phase3.py",
     "scripts/run_language_probe.py",
+    "scripts/freeze_phase3_release.py",
+    "scripts/verify_phase3_release_manifest.py",
     "analysis/third_batch/causal.py",
     "analysis/third_batch/analyze.py",
     "analysis/third_batch/analyze_language_probe.py",
+    "analysis/third_batch/cluster_robustness.py",
+    "analysis/third_batch/mechanism_audit.py",
     "analysis/reports/phase3_core_validation.md",
     "analysis/outputs/phase3_core_validation/runs.csv.gz",
+    "analysis/outputs/phase3_core_validation/execution_status.json",
     "analysis/outputs/phase3_core_validation/determinism_audit.json",
     "analysis/outputs/phase3_core_validation/replay_bundles.json.gz",
     "analysis/outputs/phase3_core_validation/replay_verification.json",
@@ -32,6 +66,8 @@ ARTIFACTS = (
     "analysis/outputs/phase3_core_validation/h4_signal_cost_did.csv",
     "analysis/outputs/phase3_core_validation/h4_complementarity_quadratic.csv",
     "analysis/outputs/phase3_core_validation/identity_backup_effects.csv",
+    "analysis/outputs/phase3_core_validation/cluster_robustness.csv",
+    "analysis/outputs/phase3_core_validation/mechanism_audit.csv",
     "analysis/outputs/phase3_core_validation/phase3_core_validation.md",
     "analysis/outputs/phase3_core_validation/figures/phase3_core_effects.png",
     "analysis/outputs/phase3_core_validation/figures/phase3_h2_replication.png",
@@ -53,7 +89,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    status = json.loads((ROOT / "results/phase3_core_validation/status.json").read_text(encoding="utf-8"))
+    status = json.loads(
+        (ROOT / "analysis/outputs/phase3_core_validation/execution_status.json").read_text(
+            encoding="utf-8"
+        )
+    )
     missing = [relative for relative in ARTIFACTS if not (ROOT / relative).is_file()]
     if missing:
         raise FileNotFoundError(f"Missing release artifacts: {missing}")
