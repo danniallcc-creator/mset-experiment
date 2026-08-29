@@ -212,9 +212,9 @@
       "sha256": "571f9c7d7a515b724d08ded8088dd5063d215df0531e051bec2682bc572515c9"
     },
     {
-      "bytes": 11285,
+      "bytes": 11660,
       "path": "analysis/third_batch/cluster_robustness.py",
-      "sha256": "6273ff93a1e76648e4dbd404e5c44217021f58c801ba2b0f5e38d5f71207b527"
+      "sha256": "638dc1ce4c2c0abf3afc8a15103a0aaea0c02ffd1397ec69c0368bebc7d3c890"
     },
     {
       "bytes": 17843,
@@ -287,9 +287,9 @@
       "sha256": "b89ea718bcc4f34d1425c1102a9ecf30989bae69e0ed242ae31c6ec286ef75b6"
     },
     {
-      "bytes": 4868,
+      "bytes": 4611,
       "path": "analysis/outputs/phase3_core_validation/cluster_robustness.csv",
-      "sha256": "7fb33dd0b0b9b504d9675ce6fbbd756d566bce593e14b5a0151e69d7469b8409"
+      "sha256": "5a7431d25714cdfdbf270659afff7106ff838efe4a3ae4ecefda34c243004be9"
     },
     {
       "bytes": 9485,
@@ -348,7 +348,7 @@
   "determinism_audit_verified": true,
   "execution_code_commit": "eba26a715fa4f0204bd5923b226bb754014d9e6e",
   "failed_runs": 0,
-  "manifest_payload_sha256": "2fb0fd00f889a998deb4a1dd9d194aa08cbdc770d05e3fe9707f8312d8acb940",
+  "manifest_payload_sha256": "4e037d3ceb32741731eba2d8db7bb36999c6e8e535d8170f086b51dda8ddce3a",
   "name": "MSET Phase III frozen release",
   "planned_runs": 10848,
   "resource_reconciled_runs": 10848,

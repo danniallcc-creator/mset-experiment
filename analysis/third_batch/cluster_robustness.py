@@ -339,7 +339,15 @@ def main() -> int:
         bootstrap_seed=args.bootstrap_seed,
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    result.to_csv(output_path, index=False)
+    # Serialize derived floating-point values at a precision that is stable
+    # across supported CPU/libm combinations. The archived estimates are
+    # reported to four decimals; 12 significant digits preserves ample audit
+    # precision while avoiding meaningless ~1e-15 text diffs in CI.
+    result.to_csv(
+        output_path,
+        index=False,
+        float_format=lambda value: format(value, ".12g"),
+    )
     print(output_path)
     return 0
 
