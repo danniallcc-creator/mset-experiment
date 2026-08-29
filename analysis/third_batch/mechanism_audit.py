@@ -500,7 +500,15 @@ def main() -> None:
         bootstrap_seed=args.bootstrap_seed,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    output.to_csv(args.output, index=False)
+    # Keep archived derived estimates byte-stable across supported CPU/libm
+    # combinations.  The manuscript reports these contrasts to four decimals;
+    # twelve significant digits retain ample audit precision while eliminating
+    # meaningless ~1e-15 representation differences in CSV text.
+    output.to_csv(
+        args.output,
+        index=False,
+        float_format=lambda value: format(value, ".12g"),
+    )
     print(f"wrote {len(output)} rows to {args.output}")
 
 
